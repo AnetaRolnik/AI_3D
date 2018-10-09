@@ -1,0 +1,12 @@
+node_modules
+
+package-lock.json
+.idea
+
+
+.sass-sache
+Thumbs.db
+*.css.map
+*.js.map
+
+
