@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    {% load static %}
+    <!--{% load static %}-->
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
     <nav class="main-nav">
         <ul class="main-nav-list">
             <li class="main-nav-list-elem">
@@ -44,6 +45,7 @@
         </ul>
     </nav>
 
+
     <header class="main-header" id="mainHeader">
         <!-- animation or sliding pictures here-->
         <div class="container">
@@ -59,14 +61,17 @@
         </div>
     </header>
 
+
     <section class="aboutUs" id="aboutUs">
         <div class="container">
+
             <h2 class="aboutUs-title">
                 O nas
             </h2>
             <p class="aboutUs-text">
                 Lorem ipsum dolor sit. Lorem ipsum dolor sit.
             </p>
+
             <div class="aboutUs-features">
                 <!-- the purpose of training, something about team, company-->
                 <section class="aboutUs-feature" id="firstFeature">
@@ -102,8 +107,10 @@
                     </p>
                 </section>
             </div>
+
         </div>
     </section>
+
 
     <section class="offer" id="offer">
         <div class="container">
@@ -116,25 +123,64 @@
         </div>
     </section>
 
+
     <section class="contact" id="contact">
         <div class="container">
-            <h3 class="contact-title">Kontakt</h3>
-            <p class="contact-text">Lorem ipsum dolor sit.</p>
-            <form class="contact-form">
-                <!-- contact form here-->
-            </form>
+
+            <h3 class="contact-title">
+                Kontakt
+            </h3>
+            <p class="contact-text">
+                Jeśli potrzebujesz dodatkowych informacji, skontaktuj się z nami. Odpowiemy na każde Twoje pytanie.
+            </p>
+
+            <div>
+                <form class="contact-form" action="#" method="POST">
+                    <div class="contact-form-row">
+                        <div>
+                            <label class="contact-form-label" for="formName">Imię:</label>
+                            <input class="contact-form-input" type="text" name="name" id="formName">
+                        </div>
+                        <div>
+                            <label class="contact-form-label" for="formSurname">Nazwisko:</label>
+                            <input class="contact-form-input" type="text" name="surname" id="formSurname">
+                        </div>
+                    </div>
+                    <div class="contact-form-row">
+                        <label class="contact-form-label" for="formEmail">Email:</label>
+                        <input class="contact-form-input" type="email" name="email" id="formEmail">
+                    </div>
+                    <div class="contact-form-row">
+                        <label class="contact-form-label" for="formMessage">Wiadomość:</label>
+                        <textarea class="contact-form-textarea" name="message" id="formMessage"></textarea>
+                    </div>
+                    <button type="submit" class="contact-form-btn"> Wyślij</button>
+                </form>
+
+                <div class="contact-details">
+                    <span>Email:name@gmail.com</span>
+                    <span>Tel.kom. 111 111 111</span>
+                </div>
+            </div>
+
         </div>
     </section>
+
 
     <section class="map" id="map">
         <!--location with mapbox-->
     </section>
 
+
     <footer class="main-footer">
         <div class="container">
             <ul class="main-footer-list">
-                <li class="main-footer-list-elem copyright">&copy; 2018 All rights reserved.</li>
-                <li class="main-footer-list-elem authors">Design: A&J</li>
+                <li class="main-footer-list-elem copyright">
+                    &copy; 2018 All rights reserved.
+                </li>
+                <li class="main-footer-list-elem authors">
+                    Design: A&J
+                </li>
             </ul>
         </div>
     </footer>
