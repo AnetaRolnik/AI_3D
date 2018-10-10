@@ -1,7 +1,7 @@
 module.exports = {
-    entry: './src/js/app.js',
+    entry: './static/src/js/app.js',
     output: {
-        path: `${__dirname}/dist/js`,
+        path: `${__dirname}/static/ai3d/js`,
         filename: 'bundle.min.js'
     },
     watch: false,
