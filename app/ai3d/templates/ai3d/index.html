@@ -1,13 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <!--{% load static %}-->
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
 
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;subset=latin-ext" rel="stylesheet">
     <script src="../../static/ai3d/js/bundle.min.js"></script>
@@ -48,8 +47,12 @@
     <header class="main-header" id="mainHeader">
         <!-- animation or sliding pictures here-->
         <div class="container">
-            <h1 class="main-header-title">Logo</h1> <!-- logo here -->
-            <p class="main-header-text">Lorem ipsum dolor sit.</p>
+            <h1 class="main-header-title">
+                Logo
+            </h1> <!-- logo here -->
+            <p class="main-header-text">
+                Lorem ipsum dolor sit.
+            </p>
             <a href="#aboutUs" class="main-header-btn">
                 Dowiedz się więcej
             </a>
@@ -58,21 +61,45 @@
 
     <section class="aboutUs" id="aboutUs">
         <div class="container">
-            <h3 class="aboutUs-title">O nas</h3>
-            <p class="aboutUs-text">Lorem ipsum dolor sit.</p>
+            <h2 class="aboutUs-title">
+                O nas
+            </h2>
+            <p class="aboutUs-text">
+                Lorem ipsum dolor sit. Lorem ipsum dolor sit.
+            </p>
             <div class="aboutUs-features">
                 <!-- the purpose of training, something about team, company-->
-                <section class="aboutUs-feature">
-                    <!--icon and short text here-->
+                <section class="aboutUs-feature" id="firstFeature">
+                    <h3 class="aboutUs-feature-title">
+                        Nauka od podstaw
+                    </h3>
+                    <p class="aboutUs-feature-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis culpa ea non praesentium quis voluptatum. Fugit ipsa labore repudiandae sapiente.
+                    </p>
                 </section>
-                <section class="aboutUs-feature">
-                    <!--icon and short text here-->
+                <section class="aboutUs-feature" id="secondFeature">
+                    <h3 class="aboutUs-feature-title">
+                        Wykwalifikowany zespół
+                    </h3>
+                    <p class="aboutUs-feature-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur autem cumque dolore maiores nobis officia placeat quisquam tempora! Assumenda, optio?
+                    </p>
                 </section>
-                <section class="aboutUs-feature">
-                    <!--icon and short text here-->
+                <section class="aboutUs-feature" id="thirdFeature">
+                    <h3 class="aboutUs-feature-title">
+                        Materiały dydaktyczne
+                    </h3>
+                    <p class="aboutUs-feature-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur autem cumque dolore maiores nobis officia placeat quisquam tempora! Assumenda, optio?
+                    </p>
                 </section>
-                <section class="aboutUs-feature">
-                    <!--icon and short text here-->
+                <section class="aboutUs-feature" id="fourthFeature">
+                    <h3 class="aboutUs-feature-title">
+                        Szybka rejestracja
+                    </h3>
+                    <p class="aboutUs-feature-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur autem cumque dolore maiores nobis officia placeat quisquam tempora! Assumenda, optio?
+                    </p>
                 </section>
             </div>
         </div>
