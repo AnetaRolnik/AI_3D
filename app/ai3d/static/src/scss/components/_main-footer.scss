@@ -1,0 +1,16 @@
+.main-footer {
+  height: 10vh;
+  margin-left: 20%;
+  background: #ccc;
+}
+
+.main-footer-list {
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  color: #111111;
+}
