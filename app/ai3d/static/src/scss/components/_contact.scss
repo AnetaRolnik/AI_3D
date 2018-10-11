@@ -21,4 +21,93 @@
   margin-bottom: 40px;
 }
 
+/* contact form*/
+.contact-section{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.contact-form-row {
+  margin-bottom: 15px;
+}
+
+.contact-form-row:first-child {
+  display: flex;
+}
+
+.contact-form-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.contact-form-input {
+  display: block;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+  width: 100%;
+}
+
+.contact-form-textarea {
+  display: block;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+  padding: 5px;
+  width: 100%;
+  height: 200px;
+}
+
+.contact-form-btn {
+  padding: 16px 30px;
+  margin-top: 20px;
+  border: 2px solid #222;
+  background: #222;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 50px;
+  transition: 0.5s;
+}
+
+.contact-details {
+  font-size: 20px;
+  text-align: left;
+  line-height: 30px;
+}
+
+.contact-detail {
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.contact-detail::before {
+  content: '';
+  width: 70px;
+  height: 70px;
+  background: no-repeat center;
+  display: block;
+  position: absolute;
+  right: 50px;
+  background-size: 50px;
+}
+
+.contact-detail.address::before{
+
+}
+
+.contact-detail.email::before{
+  background-image: url("../images/envelope.svg");
+  bottom: 30px;
+}
+
+.contact-detail.tel::before{
+  background-image: url("../images/phone.svg");
+  bottom: 30px;
+}
+
+
 

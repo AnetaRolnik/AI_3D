@@ -5,7 +5,7 @@
   width:20%;
   height: 100vh;
   z-index: 1000;
-  background: #222;
+  background: #111111;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -48,7 +48,7 @@
   position: absolute;
   bottom: 10px;
   right: 0;
-  background: darkorange;
+  background: #5fc9c9;
   z-index: 2;
   transform: scaleX(0);
   transition: 0.5s;
@@ -56,7 +56,7 @@
 
 
 .main-nav-list-link:hover {
-  color: darkorange;
+  color: #5fc9c9;
   opacity: 1;
 }
 
