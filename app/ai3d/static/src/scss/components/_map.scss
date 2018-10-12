@@ -1,5 +1,5 @@
 .map {
-  height: 100vh;
+  height: 92vh;
   margin-left: 20%;
   position: absolute;
   top: 0;
@@ -14,9 +14,12 @@
 }
 
 .mapboxgl-popup {
-  max-width: 240px;
+  max-width: 280px;
 }
 
 .mapboxgl-popup-content {
   text-align: left;
+  color: #111111;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
 }

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function(){
         container: mapBox,
         style: 'mapbox://styles/anetarolnik/cjn4uob3s8h2v2rse37daey8t',
         center: [16.923164, 52.407380],
-        zoom: 14.0,
+        zoom: 16.0,
         maxBounds: bounds
     });
 
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function(){
         // make a marker for each feature and add to the map
         new mapboxgl.Marker(el)
             .setLngLat(marker.geometry.coordinates)
-            .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setPopup(new mapboxgl.Popup({ offset: 30 }) // add popups
             .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
             .addTo(map);
 
