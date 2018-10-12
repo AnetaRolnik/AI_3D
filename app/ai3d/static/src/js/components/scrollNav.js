@@ -7,8 +7,8 @@ function scrollNav() {
         const cur_pos = $(this).scrollTop();
 
         sections.each(function () {
-            let top = $(this).offset().top,
-                bottom = top + $(this).outerHeight();
+            const top = $(this).offset().top - $(this).outerHeight()/4;
+            const bottom = $(this).offset().top + $(this).outerHeight()/4;
 
             if (cur_pos >= top && cur_pos <= bottom) {
                 nav.find('a').removeClass('active');
@@ -21,7 +21,7 @@ function scrollNav() {
     });
 
     nav.find('a').on('click', function () {
-        let $el = $(this)
+        const $el = $(this)
             , id = $el.attr('href');
 
         $('html, body').animate({
