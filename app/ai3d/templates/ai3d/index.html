@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="../../static/ai3d/css/style.min.css">
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="../../static/ai3d/js/bundle.min.js"></script>
 
     <!-- mapbox -->
@@ -51,7 +52,7 @@
     </nav>
 
 
-    <header class="main-header" id="mainHeader">
+    <header class="main-header scrolled-part" id="mainHeader">
         <!-- animation or sliding pictures here-->
         <div class="container">
             <h1 class="main-header-title">
@@ -67,7 +68,7 @@
     </header>
 
 
-    <section class="aboutUs" id="aboutUs">
+    <section class="aboutUs scrolled-part" id="aboutUs">
         <div class="container">
 
             <h2 class="aboutUs-title">
@@ -78,7 +79,6 @@
             </p>
 
             <div class="aboutUs-features">
-                <!-- the purpose of training, something about team, company-->
                 <section class="aboutUs-feature" id="firstFeature">
                     <h3 class="aboutUs-feature-title">
                         Nauka od podstaw
@@ -117,7 +117,7 @@
     </section>
 
 
-    <section class="offer" id="offer">
+    <section class="offer scrolled-part" id="offer">
         <div class="container">
             <section class="offer-firstTraining">
                 <!-- offer first training with registration form-->
@@ -129,7 +129,7 @@
     </section>
 
 
-    <section class="contact" id="contact">
+    <section class="contact scrolled-part" id="contact">
         <div class="container">
 
             <h3 class="contact-title">
@@ -169,7 +169,7 @@
                     </div>
                     <div class="contact-detail email">
                         <img class="contact-detail-img" src="../../static/ai3d/images/envelope.svg">
-                        <span class="contact-detail-text" id="email">Email: name@gmail.com</span>
+                        <a class="contact-detail-text" id="email" href="mailto:name@gmail.com?subject=Pytanie dotyczące szkolenia">Email: name@gmail.com</a>
                     </div>
                     <div class="contact-detail tel">
                         <img class="contact-detail-img" src="../../static/ai3d/images/phone.svg">
@@ -182,7 +182,7 @@
     </section>
 
 
-    <section class="map" id="map">
+    <section class="map scrolled-part" id="map">
         <!--location with mapbox-->
     </section>
 
