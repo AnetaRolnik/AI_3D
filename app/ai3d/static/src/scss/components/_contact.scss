@@ -72,24 +72,37 @@
   height: 160px;
 }
 
+//contact information
 .contact-detail {
+  display: block;
   margin-bottom: 40px;
   font-size: 20px;
   text-align: left;
   line-height: 30px;
 }
 
-.email .contact-detail-text {
+.contact-detail-link{
   text-decoration: none;
   color: inherit;
 }
 
-.contact-detail-img{
-  width: 30px;
+.contact-detail::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 40px;
 }
 
-.contact-detail-text {
-  display: block;
+#address::before {
+  background: url("../images/map-marker.svg") no-repeat center;
+}
+
+#email::before {
+  background: url("../images/envelope.svg") no-repeat center;
+}
+
+#tel::before {
+  background: url("../images/phone.svg") no-repeat center;
 }
 
 .contact-form-btn{
