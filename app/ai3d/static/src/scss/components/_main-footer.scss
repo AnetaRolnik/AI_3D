@@ -1,14 +1,11 @@
 .main-footer {
-  height: 8vh;
-  margin-left: 20%;
+  @include position-size(8vh);
   background: #ccc;
 }
 
 .main-footer-list {
+  @include flex($justify: space-between);
   height: 8vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 0;
   margin: 0;
   list-style: none;

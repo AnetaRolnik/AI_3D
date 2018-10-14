@@ -1,19 +1,16 @@
 .aboutUs {
-  height: 100vh;
+  @include position-size;
   background: #eee;
-  margin-left: 20%;
 }
 
 .aboutUs .container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flex($direction: column);
+  height: $primary-value*1%;
 }
 
 .aboutUs-title {
   font-size: 40px;
-  margin: 30px 0 0;
+  margin: 0;
 }
 
 .aboutUs-text {
@@ -22,10 +19,9 @@
 }
 
 .aboutUs-features {
-  display: flex;
-  flex-wrap: wrap;
+  @include flex($wrap: wrap);
   height: 70%;
-  width: 100%;
+  width: $primary-value*1%;
 }
 
 .aboutUs-feature {
@@ -45,10 +41,7 @@
 
 //icons
 .aboutUs-feature-title::after {
-  content: '';
-  width: 50px;
-  height: 50px;
-  display: block;
+  @include pseudo-element;
   position: absolute;
   top: 0;
   right: 0;

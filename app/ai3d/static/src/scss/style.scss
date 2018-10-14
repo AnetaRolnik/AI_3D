@@ -1,6 +1,10 @@
 /* base */
 @import "base/normalize";
 
+/* helpers */
+@import "helpers/variables";
+@import "helpers/mixins";
+
 /* components */
 @import "components/layout";
 @import "components/main-nav";

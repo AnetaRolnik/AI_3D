@@ -1,6 +1,5 @@
 .map {
-  height: 92vh;
-  margin-left: 20%;
+  @include position-size(92vh);
   position: absolute;
   top: 0;
   bottom: 0;

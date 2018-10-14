@@ -1,19 +1,16 @@
 .contact{
-  height: 100vh;
+  @include position-size;
   background: #eee;
-  margin-left: 20%;
 }
 
 .contact .container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flex($direction: column);
+  height: $primary-value*1%;
 }
 
 .contact-title {
   font-size: 40px;
-  margin: 30px 0 0;
+  margin: 0;
 }
 
 .contact-text {
@@ -24,9 +21,8 @@
 
 //contact form
 .contact-section{
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+  @include flex($justify: space-between);
+  width: $primary-value*1%;
 }
 
 .contact-form-row {
@@ -54,7 +50,7 @@
   border-radius: 5px;
   border: 1px solid #ccc ;
   outline: none;
-  width: 100%;
+  width: $primary-value*1%;
 }
 
 .contact-form-input:focus,
@@ -68,7 +64,7 @@
   border: 1px solid #ccc;
   outline: none;
   padding: 10px;
-  width: 100%;
+  width: $primary-value*1%;
   height: 160px;
 }
 
@@ -87,10 +83,7 @@
 }
 
 .contact-detail::before {
-  content: '';
-  display: block;
-  width: 40px;
-  height: 40px;
+  @include pseudo-element($width: 40px, $height: 40px);
 }
 
 #address::before {
@@ -109,13 +102,13 @@
   padding: 16px 20px;
   margin-top: 20px;
   background: transparent;
-  border: 2px solid #5fc9c9;
+  border: 2px solid $main-color;
   font-size:16px;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  color:#5fc9c9;
+  color: $main-color;
   cursor: pointer;
   float: right;
 }

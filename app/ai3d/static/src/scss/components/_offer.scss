@@ -1,7 +1,5 @@
 .offer {
-  height: 100vh;
-  background: #ffffff;
-  margin-left: 20%;
+  @include position-size;
 }
 
 .offer .container {
