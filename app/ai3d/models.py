@@ -6,7 +6,10 @@ class Client(models.Model):
     """ Client/Customer class - atm created after filling contact form  or signing up for training"""
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    email_address = models.EmailField(max_length=70)
+    email = models.EmailField(max_length=70)
+
+    class Meta(object):
+        unique_together = ('email',)
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
