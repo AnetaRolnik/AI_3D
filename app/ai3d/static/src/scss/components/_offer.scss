@@ -20,6 +20,7 @@
 }
 
 .offer-description-list-elem {
+  margin-bottom: 20px;
   position: relative;
 }
 
@@ -31,6 +32,36 @@
   left: -30px;
 }
 
-.offer-description-list-elem{
-  margin-bottom: 15px;
+//second section
+.offer-trainings {
+  @include flex;
+  background: #eee;
+  height: $primary-value*1vh;
+}
+
+.offer-trainings .container {
+  @include flex($wrap: wrap);
+}
+
+.offer-training-img,
+.offer-training{
+  width: 50%;
+  height: 280px;
+}
+
+.offer-training {
+  @include flex($direction: column, $wrap: no-wrap, $align: center, $justify: center);
+  background: white;
+}
+
+.offer-training-title {
+  font-size: 20px;
+  margin:0;
+}
+
+.offer-training-list {
+  font-size: 18px;
+  line-height: 25px;
+  padding-left: 0;
+  list-style: none;
 }
