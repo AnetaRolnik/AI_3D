@@ -1,15 +1,36 @@
 .offer {
-  @include position-size;
+  @include position-size($primary-value*3vh);
 }
 
-.offer .container {
-
+//first section
+.offer-description .container {
+  @include flex($direction: column);
+  height: $primary-value*1vh;
 }
 
-.offer-firstTraining {
-
+.offer-description-title {
+  @include title-section;
 }
 
-.offer-secondTraining{
+.offer-description-list {
+  margin-top: 40px;
+  font-size: 18px;
+  line-height: 20px;
+  list-style: none;
+}
 
+.offer-description-list-elem {
+  position: relative;
+}
+
+.offer-description-list-elem::before{
+  @include pseudo-element($width: 20px, $height: 20px);
+  background-image: url("../images/check.svg");
+  position: absolute;
+  top: 0;
+  left: -30px;
+}
+
+.offer-description-list-elem{
+  margin-bottom: 15px;
 }
