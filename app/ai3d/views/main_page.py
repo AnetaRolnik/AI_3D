@@ -1,9 +1,9 @@
 from django.views.generic import TemplateView
 
-# Create your views here.
+from ..forms.contact import ContactForm
 
 
 class MainPage(TemplateView):
 
     template_name = "ai3d/index.html"
-
+    form_class = ContactForm

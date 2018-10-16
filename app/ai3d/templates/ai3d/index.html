@@ -177,7 +177,10 @@
             </p>
 
             <div class="contact-section">
-                <form class="contact-form" action="#" method="POST">
+                <form class="contact-form"
+                      <!--action="{% url 'ai3d:index' %}" -->
+                      method="POST">
+                    <!--{% csrf_token %}-->
                     <div class="contact-form-row">
                         <div>
                             <label class="contact-form-label" for="formName">Imię:</label>
