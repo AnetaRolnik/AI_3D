@@ -36,14 +36,15 @@ document.addEventListener("DOMContentLoaded", function(){
 
     $(".contact-form").on("submit", function(event){
         event.preventDefault();
+        console.log($('#formName').val())
         $.ajax({
             url: "contact",
             method: "POST",
             data : {
-                name:'XXX',
-                email:'XXX@wp.pl',
-                last_name:'XXXXX',
-                message:'XXXXX XXXXXXXX',
+                name: $('#formName').val(),
+                last_name: $('#formSurname').val(),
+                email: $('#formEmail').val(),
+                message: $('#formMessage').val(),
             },
             success: function( data ){
                 console.log( data )

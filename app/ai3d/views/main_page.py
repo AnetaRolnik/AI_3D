@@ -16,11 +16,13 @@ class ContactApi(APIView):
 
     def post(self, request):
         data = request.data
-        if ContactForm(data).is_valid():
+        form = ContactForm(data)
+        if form.is_valid():
+            # if there is no user(1 user = 1 unique email) in db, user will be created.
             if not Client.objects.filter(email=data.get('email')).exists():
                 client = Client(first_name=data.get('name'),
-                                      last_name=data.get('last_name'),
-                                      email=data.get('email'),
+                                last_name=data.get('last_name'),
+                                email=data.get('email'),
                                 )
                 client.save()
             else:
@@ -31,4 +33,4 @@ class ContactApi(APIView):
             )
 
             return Response(status=status.HTTP_201_CREATED)
-        return Response(ContactForm(data).errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(form.errors, status=status.HTTP_400_BAD_REQUEST)
