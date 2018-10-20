@@ -30,7 +30,7 @@ gulp.task("browseSync", function() {
     browserSync.init({
         server: ["templates/ai3d","./"],
         notify: true,
-        open: false,
+        open: true,
         browser: "chrome",
     });
 });
