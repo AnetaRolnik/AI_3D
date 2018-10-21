@@ -67,3 +67,41 @@
 }
 
 //third section
+.offer-registration .container {
+  @include flex($direction: column);
+  height: $primary-value*1vh;
+}
+
+.offer-registration-title{
+  @include title-section;
+  margin-bottom: 40px;
+}
+
+.offer-registration-form {
+  @include flex ($direction: column);
+  width: 40%;
+}
+
+.registration-form-row {
+  @include flex($justify: space-between);
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.registration-form-input {
+  @include input;
+}
+
+.registration-form-label {
+  font-size: 18px;
+  font-weight: 700;
+  width: 40%;
+}
+
+.registration-form-btn {
+  @include submitBtn;
+}
+
+.select {
+  @include input;
+}

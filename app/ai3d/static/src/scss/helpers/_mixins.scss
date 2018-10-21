@@ -18,8 +18,8 @@
   flex-wrap: $wrap;
 }
 
-@mixin title-section() {
-  font-size: 36px;
+@mixin title-section($fontSize: 34px) {
+  font-size: $fontSize;
   margin: 0;
 }
 
@@ -30,4 +30,23 @@
   border: $border ;
   outline: none;
   width: $width;
+
+  &:focus {
+    border: 1px solid #aaa;
+  }
+}
+
+@mixin submitBtn() {
+  padding: 16px 20px;
+  margin-top: 20px;
+  background: transparent;
+  border: 2px solid $main-color;
+  font-size:16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $main-color;
+  cursor: pointer;
+  float: right;
 }
