@@ -44,12 +44,7 @@
 }
 
 .contact-form-input {
-  display: block;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc ;
-  outline: none;
-  width: $primary-value*1%;
+  @include input;
 }
 
 .contact-form-input:focus,
@@ -58,12 +53,7 @@
 }
 
 .contact-form-textarea {
-  display: block;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  outline: none;
-  padding: 10px;
-  width: $primary-value*1%;
+  @include input;
   height: 160px;
 }
 

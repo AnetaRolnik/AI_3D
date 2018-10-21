@@ -22,3 +22,12 @@
   font-size: 36px;
   margin: 0;
 }
+
+@mixin input($display: block, $padding: 10px, $borderRadius: 5px, $border: 1px solid #ccc, $width: $primary-value*1%) {
+  display: $display;
+  padding: $padding;
+  border-radius: $borderRadius;
+  border: $border ;
+  outline: none;
+  width: $width;
+}

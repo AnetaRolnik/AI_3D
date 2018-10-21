@@ -35,10 +35,10 @@ function contact() {
             url: "contact",
             method: "POST",
             data : {
-                name: $('#formName').val(),
-                last_name: $('#formSurname').val(),
-                email: $('#formEmail').val(),
-                message: $('#formMessage').val(),
+                name: $('#contactName').val(),
+                last_name: $('#contactSurname').val(),
+                email: $('#contactEmail').val(),
+                message: $('#contactMessage').val(),
             }
         });
     });

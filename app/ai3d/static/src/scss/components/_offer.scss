@@ -1,3 +1,4 @@
+//general
 .offer {
   @include position-size($primary-value*3vh);
 }
@@ -43,7 +44,6 @@
   @include flex($wrap: wrap);
 }
 
-.offer-training-img,
 .offer-training{
   width: 50%;
   height: 280px;
@@ -65,3 +65,5 @@
   padding-left: 0;
   list-style: none;
 }
+
+//third section

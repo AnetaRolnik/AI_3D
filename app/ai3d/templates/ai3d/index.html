@@ -155,7 +155,7 @@
 
         <section class="offer-trainings">
             <div class="container">
-                <img class="offer-training-img" src="../../static/ai3d/images/sample-img1.jpg">
+                <img class="offer-training" src="../../static/ai3d/images/sample-img1.jpg">
                 <div class="offer-training" id="firstTraining">
                     <h3 class="offer-training-title">
                         Poziom I
@@ -180,13 +180,41 @@
                         <li>Cena szkolenia: Xzł netto + VAT / za osobę</li>
                     </ul>
                 </div>
-                <img class="offer-training-img" src="../../static/ai3d/images/sample-img2.jpg">
+                <img class="offer-training" src="../../static/ai3d/images/sample-img2.jpg">
             </div>
         </section>
 
         <section class="offer-registration">
             <div class="container">
-                <form class="offer-registration-form">
+                <h3>Nie czekaj, zapisz się na szkolenie już dzisiaj!</h3>
+                <form class="registration-form">
+                    <select class="registration-form-row">
+                        <option value="firstTraining">Poziom I - Xzł</option>
+                        <option value="secondTraining">Poziom II - Xzł</option>
+                    </select>
+                    <select class="registration-form-row">
+                        <option value="10-12-18">10-12-2018</option>
+                        <option value="10-01-19">10-01-2019</option>
+                        <option value="14-01-19">14-01-2019</option>
+                        <option value="24-03-19">24-03-2019</option>
+                    </select>
+                    <div class="registration-form-row">
+                        <label class="registration-form-label" for="userName">Imię:</label>
+                        <input class="registration-form-input" type="text" name="name" id="userName">
+                    </div>
+                    <div class="registration-form-row">
+                        <label class="registration-form-label" for="userSurname">Nazwisko:</label>
+                        <input class="registration-form-input" type="text" name="surname" id="userSurname">
+                    </div>
+                    <div class="registration-form-row">
+                        <label class="registration-form-label" for="userEmail">Email:</label>
+                        <input class="registration-form-input" type="email" name="email" id="userEmail">
+                    </div>
+                    <div class="registration-form-row">
+                        <label class="registration-form-label" for="userTel">Telefon:</label>
+                        <input class="registration-form-input" type="number" name="tel" id="userTel">
+                    </div>
+                    <input type="submit" class="registration-form-btn">
                 </form>
             </div>
         </section>
@@ -204,24 +232,24 @@
             </p>
 
             <div class="contact-section">
-                <form class="contact-form" method="POST">
+                <form class="contact-form">
                     <div class="contact-form-row">
                         <div>
-                            <label class="contact-form-label" for="formName">Imię:</label>
-                            <input class="contact-form-input" type="text" name="name" id="formName">
+                            <label class="contact-form-label" for="contactName">Imię:</label>
+                            <input class="contact-form-input" type="text" name="name" id="contactName">
                         </div>
                         <div>
-                            <label class="contact-form-label" for="formSurname">Nazwisko:</label>
-                            <input class="contact-form-input" type="text" name="surname" id="formSurname">
+                            <label class="contact-form-label" for="contactSurname">Nazwisko:</label>
+                            <input class="contact-form-input" type="text" name="surname" id="contactSurname">
                         </div>
                     </div>
                     <div class="contact-form-row">
-                        <label class="contact-form-label" for="formEmail">Email:</label>
-                        <input class="contact-form-input" type="email" name="email" id="formEmail">
+                        <label class="contact-form-label" for="contactEmail">Email:</label>
+                        <input class="contact-form-input" type="email" name="email" id="contactEmail">
                     </div>
                     <div class="contact-form-row">
-                        <label class="contact-form-label" for="formMessage">Wiadomość:</label>
-                        <textarea class="contact-form-textarea" name="message" id="formMessage"></textarea>
+                        <label class="contact-form-label" for="contactMessage">Wiadomość:</label>
+                        <textarea class="contact-form-textarea" name="message" id="contactMessage"></textarea>
                     </div>
                     <input type="submit" class="contact-form-btn">
                 </form>
