@@ -1,31 +1,31 @@
 //general
-.offer {
+.training {
   @include position-size($primary-value*3vh);
 }
 
 //first section
-.offer-description .container {
+.training-description .container {
   @include flex($direction: column);
   height: $primary-value*1vh;
 }
 
-.offer-description-title {
+.training-description-title {
   @include title-section;
 }
 
-.offer-description-list {
+.training-description-list {
   margin-top: 40px;
   font-size: 18px;
   line-height: 20px;
   list-style: none;
 }
 
-.offer-description-list-elem {
+.training-description-list-elem {
   margin-bottom: 20px;
   position: relative;
 }
 
-.offer-description-list-elem::before{
+.training-description-list-elem::before{
   @include pseudo-element($width: 20px, $height: 20px);
   background-image: url("../images/check.svg");
   position: absolute;
@@ -34,32 +34,30 @@
 }
 
 //second section
-.offer-trainings {
+.training-offer {
   @include flex;
   background: #eee;
   height: $primary-value*1vh;
 }
 
-.offer-trainings .container {
+.training-offer .container {
   @include flex($wrap: wrap);
 }
 
-.offer-training{
+.training-offer-img,
+.training-offer-content {
+  @include flex($direction: column, $wrap: no-wrap, $align: center, $justify: center);
+  background: white;
   width: 50%;
   height: 280px;
 }
 
-.offer-training {
-  @include flex($direction: column, $wrap: no-wrap, $align: center, $justify: center);
-  background: white;
-}
-
-.offer-training-title {
+.training-offer-title {
   font-size: 20px;
   margin:0;
 }
 
-.offer-training-list {
+.training-offer-list {
   font-size: 18px;
   line-height: 25px;
   padding-left: 0;
@@ -67,17 +65,17 @@
 }
 
 //third section
-.offer-registration .container {
+.training-registration .container {
   @include flex($direction: column);
   height: $primary-value*1vh;
 }
 
-.offer-registration-title{
+.training-registration-title{
   @include title-section;
   margin-bottom: 40px;
 }
 
-.offer-registration-form {
+.training-registration-form {
   @include flex ($direction: column);
   width: 40%;
 }
