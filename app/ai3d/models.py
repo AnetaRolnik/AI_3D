@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
 
 
 class Client(models.Model):
@@ -24,3 +23,14 @@ class Message(models.Model):
 
     def __str__(self):
         return f'{self.sender} - {self.body[:30]} - {self.created_at}'
+
+
+class Event(models.Model):
+    name = models.CharField(max_length=255)
+    participants = models.ManyToManyField(Client, blank=True)
+    place = models.CharField(max_length=355, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField()
+
+    def __str__(self):
+        return f'{self.name} - {self.date}'
