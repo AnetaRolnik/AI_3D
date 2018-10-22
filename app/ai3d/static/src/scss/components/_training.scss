@@ -77,11 +77,20 @@
 
 .training-registration-form {
   @include flex ($direction: column);
-  width: 40%;
+  width: 50%;
+  position: relative;
+}
+
+.training-registration-form::before {
+  @include pseudo-element($width: 70px, $height: 70px);
+  background: url("../images/graduation-cap.svg") no-repeat center;
+  position: absolute;
+  top: 0;
+  left: -100px;
 }
 
 .registration-form-row {
-  @include flex($justify: space-between);
+  @include flex;
   margin-bottom: 15px;
   width: 100%;
 }
