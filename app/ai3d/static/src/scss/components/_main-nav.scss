@@ -17,6 +17,31 @@
   list-style: none;
 }
 
+.main-nav-list-elem {
+  animation: fadeIn 0.5s linear;
+  animation-fill-mode: both;
+}
+
+@for $i from 1 through 5 {
+  .main-nav-list-elem:nth-child(#{$i}) {
+    animation-delay: 0.25s * $i;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    top: 100px;
+  }
+  75% {
+    opacity: 0.5;
+    top: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .main-nav-list-link {
   width: $primary-value*1%;
   position: relative;
@@ -24,9 +49,8 @@
   text-decoration: none;
   font-size: 20px;
   line-height: 60px;
-  color: #fff;
-  opacity: 0.7;
-  transition: 0.3s;
+  color: rgba(white, 0.5);
+  transition: 0.5s;
 }
 
 .main-nav-list-link::after {
@@ -34,7 +58,7 @@
   position: absolute;
   bottom: 10px;
   right: 0;
-  background: #fff;
+  background: rgba(white, 0.5);
 }
 
 .main-nav-list-link::before {
@@ -48,19 +72,13 @@
   transition: 0.5s ease-in-out;
 }
 
-
-.main-nav-list-link:hover {
+.main-nav-list-link:hover,
+.main-nav-list-link.active{
   color: $main-color;
-  opacity: 1;
 }
 
 .main-nav-list-link:hover::before {
   transform: scaleX(1);
-}
-
-.main-nav-list-link.active {
-  color: $main-color;
-  opacity: 1;
 }
 
 .main-nav-list-link.active::after {
