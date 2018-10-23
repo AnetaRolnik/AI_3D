@@ -1,0 +1,29 @@
+.training-offer {
+  @include flex;
+  background: #eee;
+  height: $primary-value*1vh;
+}
+
+.training-offer .container {
+  @include flex($wrap: wrap);
+}
+
+.training-offer-img,
+.training-offer-content {
+  @include flex($direction: column, $wrap: no-wrap, $align: center, $justify: center);
+  background: white;
+  width: 50%;
+  height: 280px;
+}
+
+.training-offer-title {
+  font-size: 20px;
+  margin:0;
+}
+
+.training-offer-list {
+  font-size: 18px;
+  line-height: 25px;
+  padding-left: 0;
+  list-style: none;
+}

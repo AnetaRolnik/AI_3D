@@ -1,0 +1,7 @@
+@import "./training-description";
+@import "./training-offer";
+@import "./training-registration";
+
+.training {
+  @include position-size($primary-value*3vh);
+}

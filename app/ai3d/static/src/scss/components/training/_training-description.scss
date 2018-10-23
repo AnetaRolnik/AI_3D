@@ -1,0 +1,28 @@
+.training-description .container {
+  @include flex($direction: column);
+  height: $primary-value*1vh;
+}
+
+.training-description-title {
+  @include title-section;
+}
+
+.training-description-list {
+  margin-top: 40px;
+  font-size: 18px;
+  line-height: 20px;
+  list-style: none;
+}
+
+.training-description-list-elem {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.training-description-list-elem::before{
+  @include pseudo-element($width: 20px, $height: 20px);
+  background-image: url("../images/check.svg");
+  position: absolute;
+  top: 0;
+  left: -30px;
+}

@@ -1,0 +1,36 @@
+.contact-section{
+  @include flex($justify: space-between);
+  width: $primary-value*1%;
+}
+
+.contact-form-row {
+  margin-bottom: 15px;
+}
+
+.contact-form-row:first-child {
+  display: flex;
+
+  div:first-child {
+    margin-right: 5px;
+  }
+}
+
+.contact-form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.contact-form-input {
+  @include input;
+}
+
+.contact-form-textarea {
+  @include input;
+  height: 160px;
+}
+
+.contact-form-btn{
+  @include submitBtn;
+}

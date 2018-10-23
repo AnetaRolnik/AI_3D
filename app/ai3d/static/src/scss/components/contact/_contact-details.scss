@@ -1,0 +1,28 @@
+.contact-detail {
+  display: block;
+  margin-bottom: 40px;
+  font-size: 20px;
+  text-align: left;
+  line-height: 30px;
+}
+
+.contact-detail-link{
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact-detail::before {
+  @include pseudo-element($width: 40px, $height: 40px);
+}
+
+#address::before {
+  background: url("../images/map-marker.svg") no-repeat center;
+}
+
+#email::before {
+  background: url("../images/envelope.svg") no-repeat center;
+}
+
+#tel::before {
+  background: url("../images/phone.svg") no-repeat center;
+}

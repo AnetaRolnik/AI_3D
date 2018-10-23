@@ -1,0 +1,47 @@
+.training-registration .container {
+  @include flex($direction: column);
+  height: $primary-value*1vh;
+}
+
+.training-registration-title{
+  @include title-section;
+  margin-bottom: 40px;
+}
+
+.training-registration-form {
+  @include flex ($direction: column);
+  width: 50%;
+  position: relative;
+}
+
+.training-registration-form::before {
+  @include pseudo-element($width: 70px, $height: 70px);
+  background: url("../images/graduation-cap.svg") no-repeat center;
+  position: absolute;
+  top: 0;
+  left: -100px;
+}
+
+.registration-form-row {
+  @include flex;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.registration-form-input {
+  @include input;
+}
+
+.registration-form-label {
+  font-size: 18px;
+  font-weight: 700;
+  width: 40%;
+}
+
+.registration-form-btn {
+  @include submitBtn;
+}
+
+.select {
+  @include input;
+}

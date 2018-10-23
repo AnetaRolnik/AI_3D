@@ -1,0 +1,30 @@
+@import "./contact-section";
+@import "./contact-details";
+
+.contact{
+  @include position-size;
+  background: #eee;
+}
+
+.contact .container {
+  @include flex($direction: column);
+  height: $primary-value*1%;
+}
+
+.contact-title {
+  @include title-section;
+}
+
+.contact-text {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+
+
+
+
+
+
+
