@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Message, Client, Event
+from .models import Message, Client, Training, Course
 
 
 class MessageAdmin(admin.ModelAdmin):
@@ -10,10 +10,15 @@ class ClientAdmin(admin.ModelAdmin):
     model = Client
 
 
-class EventAdmin(admin.ModelAdmin):
-    model = Event
+class TrainingAdmin(admin.ModelAdmin):
+    model = Training
+
+
+class CourseAdmin(admin.ModelAdmin):
+    model = Course
 
 
 admin.site.register(Message, MessageAdmin)
 admin.site.register(Client, ClientAdmin)
-admin.site.register(Event, EventAdmin)
+admin.site.register(Training, TrainingAdmin)
+admin.site.register(Course, CourseAdmin)
