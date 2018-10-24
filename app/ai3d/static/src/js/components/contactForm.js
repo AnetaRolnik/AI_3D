@@ -14,7 +14,6 @@ function contact() {
         }
         return cookieValue;
     }
-
     let csrftoken = getCookie('csrftoken');
 
     function csrfSafeMethod(method) {
@@ -30,6 +29,8 @@ function contact() {
     });
 
     $(".contact-form").on("submit", function(event){
+        event.preventDefault();
+
         let nameVal = $('#contactName').val();
         let surnameVal = $('#contactSurname').val();
         let emailVal = $('#contactEmail').val();
@@ -37,32 +38,52 @@ function contact() {
         let fields = $(".contact-form .field");
         let btn = $(".contact-form-btn");
 
-        event.preventDefault();
-        $.ajax({
-            url: "contact",
-            method: "POST",
-            data : {
-                name: nameVal,
-                last_name: surnameVal,
-                email: emailVal,
-                message: messageVal,
-            }
-        }).done(function(){
-            //clear fields
-            fields.val("");
+        const regexName = /^[a-zA-Z]{2,20}$/;
+        const regexEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-            //add information
-            const $info = $("<span class='contact-form-info'>Formularz został wysłany</span>");
-            btn.after( $info );
+        if (!regexName.test(nameVal)) {
+            console.log("niepoprawne imię");
+        }
 
-            //change style btn
-            btn.css({
-                "background" : "#5fc9c9",
-                "color" : "white",
-                "cursor" : "not-allowed"
+        if (!regexName.test(surnameVal)) {
+            console.log("niepoprawne nazwisko")
+        }
+
+        if (!regexEmail.test(regexEmail)) {
+            console.log("niepoprawny mail");
+        }
+
+        if (messageVal.length <= 8 || messageVal.length >= 200) {
+            console.log("niepoprawna wiadomość");
+        }
+
+        if (regexName.test(nameVal) && regexName.test(surnameVal) && regexEmail.test(emailVal) && messageVal.length>=8 && messageVal.length<=200) {
+            $.ajax({
+                url: "contact",
+                method: "POST",
+                data : {
+                    name: nameVal,
+                    last_name: surnameVal,
+                    email: emailVal,
+                    message: messageVal,
+                }
+            }).done(function(){
+                //clear fields
+                fields.val("");
+
+                //add information
+                const $info = $("<span class='contact-form-info'>Wiadomość została wysłana</span>");
+                btn.after( $info );
+
+                //change style btn
+                btn.css({
+                    "background" : "#5fc9c9",
+                    "color" : "white",
+                    "cursor" : "not-allowed"
+                });
+                btn.prop('disabled', true);
             });
-            btn.prop('disabled', true);
-        });
+        }
     });
 
 }
