@@ -30,16 +30,38 @@ function contact() {
     });
 
     $(".contact-form").on("submit", function(event){
+        let nameVal = $('#contactName').val();
+        let surnameVal = $('#contactSurname').val();
+        let emailVal = $('#contactEmail').val();
+        let messageVal = $('#contactMessage').val();
+        let fields = $(".contact-form .field");
+        let btn = $(".contact-form-btn");
+
         event.preventDefault();
         $.ajax({
             url: "contact",
             method: "POST",
             data : {
-                name: $('#contactName').val(),
-                last_name: $('#contactSurname').val(),
-                email: $('#contactEmail').val(),
-                message: $('#contactMessage').val(),
+                name: nameVal,
+                last_name: surnameVal,
+                email: emailVal,
+                message: messageVal,
             }
+        }).done(function(){
+            //clear fields
+            fields.val("");
+
+            //add information
+            const $info = $("<span class='contact-form-info'>Formularz został wysłany</span>");
+            btn.after( $info );
+
+            //change style btn
+            btn.css({
+                "background" : "#5fc9c9",
+                "color" : "white",
+                "cursor" : "not-allowed"
+            });
+            btn.prop('disabled', true);
         });
     });
 
