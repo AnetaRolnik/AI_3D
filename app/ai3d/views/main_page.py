@@ -5,12 +5,16 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from ..forms import ContactForm, TrainingSignUpForm
-from ..models import Client, Message
+from ..models import Client, Message, Training
 
 
 class MainPage(TemplateView):
     template_name = "ai3d/index.html"
 
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['trainings'] = Training.objects.values('name', 'date')
+        return data
 
 class ContactApi(APIView):
 
