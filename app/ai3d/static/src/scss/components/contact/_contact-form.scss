@@ -24,6 +24,7 @@
 .contact-form-textarea {
   @include input;
   height: 160px;
+  resize: none;
 }
 
 .contact-form-btn{
