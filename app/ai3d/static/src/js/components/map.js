@@ -13,8 +13,12 @@ function map() {
         style: 'mapbox://styles/anetarolnik/cjn4uob3s8h2v2rse37daey8t',
         center: [16.923164, 52.407380],
         zoom: 16.0,
-        maxBounds: bounds
+        maxBounds: bounds,
+        scrollZoom: false,
     });
+
+    map.addControl(new mapboxgl.NavigationControl());
+
 
     const geojson = {
         type: 'FeatureCollection',
