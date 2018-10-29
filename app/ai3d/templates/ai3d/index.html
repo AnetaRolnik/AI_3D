@@ -187,9 +187,9 @@
                 <h3 class="training-registration-title">Nie czekaj, zapisz się na szkolenie już dziś!</h3>
                 <form class="training-registration-form">
                     <select class="registration-form-row select">
-                        {% if trainings %}
-                            {% for training in trainings %}
-                            <option value="{{ training }}">{{ training.name }}</option>
+                        {% if courses %}
+                            {% for course in courses %}
+                            <option value="{{ course }}">{{ course.name }}</option>
                             {% endfor %}
                         {% endif %}
                     </select>

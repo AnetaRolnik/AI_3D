@@ -5,7 +5,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from ..forms import ContactForm, TrainingSignUpForm
-from ..models import Client, Message, Training
+from ..models import Client, Message, Training, Course
 
 
 class MainPage(TemplateView):
@@ -13,8 +13,10 @@ class MainPage(TemplateView):
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
+        data['courses'] = Course.objects.all()
         data['trainings'] = Training.objects.values('name', 'date')
         return data
+
 
 class ContactApi(APIView):
 
@@ -38,6 +40,18 @@ class TrainingApi(APIView):
         if form.is_valid():
             return Response(status=status.HTTP_201_CREATED)
         return Response(form.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request):
+        response = None
+        data = request.data
+        if 'get_trainings' in data:
+            response = self.get_trainings(data)
+        if not response:
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_200_OK)
+
+    def get_trainings(self, data):
+        return Training.objects.all()
 
 
 def create_user_from_form(form):
