@@ -55,16 +55,21 @@ function contact() {
 
         if (!regexName.test(nameVal)) {
             name.css("border","1px solid red");
-            errors.push('Imię - wymagane min 2 znaki.');
         } else {
             name.css("border","1px solid #ccc");
         }
 
         if (!regexName.test(surnameVal)) {
-            surname.css("border","1px solid red");
-            errors.push('Nazwisko - wymagane min 2 znaki.');
         } else {
             surname.css("border","1px solid #ccc");
+        }
+
+        if (!regexName.test(nameVal) && regexName.test(surnameVal)) {
+            errors.push('Imię - wymagane min 2 znaki. Dozwolone tylko litery.');
+        } else if (regexName.test(nameVal) && !regexName.test(surnameVal)) {
+            errors.push('Nazwisko - wymagane min 2 znaki. Dozwolone tylko litery.');
+        } else if (!regexName.test(nameVal) && !regexName.test(surnameVal)) {
+            errors.push('Imię i nazwisko - wymagane min 2 znaki. Dozwolone tylko litery.');
         }
 
         if (!regexEmail.test(emailVal)) {
