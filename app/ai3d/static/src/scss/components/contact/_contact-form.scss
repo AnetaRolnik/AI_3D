@@ -32,8 +32,13 @@
 }
 
 .contact-form-info {
-  float: right;
   font-size: 16px;
-  margin: 27px 20px 0 0;
-  transform: translate(0, 50%);
+}
+
+.contact-form-errors {
+  font-size: 16px;
+
+  span {
+    display: block;
+  }
 }

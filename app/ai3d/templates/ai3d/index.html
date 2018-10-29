@@ -187,14 +187,14 @@
                 <h3 class="training-registration-title">Nie czekaj, zapisz się na szkolenie już dziś!</h3>
                 <form class="training-registration-form">
                     <select class="registration-form-row select">
-                        {% if trainings}
+                        {% if trainings %}
                             {% for training in trainings %}
                             <option value="{{ training }}">{{ training.name }}</option>
                             {% endfor %}
                         {% endif %}
                     </select>
                     <select class="registration-form-row select">
-                        {% if trainings}
+                        {% if trainings %}
                             {% for training in trainings %}
                             <option value="{{ training }}">{{ training.date }}</option>
                             {% endfor %}
@@ -237,20 +237,20 @@
                     <div class="contact-form-row">
                         <div>
                             <label class="contact-form-label" for="contactName">Imię:</label>
-                            <input class="contact-form-input field" type="text" name="name" id="contactName">
+                            <input class="contact-form-input field" type="text" name="name" id="contactName" maxlength="20">
                         </div>
                         <div>
                             <label class="contact-form-label" for="contactSurname">Nazwisko:</label>
-                            <input class="contact-form-input field" type="text" name="surname" id="contactSurname">
+                            <input class="contact-form-input field" type="text" name="surname" id="contactSurname" maxlength="20">
                         </div>
                     </div>
                     <div class="contact-form-row">
                         <label class="contact-form-label" for="contactEmail">Email:</label>
-                        <input class="contact-form-input field" type="email" name="email" id="contactEmail">
+                        <input class="contact-form-input field" name="email" id="contactEmail">
                     </div>
                     <div class="contact-form-row">
                         <label class="contact-form-label" for="contactMessage">Wiadomość:</label>
-                        <textarea class="contact-form-textarea field" name="message" id="contactMessage"></textarea>
+                        <textarea class="contact-form-textarea field" name="message" id="contactMessage" maxlength="200"></textarea>
                     </div>
                     <input type="submit" class="contact-form-btn">
                 </form>
