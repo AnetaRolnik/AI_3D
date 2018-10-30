@@ -16,6 +16,7 @@ class TrainingAdmin(admin.ModelAdmin):
 
 class CourseAdmin(admin.ModelAdmin):
     model = Course
+    prepopulated_fields = {'slug': ('name',), }
 
 
 admin.site.register(Message, MessageAdmin)

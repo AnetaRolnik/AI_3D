@@ -189,7 +189,7 @@
                     <select class="registration-form-row select">
                         {% if courses %}
                             {% for course in courses %}
-                            <option value="{{ course }}">{{ course.name }}</option>
+                            <option value="{{ course.slug }}">{{ course.name }}</option>
                             {% endfor %}
                         {% endif %}
                     </select>

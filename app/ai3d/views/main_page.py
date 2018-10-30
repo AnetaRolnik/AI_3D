@@ -13,7 +13,7 @@ class MainPage(TemplateView):
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['courses'] = Course.objects.all()
+        data['courses'] = Course.objects.values('name', 'slug')
         data['trainings'] = Training.objects.values('name', 'date')
         return data
 
@@ -34,6 +34,11 @@ class ContactApi(APIView):
 
 class TrainingApi(APIView):
 
+    @staticmethod
+    def get_trainings(training_type, field_to_order_by='-date'):
+        """Trainings in specify type and sorted by date"""
+        return Training.objects.filter(type__slug=training_type).order_by(field_to_order_by)
+
     def post(self, request):
         data = request.data
         form = TrainingSignUpForm(data)
@@ -41,17 +46,14 @@ class TrainingApi(APIView):
             return Response(status=status.HTTP_201_CREATED)
         return Response(form.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def get(self, request):
-        response = None
-        data = request.data
-        if 'get_trainings' in data:
-            response = self.get_trainings(data)
-        if not response:
+    def get(self, request, training_type=None):
+        if not training_type:
             return Response(status=status.HTTP_204_NO_CONTENT)
-        return Response(status=status.HTTP_200_OK)
+        return Response(data=self.get_trainings(training_type),
+                        status=status.HTTP_200_OK)
 
-    def get_trainings(self, data):
-        return Training.objects.all()
+
+
 
 
 def create_user_from_form(form):

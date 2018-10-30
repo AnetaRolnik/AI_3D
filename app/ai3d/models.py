@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 
 class Client(models.Model):
@@ -32,6 +33,11 @@ class Course(models.Model):
                                              help_text='Price in Polish Zloty [zł]')
     duration = models.PositiveSmallIntegerField(null=True, blank=True,
                                                 help_text='Duration in hours')
+    slug = models.SlugField(unique=True, null=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f'{self.name}'
