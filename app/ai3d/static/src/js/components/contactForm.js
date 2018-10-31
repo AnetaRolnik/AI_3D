@@ -88,7 +88,7 @@ function contact() {
         if (errors.length > 0) {
             const $errorContainer = $("<div class='contact-form-errors'><span><b>Niepoprawne dane</b></span></div>");
             $.map(errors, function(error) {
-                return $errorContainer.append("<span>"+error+"</span>");
+                return $errorContainer.append("<span class='contact-form-error'>"+error+"</span>");
             });
             btn.after( $errorContainer );
         }
@@ -109,8 +109,8 @@ function contact() {
                 fields.css("border","1px solid #ccc");
 
                 //add information
-                const $info = $("<span class='contact-form-info'>Wiadomość została wysłana</span>");
-                btn.after( $info );
+                const $state = $("<p class='contact-form-state'>Wiadomość została wysłana</p>");
+                btn.after( $state );
 
                 //change style btn
                 btn.css({
@@ -119,6 +119,10 @@ function contact() {
                     "cursor" : "not-allowed"
                 });
                 btn.prop('disabled', true);
+            }).fail(function(){
+                //add information
+                const $state = $("<p class='contact-form-state'>Wysyłanie wiadomości nie powiodło się.<br>Spróbuj ponownie za chwilę.</p>");
+                btn.after( $state );
             });
         }
     });

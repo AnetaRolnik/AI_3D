@@ -31,14 +31,11 @@
   @include submitBtn;
 }
 
-.contact-form-info {
+.contact-form-state,
+.contact-form-errors {
   font-size: 16px;
 }
 
-.contact-form-errors {
-  font-size: 16px;
-
-  span {
-    display: block;
-  }
+.contact-form-error {
+  display: block;
 }

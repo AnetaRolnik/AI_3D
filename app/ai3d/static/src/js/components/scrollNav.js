@@ -1,6 +1,6 @@
 function scrollNav() {
 
-    const sections = $('.scrolled-part');
+    const sections = $('.scrolled');
     const nav = $('.main-nav');
 
     $(window).on('scroll', function () {
