@@ -1,6 +1,9 @@
+.training-registration {
+  min-height: $primary-value*6px;
+}
+
 .training-registration .container {
   @include flex($direction: column);
-  height: $primary-value*1vh;
 }
 
 .training-registration-title{

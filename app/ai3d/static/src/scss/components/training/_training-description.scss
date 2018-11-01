@@ -1,6 +1,9 @@
+.training-description {
+  min-height: $primary-value*6px;
+}
+
 .training-description .container {
   @include flex($direction: column);
-  height: $primary-value*1vh;
 }
 
 .training-description-title {

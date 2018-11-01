@@ -1,5 +1,5 @@
 .main-footer {
-  @include position-size(8vh);
+  @include position-size($height: 8vh);
   background: #ccc;
 }
 

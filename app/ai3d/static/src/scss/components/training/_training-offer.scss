@@ -1,16 +1,16 @@
 .training-offer {
-  @include flex;
   background: #eee;
-  height: $primary-value*1vh;
+  min-height: $primary-value*6px;
 }
 
 .training-offer .container {
   @include flex($wrap: wrap);
+  align-content: center
 }
 
 .training-offer-img,
 .training-offer-content {
-  @include flex($direction: column, $wrap: no-wrap, $align: center, $justify: center);
+  @include flex($direction: column);
   background: white;
   width: 50%;
   height: 280px;

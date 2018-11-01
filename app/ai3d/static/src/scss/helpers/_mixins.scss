@@ -1,5 +1,5 @@
-@mixin position-size($height: $primary-value*1vh) {
-  height: $height;
+@mixin position-size($height: $primary-value*6px) {
+  min-height: $height;
   margin-left: 20%;
 }
 
