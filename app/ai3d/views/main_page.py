@@ -35,9 +35,10 @@ class ContactApi(APIView):
 class TrainingApi(APIView):
 
     @staticmethod
-    def get_trainings(training_type, field_to_order_by='-date'):
+    def get_trainings(training_type, field_to_order_by='date'):
         """Trainings in specify type and sorted by date"""
-        return Training.objects.filter(type__slug=training_type).order_by(field_to_order_by)
+        trainings_qs = Training.objects.filter(type__slug=training_type).order_by(field_to_order_by)
+        return [t.to_dict() for t in trainings_qs]
 
     def post(self, request):
         data = request.data
@@ -51,9 +52,6 @@ class TrainingApi(APIView):
             return Response(status=status.HTTP_204_NO_CONTENT)
         return Response(data=self.get_trainings(training_type),
                         status=status.HTTP_200_OK)
-
-
-
 
 
 def create_user_from_form(form):

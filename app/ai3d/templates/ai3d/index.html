@@ -194,11 +194,7 @@
                         {% endif %}
                     </select>
                     <select class="registration-form-row select">
-                        {% if trainings %}
-                            {% for training in trainings %}
-                            <option value="{{ training }}">{{ training.date }}</option>
-                            {% endfor %}
-                        {% endif %}
+                        <option value="">training</option>
                     </select>
                     <div class="registration-form-row">
                         <label class="registration-form-label" for="userName">Imię:</label>

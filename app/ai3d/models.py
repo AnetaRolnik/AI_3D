@@ -55,3 +55,9 @@ class Training(models.Model):
 
     def __str__(self):
         return f'Name: {self.name} - Type:{self.type.name} - When: {self.date}'
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'data': self.date.strftime("%d.%m.%Y - %H:%M")
+        }
