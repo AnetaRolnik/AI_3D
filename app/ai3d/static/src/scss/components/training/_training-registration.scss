@@ -31,7 +31,9 @@
   width: 100%;
 }
 
-.registration-form-input {
+.registration-form-input,
+.training-select,
+.date-select{
   @include input;
 }
 
@@ -43,8 +45,4 @@
 
 .registration-form-btn {
   @include submitBtn;
-}
-
-.select {
-  @include input;
 }
