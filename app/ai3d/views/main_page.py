@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.views.generic import TemplateView
 
 from rest_framework import status
@@ -37,15 +38,18 @@ class TrainingApi(APIView):
     @staticmethod
     def get_trainings(training_type, field_to_order_by='date'):
         """Trainings in specify type and sorted by date"""
-        trainings_qs = Training.objects.filter(type__slug=training_type).order_by(field_to_order_by)
+        trainings_qs = Training.objects.filter(type__slug=training_type, sign_ups_closed=False).order_by(field_to_order_by)
         return [t.to_dict() for t in trainings_qs]
 
     def post(self, request):
         data = request.data
         form = TrainingSignUpForm(data)
-        if form.is_valid():
-            return Response(status=status.HTTP_201_CREATED)
-        return Response(form.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        if not form.is_valid():
+            return Response(form.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        sign_up_for_training(create_user_from_form(form), data.get('id'))
+        return Response(status=status.HTTP_201_CREATED)
 
     def get(self, request, training_type=None):
         if not training_type:
@@ -65,3 +69,13 @@ def create_user_from_form(form):
     else:
         client = Client.objects.get(email=form.data.get('email'))
     return client
+
+
+def sign_up_for_training(client, training_id):
+    training = Training.objects.get(id=training_id)
+    try:
+        training.participants.add(client)
+    except ValidationError:
+        return False
+
+

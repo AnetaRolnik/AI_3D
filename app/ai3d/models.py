@@ -1,4 +1,6 @@
+from django.core.exceptions import ValidationError
 from django.db import models
+from django.db.models.signals import m2m_changed
 from django.utils.text import slugify
 
 
@@ -47,10 +49,13 @@ class Training(models.Model):
     name = models.CharField(max_length=60)
     type = models.ForeignKey(Course, on_delete=models.CASCADE)
     participants = models.ManyToManyField(Client, blank=True)
+    participants_limit = models.PositiveSmallIntegerField(null=True, default=20)
+    sign_ups_closed = models.BooleanField(default=False)
     place = models.CharField(max_length=355, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     date = models.DateTimeField()
     price = models.PositiveSmallIntegerField(null=True, default=0)
+
     # TODO price should depend of type of training (auto add in admin form)
 
     def __str__(self):
@@ -61,3 +66,13 @@ class Training(models.Model):
             'id': self.id,
             'data': self.date.strftime("%d.%m.%Y - %H:%M")
         }
+
+def sign_up_for_training(sender, action='pre_add', **kwargs):
+    instance = kwargs.get('instance')
+    if instance.participants_limit == instance.participants.count():
+        instance.sign_ups_closed = True
+        instance.save()
+        raise ValidationError("You can't assign more clients than participants_limit")
+
+
+m2m_changed.connect(sign_up_for_training, sender=Training.participants.through)
