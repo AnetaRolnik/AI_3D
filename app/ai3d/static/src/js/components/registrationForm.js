@@ -11,12 +11,19 @@ function register() {
 
     $(".training-registration-form").on("submit", function(event) {
         event.preventDefault();
+        const name = $('#userName');
+        const surname = $('#userSurname');
+        const email = $('#userEmail');
+        const phone = $('#userTel');
+        const fields = $('.registration-form-input');
 
-        const nameVal = $('#userName').val();
-        const surnameVal = $('#userSurname').val();
-        const emailVal = $('#userEmail').val();
-        const telVal = $('#userTel').val();
+        const nameVal = name.val();
+        const surnameVal = surname.val();
+        const emailVal = email.val();
+        const phoneVal = phone.val();
         const optionId = $('.date-select option:selected')[0].id;
+
+        const btn = $('.registration-form-btn');
 
         $.ajax({
             url: "training",
@@ -25,11 +32,34 @@ function register() {
                 name: nameVal,
                 last_name: surnameVal,
                 email: emailVal,
-                phone_number: telVal,
+                phone_number: phoneVal,
                 id: optionId,
             }
         }).done(function(){
-            console.log("wyslano");
+            //clear fields
+            fields.val('');
+            fields.css("border","1px solid #ccc");
+
+            //add information
+            $('.registration-form-state').remove();
+
+            const $state = $("<p class='registration-form-state'>Wiadomość została wysłana</p>");
+            btn.after( $state );
+
+            //change style btn
+            btn.css({
+                "background" : "#5fc9c9",
+                "color" : "white",
+                "cursor" : "not-allowed"
+            });
+            btn.prop('disabled', true);
+
+        }).fail(function(){
+            //add information
+            if ($('.registration-form-state').length === 0) {
+                const $state = $("<p class='registration-form-state'>Wysyłanie wiadomości nie powiodło się.<br>Spróbuj ponownie za chwilę.</p>");
+                btn.after( $state );
+            }
         });
     });
 }

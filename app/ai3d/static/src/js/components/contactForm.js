@@ -38,19 +38,17 @@ function contact() {
         const message = $('#contactMessage');
         const fields = $(".contact-form .field");
 
-        const nameVal = $('#contactName').val();
-        const surnameVal = $('#contactSurname').val();
-        const emailVal = $('#contactEmail').val();
-        const messageVal = $('#contactMessage').val();
+        const nameVal = name.val();
+        const surnameVal = surname.val();
+        const emailVal = email.val();
+        const messageVal = message.val();
 
         const btn = $(".contact-form-btn");
 
         const regexEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
         const errors = [];
 
-        if ($(".contact-form-errors") !== null) {
-            $(".contact-form-errors").remove();
-        }
+        $(".contact-form-errors").remove();
 
         if (nameVal==='') {
             name.css("border","1px solid red");
