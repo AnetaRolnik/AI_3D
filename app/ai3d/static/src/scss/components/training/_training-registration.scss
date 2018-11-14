@@ -15,19 +15,24 @@
   @include flex ($direction: column, $justify: flex-start);
   width: 50%;
   height: 470px;
+}
+
+.registration-form-container {
+  @include flex ($direction: column, $align: flex-end);
+  width: 100%;
   position: relative;
 }
 
-.training-registration-form::before {
-  @include pseudo-element($width: 70px, $height: 70px);
+.registration-form-container::before {
+  @include pseudo-element($width: 80px, $height: 80px);
   background: url("../images/graduation-cap.svg") no-repeat center;
   position: absolute;
   top: 0;
-  left: -$primary-value*1px;
+  left: 0;
 }
 
 .registration-form-row {
-  @include flex;
+  @include flex ($justify: space-between);
   margin-bottom: 15px;
   width: $primary-value*1%;
 }
@@ -36,12 +41,12 @@
 .training-select,
 .date-select{
   @include input;
+  width: 75%;
 }
 
 .registration-form-label {
   font-size: 18px;
   font-weight: 700;
-  width: 40%;
 }
 
 .registration-form-btn {
