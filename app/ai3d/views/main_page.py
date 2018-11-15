@@ -44,11 +44,13 @@ class TrainingApi(APIView):
     def post(self, request):
         data = request.data
         form = TrainingSignUpForm(data)
-
         if not form.is_valid():
             return Response(form.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        sign_up_for_training(create_user_from_form(form), data.get('id'))
+        if not sign_up_for_training(create_user_from_form(form), data.get('id')):
+            return Response({'error': 'Max user limit reached'},
+                            status=status.HTTP_200_OK)
+
         return Response(status=status.HTTP_201_CREATED)
 
     def get(self, request, training_type=None):
@@ -63,8 +65,7 @@ def create_user_from_form(form):
     if not Client.objects.filter(email=form.data.get('email')).exists():
         client = Client(first_name=form.data.get('name'),
                         last_name=form.data.get('last_name'),
-                        email=form.data.get('email'),
-                        )
+                        email=form.data.get('email'))
         client.save()
     else:
         client = Client.objects.get(email=form.data.get('email'))

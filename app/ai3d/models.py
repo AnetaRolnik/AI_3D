@@ -67,6 +67,7 @@ class Training(models.Model):
             'data': self.date.strftime("%d.%m.%Y - %H:%M")
         }
 
+
 def sign_up_for_training(sender, action='pre_add', **kwargs):
     instance = kwargs.get('instance')
     if instance.participants_limit == instance.participants.count():
