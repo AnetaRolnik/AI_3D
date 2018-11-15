@@ -16,6 +16,10 @@ class Client(models.Model):
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
 
+    @property
+    def get_full_name(self):
+        return f'{self.first_name} {self.last_name}'
+
 
 class Message(models.Model):
     """ Base class for all messages used in app (ContactForm, Newsletter, etc)"""
@@ -59,13 +63,16 @@ class Training(models.Model):
     # TODO price should depend of type of training (auto add in admin form)
 
     def __str__(self):
-        return f'Name: {self.name} - Type:{self.type.name} - When: {self.date}'
+        return f'{self.name} - ({self.date.strftime("%d.%m.%Y %H:%M ")})  - {self.type.name}'
 
     def to_dict(self):
         return {
             'id': self.id,
             'data': self.date.strftime("%d.%m.%Y - %H:%M")
         }
+
+    def list_of_participants(self):
+        return ", ".join([p.get_full_name for p in self.participants.all()])
 
 
 def sign_up_for_training(sender, action='pre_add', **kwargs):

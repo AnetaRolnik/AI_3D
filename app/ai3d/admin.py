@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from .models import Message, Client, Training, Course
 
 
@@ -12,6 +13,11 @@ class ClientAdmin(admin.ModelAdmin):
 
 class TrainingAdmin(admin.ModelAdmin):
     model = Training
+    ordering = ('date',)
+    search_fields = ('type__name', 'name', 'date',
+                     'participants__first_name', 'participants__last_name',)
+    list_display = ['name', 'type', 'date', 'list_of_participants', ]
+    readonly_fields = ['participants']
 
 
 class CourseAdmin(admin.ModelAdmin):
@@ -23,3 +29,7 @@ admin.site.register(Message, MessageAdmin)
 admin.site.register(Client, ClientAdmin)
 admin.site.register(Training, TrainingAdmin)
 admin.site.register(Course, CourseAdmin)
+
+admin.site.site_header = "AI3D Admin Panel - A&J"
+admin.site.site_title = "AI3D Admin Panel"
+admin.site.index_title = "Welcome to AI3D Admin Panel"
