@@ -25,44 +25,98 @@ function register() {
 
         const btn = $('.registration-form-btn');
 
-        $.ajax({
-            url: "training",
-            method: "POST",
-            data : {
-                name: nameVal,
-                last_name: surnameVal,
-                email: emailVal,
-                phone_number: phoneVal,
-                id: optionId,
-            }
-        }).done(function(){
-            //clear fields
-            fields.val('');
-            fields.css("border","1px solid #ccc");
+        const regexEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        const regexPhone =  /^[0-9]{6,12}$/;
+        const errors = [];
 
-            //add information
-            $('.registration-form-state').remove();
+        $(".registration-form-errors").remove();
+        $('.registration-form-state').remove();
 
-            const $state = $("<p class='registration-form-state'>Wiadomość została wysłana</p>");
-            btn.after( $state );
+        if (nameVal==='') {
+            name.css("border","1px solid red");
+        } else {
+            name.css("border","1px solid #ccc");
+        }
 
-            //change style btn
-            btn.css({
-                "background" : "#5fc9c9",
-                "color" : "white",
-                "cursor" : "not-allowed"
+        if (surnameVal==='') {
+            surname.css("border","1px solid red");
+        } else {
+            surname.css("border","1px solid #ccc");
+        }
+
+        if (!regexEmail.test(emailVal)) {
+            email.css("border","1px solid red");
+        } else {
+            email.css("border","1px solid #ccc");
+        }
+
+        if (!regexPhone.test(phoneVal)) {
+            phone.css("border","1px solid red");
+        } else {
+            phone.css("border","1px solid #ccc");
+        }
+
+        if (nameVal==='' || surnameVal==='' || emailVal==='' || phoneVal==='') {
+            errors.push('Uzupełnij puste pola');
+        }
+
+        if (emailVal!=='' && !regexEmail.test(emailVal)) {
+            errors.push('Wpisz poprawny adres email');
+        }
+
+        if (phoneVal!=='' && !regexPhone.test(phoneVal)) {
+            errors.push('Wpisz poprawny numer telefonu');
+        }
+
+        if (errors.length > 0) {
+            const $errorContainer = $("<div class='registration-form-errors'><span><b>Niepoprawne dane</b></span></div>");
+            $.map(errors, function(error) {
+                return $errorContainer.append("<span class='registration-form-error'>"+error+"</span>");
             });
-            btn.prop('disabled', true);
+            btn.after( $errorContainer );
+        }
 
-        }).fail(function(){
-            //add information
-            if ($('.registration-form-state').length === 0) {
-                const $state = $("<p class='registration-form-state'>Wysyłanie wiadomości nie powiodło się.<br>Spróbuj ponownie za chwilę.</p>");
-                btn.after( $state );
-            }
-        });
+        if (nameVal!=='' && surnameVal!=='' && regexEmail.test(emailVal)) {
+            $.ajax({
+                url: "training",
+                method: "POST",
+                data: {
+                    name: nameVal,
+                    last_name: surnameVal,
+                    email: emailVal,
+                    phone_number: phoneVal,
+                    id: optionId,
+                }
+            }).done(function () {
+                //clear fields
+                fields.val('');
+                fields.css("border", "1px solid #ccc");
+
+                //add information
+                $('.registration-form-state').remove();
+
+                const $state = $("<p class='registration-form-state'>Wiadomość została wysłana</p>");
+                btn.after($state);
+
+                //change style btn
+                btn.css({
+                    "background": "#5fc9c9",
+                    "color": "white",
+                    "cursor": "not-allowed"
+                });
+                btn.prop('disabled', true);
+
+            }).fail(function () {
+                //add information
+                if ($('.registration-form-state').length === 0) {
+                    const $state = $("<p class='registration-form-state'>Wysyłanie wiadomości nie powiodło się.<br>Spróbuj ponownie za chwilę.</p>");
+                    btn.after($state);
+                }
+            });
+        }
     });
 }
+
 
 function getDate(url) {
     const dateSelect = $(".date-select");
