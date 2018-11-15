@@ -49,6 +49,7 @@ function contact() {
         const errors = [];
 
         $(".contact-form-errors").remove();
+        $('.contact-form-state').remove();
 
         if (nameVal==='') {
             name.css("border","1px solid red");
@@ -107,6 +108,8 @@ function contact() {
                 fields.css("border","1px solid #ccc");
 
                 //add information
+                $('.contact-form-state').remove();
+
                 const $state = $("<p class='contact-form-state'>Wiadomość została wysłana</p>");
                 btn.after( $state );
 
@@ -119,8 +122,10 @@ function contact() {
                 btn.prop('disabled', true);
             }).fail(function(){
                 //add information
-                const $state = $("<p class='contact-form-state'>Wysyłanie wiadomości nie powiodło się.<br>Spróbuj ponownie za chwilę.</p>");
-                btn.after( $state );
+                if ($('.contact-form-state').length === 0) {
+                    const $state = $("<p class='contact-form-state'>Wysyłanie wiadomości nie powiodło się.<br>Spróbuj ponownie za chwilę.</p>");
+                    btn.after($state);
+                }
             });
         }
     });
