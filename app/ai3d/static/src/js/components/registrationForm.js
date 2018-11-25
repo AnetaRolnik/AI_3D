@@ -2,7 +2,20 @@ function register() {
     const trainingSelect = $(".training-select");
     const firstOption = trainingSelect.find('option:first-child')[0].value;
 
+    function getDate(url) {
+        const dateSelect = $(".date-select");
+        $.ajax({
+            url: url,
+        }).done(function (res) {
+            dateSelect.children().length>0 ? dateSelect.empty() : null;
+            $.map(res, function (el) {
+                return dateSelect.append("<option id="+el.id+">" + el.data + "</option>");
+            });
+        });
+    }
+
     getDate("training/"+firstOption);
+
     trainingSelect.change(function() {
         const selectVal = $(this).find('option:selected').val();
         getDate("training/"+selectVal);
@@ -11,72 +24,80 @@ function register() {
 
     $(".training-registration-form").on("submit", function(event) {
         event.preventDefault();
-        const name = $('#userName');
-        const surname = $('#userSurname');
-        const email = $('#userEmail');
-        const phone = $('#userTel');
-        const fields = $('.registration-form-input');
+        const name = $('#userName'),
+            surname = $('#userSurname'),
+            email = $('#userEmail'),
+            phone = $('#userTel'),
+            fields = $('.registration-form-input'),
 
-        const nameVal = name.val();
-        const surnameVal = surname.val();
-        const emailVal = email.val();
-        const phoneVal = phone.val();
-        const optionId = $('.date-select option:selected')[0].id;
+            nameVal = name.val(),
+            surnameVal = surname.val(),
+            emailVal = email.val(),
+            phoneVal = phone.val(),
+            optionId = $('.date-select option:selected')[0].id,
 
-        const btn = $('.registration-form-btn');
+            btn = $('.registration-form-btn'),
 
-        const regexEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-        const regexPhone =  /^[0-9]{6,12}$/;
-        const errors = [];
-
-        $(".registration-form-errors").remove();
-        $('.registration-form-state').remove();
+            //validation form
+            regexEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+            regexPhone =  /^[0-9]{6,12}$/;
 
         if (nameVal==='') {
-            name.css("border","1px solid red");
+            name.next().remove();
+            name.after($("<span class='tooltiptext'>Uzupełnij pole</span>"));
+            name.parent().addClass('tooltip');
+            name.css("borderColor","red");
         } else {
-            name.css("border","1px solid #ccc");
+            name.next().remove();
+            name.parent().removeClass('tooltip');
+            name.css("borderColor","#ccc");
         }
 
         if (surnameVal==='') {
-            surname.css("border","1px solid red");
+            surname.next().remove();
+            surname.after($("<span class='tooltiptext'>Uzupełnij pole</span>"));
+            surname.parent().addClass('tooltip');
+            surname.css("borderColor","red");
         } else {
-            surname.css("border","1px solid #ccc");
+            surname.next().remove();
+            surname.parent().removeClass('tooltip');
+            surname.css("borderColor","#ccc");
         }
 
-        if (!regexEmail.test(emailVal)) {
-            email.css("border","1px solid red");
+        if (emailVal==='') {
+            email.next().remove();
+            email.after($("<span class='tooltiptext'>Uzupełnij pole</span>"));
+            email.parent().addClass('tooltip');
+            email.css("borderColor", "red");
+        } else if (emailVal!=='' && !regexEmail.test(emailVal)) {
+            email.next().remove();
+            email.after($("<span class='tooltiptext'>Wpisz poprawny email</span>"));
+            email.parent().addClass('tooltip');
+            email.css("borderColor", "red");
         } else {
-            email.css("border","1px solid #ccc");
+            email.next().remove();
+            email.parent().removeClass('tooltip');
+            email.css("borderColor","#ccc");
         }
 
-        if (!regexPhone.test(phoneVal)) {
-            phone.css("border","1px solid red");
+        if (phoneVal==='') {
+            phone.next().remove();
+            phone.after($("<span class='tooltiptext'>Uzupełnij pole</span>"));
+            phone.parent().addClass('tooltip');
+            phone.css("borderColor", "red");
+        } else if (phoneVal!=='' && !regexPhone.test(phoneVal)) {
+            phone.next().remove();
+            phone.after($("<span class='tooltiptext'>Wpisz poprawny numer</span>"));
+            phone.parent().addClass('tooltip');
+            phone.css("borderColor", "red");
         } else {
-            phone.css("border","1px solid #ccc");
+            phone.next().remove();
+            phone.parent().removeClass('tooltip');
+            phone.css("borderColor","#ccc");
         }
 
-        if (nameVal==='' || surnameVal==='' || emailVal==='' || phoneVal==='') {
-            errors.push('Uzupełnij puste pola');
-        }
 
-        if (emailVal!=='' && !regexEmail.test(emailVal)) {
-            errors.push('Wpisz poprawny adres email');
-        }
-
-        if (phoneVal!=='' && !regexPhone.test(phoneVal)) {
-            errors.push('Wpisz poprawny numer telefonu');
-        }
-
-        if (errors.length > 0) {
-            const $errorContainer = $("<div class='registration-form-errors'><span><b>Niepoprawne dane</b></span></div>");
-            $.map(errors, function(error) {
-                return $errorContainer.append("<span class='registration-form-error'>"+error+"</span>");
-            });
-            btn.after( $errorContainer );
-        }
-
-        if (nameVal!=='' && surnameVal!=='' && regexEmail.test(emailVal)) {
+        if (nameVal!=='' && surnameVal!=='' && regexEmail.test(emailVal) && regexPhone.test(phoneVal)) {
             $.ajax({
                 url: "training",
                 method: "POST",
@@ -90,11 +111,10 @@ function register() {
             }).done(function () {
                 //clear fields
                 fields.val('');
-                fields.css("border", "1px solid #ccc");
+                fields.css("borderColor", "#ccc");
 
                 //add information
                 $('.registration-form-state').remove();
-
                 const $state = $("<p class='registration-form-state'>Wiadomość została wysłana</p>");
                 btn.after($state);
 
@@ -116,20 +136,5 @@ function register() {
         }
     });
 }
-
-
-function getDate(url) {
-    const dateSelect = $(".date-select");
-
-    $.ajax({
-        url: url,
-    }).done(function (res) {
-        dateSelect.children().length>0 ? dateSelect.empty() : null;
-        $.map(res, function (el) {
-            return dateSelect.append("<option id="+el.id+">" + el.data + "</option>");
-        });
-    });
-}
-
 
 export default register;
