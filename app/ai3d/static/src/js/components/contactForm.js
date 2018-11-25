@@ -32,67 +32,72 @@ function contact() {
     $(".contact-form").on("submit", function(event){
         event.preventDefault();
 
-        const name = $('#contactName');
-        const surname = $('#contactSurname');
-        const email =  $('#contactEmail');
-        const message = $('#contactMessage');
-        const fields = $(".contact-form .field");
+        const name = $('#contactName'),
+            surname = $('#contactSurname'),
+            email =  $('#contactEmail'),
+            message = $('#contactMessage'),
+            fields = $(".contact-form .field"),
 
-        const nameVal = name.val();
-        const surnameVal = surname.val();
-        const emailVal = email.val();
-        const messageVal = message.val();
+            nameVal = name.val(),
+            surnameVal = surname.val(),
+            emailVal = email.val(),
+            messageVal = message.val(),
 
-        const btn = $(".contact-form-btn");
+            btn = $(".contact-form-btn"),
 
-        const regexEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-        const errors = [];
-
-        $(".contact-form-errors").remove();
-        $('.contact-form-state').remove();
+            //form validation
+            regexEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
         if (nameVal==='') {
-            name.css("border","1px solid red");
+            name.next().remove();
+            name.after($("<span class='tooltiptext'>Uzupełnij pole</span>"));
+            name.parent().addClass('tooltip');
+            name.css("borderColor","red");
         } else {
-            name.css("border","1px solid #ccc");
+            name.next().remove();
+            name.parent().removeClass('tooltip');
+            name.css("borderColor","#ccc");
         }
 
         if (surnameVal==='') {
-            surname.css("border","1px solid red");
+            surname.next().remove();
+            surname.after($("<span class='tooltiptext'>Uzupełnij pole</span>"));
+            surname.parent().addClass('tooltip');
+            surname.css("borderColor","red");
         } else {
-            surname.css("border","1px solid #ccc");
+            surname.next().remove();
+            surname.parent().removeClass('tooltip');
+            surname.css("borderColor","#ccc");
         }
 
-        if (!regexEmail.test(emailVal)) {
-            email.css("border","1px solid red");
+        if (emailVal==='') {
+            email.next().remove();
+            email.after($("<span class='tooltiptext'>Uzupełnij pole</span>"));
+            email.parent().addClass('tooltip');
+            email.css("borderColor", "red");
+        } else if (emailVal!=='' && !regexEmail.test(emailVal)) {
+            email.next().remove();
+            email.after($("<span class='tooltiptext'>Wpisz poprawny email</span>"));
+            email.parent().addClass('tooltip');
+            email.css("borderColor", "red");
         } else {
-            email.css("border","1px solid #ccc")
+            email.next().remove();
+            email.parent().removeClass('tooltip');
+            email.css("borderColor","#ccc");
         }
 
-        if (nameVal==='' || surnameVal==='' || emailVal==='' || messageVal==='') {
-            errors.push('Uzupełnij puste pola');
-        }
-
-        if (emailVal!=='' && !regexEmail.test(emailVal)) {
-            errors.push('Wpisz poprawny adres email')
-        }
-
-        if (messageVal.length < 8 || messageVal.length > 200) {
-            message.css("border","1px solid red");
-            errors.push("W wiadomości użyj co najmniej 8 znaków");
+        if (messageVal==='' || messageVal.length < 8) {
+            message.next().remove();
+            message.after($("<span class='tooltiptext'>Wpisz co najmniej 8 znaków</span>"));
+            message.parent().addClass('tooltip');
+            message.css("borderColor", "red");
         } else {
-            message.css("border","1px solid #ccc");
+            email.next().remove();
+            email.parent().removeClass('tooltip');
+            email.css("borderColor","#ccc");
         }
 
-        if (errors.length > 0) {
-            const $errorContainer = $("<div class='contact-form-errors'><span><b>Niepoprawne dane</b></span></div>");
-            $.map(errors, function(error) {
-                return $errorContainer.append("<span class='contact-form-error'>"+error+"</span>");
-            });
-            btn.after( $errorContainer );
-        }
-
-        if (nameVal!=='' && surnameVal!=='' && regexEmail.test(emailVal) && messageVal.length>=8 && messageVal.length<=200) {
+        if (nameVal!=='' && surnameVal!=='' && regexEmail.test(emailVal) && messageVal.length>=8) {
             $.ajax({
                 url: "contact",
                 method: "POST",
@@ -105,11 +110,10 @@ function contact() {
             }).done(function(){
                 //clear fields
                 fields.val("");
-                fields.css("border","1px solid #ccc");
+                fields.css("borderColor","#ccc");
 
                 //add information
                 $('.contact-form-state').remove();
-
                 const $state = $("<p class='contact-form-state'>Wiadomość została wysłana</p>");
                 btn.after( $state );
 
@@ -120,6 +124,7 @@ function contact() {
                     "cursor" : "not-allowed"
                 });
                 btn.prop('disabled', true);
+
             }).fail(function(){
                 //add information
                 if ($('.contact-form-state').length === 0) {

@@ -41,7 +41,7 @@
 .training-select,
 .date-select{
   @include input;
-  width: 75%;
+  width: 70%;
 }
 
 .registration-form-label {
@@ -59,11 +59,11 @@
   margin: 10px 0 0;
 }
 
-.tooltip {
+.training .tooltip {
   position: relative;
 }
 
-.tooltip .tooltiptext {
+.training .tooltip .tooltiptext {
   visibility: hidden;
   width: 180px;
   background-color: #555;
@@ -74,14 +74,13 @@
   position: absolute;
   z-index: 1;
   bottom: 120%;
-  left: 75%;
+  left: 65%;
   transform: translate(-50%,0);
-  margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-.tooltip .tooltiptext::after {
+.training .tooltip .tooltiptext::after {
   content: "";
   position: absolute;
   top: 100%;
@@ -91,7 +90,7 @@
   border-top-color: #555;
 }
 
-.tooltip:hover .tooltiptext {
+.training .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
 }
