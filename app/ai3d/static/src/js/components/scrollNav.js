@@ -15,20 +15,14 @@ function scrollNav() {
                 sections.removeClass('active');
 
                 $(this).addClass('active');
-                nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
+
+                if ($(this).attr('id') !== undefined) {
+                    nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
+                } else {
+                    nav.find('a[href="#' + $(this).parent().attr('id') + '"]').addClass('active');
+                }
             }
         });
-    });
-
-    nav.find('a').on('click', function () {
-        const $el = $(this)
-            , id = $el.attr('href');
-
-        $('html, body').animate({
-            scrollTop: $(id).offset().top
-        }, 500);
-
-        return false;
     });
 }
 
