@@ -25,21 +25,23 @@
 }
 
 .aboutUs-features::after {
-  @include pseudo-element($width: 1px, $height: 90%);
-  background: #eee;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(0, 5%);
-}
-
-.aboutUs-features::before {
   @include pseudo-element($width: 90%, $height: 1px);
   background: #eee;
   position: absolute;
   top: 50%;
   left: 0;
   transform: translate(5%, 0);
+  z-index: 1;
+}
+
+.aboutUs-features:before {
+  @include pseudo-element($width: 1px, $height: 90%);
+  background: #eee;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(0, 5%);
+  z-index: 1;
 }
 
 .aboutUs-feature {

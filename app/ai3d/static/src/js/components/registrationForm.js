@@ -115,7 +115,7 @@ function register() {
 
                 //add information
                 $('.registration-form-state').remove();
-                const $state = $("<p class='registration-form-state'>Wiadomość została wysłana</p>");
+                const $state = $("<p class='registration-form-state'>Zapisałeś się na szkolenie</p>");
                 btn.after($state);
 
                 //change style btn
@@ -129,7 +129,7 @@ function register() {
             }).fail(function () {
                 //add information
                 if ($('.registration-form-state').length === 0) {
-                    const $state = $("<p class='registration-form-state'>Wysyłanie wiadomości nie powiodło się.<br>Spróbuj ponownie za chwilę.</p>");
+                    const $state = $("<p class='registration-form-state'>Zapisanie nie powiodło się. Spróbuj ponownie za chwilę</p>");
                     btn.after($state);
                 }
             });

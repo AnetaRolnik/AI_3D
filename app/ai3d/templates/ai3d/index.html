@@ -6,15 +6,23 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AI3D</title>
+    <title>Akademia Inwentaryzacji</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;subset=latin-ext" rel="stylesheet">
+    <!--css-->
     <link rel="stylesheet" href="../../static/ai3d/css/style.min.css">
 
+    <!--jquery & js-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="../../static/ai3d/js/bundle.min.js"></script>
 
-    <!-- mapbox -->
+    <!--cdn font-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;subset=latin-ext" rel="stylesheet">
+
+    <!--cdn aos-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!--cdn mapbox-->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet' />
 
@@ -54,15 +62,17 @@
 
 
     <header class="main-header scrolled" id="mainHeader">
-        <!-- animation or sliding pictures here-->
         <div class="container">
-            <h1 class="main-header-title">
+            <h1 class="main-header-title"
+                data-aos="zoom-in" data-aos-delay="500" data-aos-duration="1000" data-aos-once="true">
                 Logo
-            </h1> <!-- logo here -->
-            <p class="main-header-text">
+            </h1>
+            <p class="main-header-text"
+               data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000" data-aos-once="true">
                 AKADEMIA INWENTARYZACJI 3D
             </p>
-            <a href="#aboutUs" class="main-header-btn">
+            <a href="#aboutUs" class="main-header-btn"
+               data-aos="fade-up" data-aos-delay="1500" data-aos-duration="1000" data-aos-once="true">
                 Dowiedz się więcej
             </a>
         </div>
@@ -123,28 +133,36 @@
                     Co osiągniesz dzięki udziałowi w szkoleniu?
                 </h2>
                 <ul class="training-description-list">
-                    <li class="training-description-list-elem">
+                    <li class="training-description-list-elem"
+                        data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                         Dowiesz się, na czym opiera się nowoczesna technologia inwentaryzacji obiektów architektonicznych oraz poznasz zagadnienia związane ze skanowaniem i modelowaniem 3D budynków.
                     </li>
-                    <li class="training-description-list-elem">
+                    <li class="training-description-list-elem"
+                        data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" data-aos-once="true">
                         Nauczysz się, jak stosować nowoczesne technologie inwentaryzacji 3D dla różnego typu obiektów architektonicznych i jak określić najbardziej optymalny rodzaj dokumentacji końcowej.
                     </li>
-                    <li class="training-description-list-elem">
+                    <li class="training-description-list-elem"
+                        data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" data-aos-once="true">
                         Uzyskasz umiejętność radzenia sobie w środowisku 3D, posługując się różnego rodzaju aplikacjami i narzędziami.
                     </li>
-                    <li class="training-description-list-elem">
+                    <li class="training-description-list-elem"
+                        data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600" data-aos-once="true">
                         Poznasz i przećwiczysz każdy etap inwentaryzacji 3D zabytkowego budynku o skomplikowanej geometrii.
                     </li>
-                    <li class="training-description-list-elem">
+                    <li class="training-description-list-elem"
+                        data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800" data-aos-once="true">
                         Dowiesz się, co można skanować, jakich rezultatów prac pomiarowych należy oczekiwać, jakie są najczęściej popełniane błędy przy pracach pomiarowych 3D i jakie są sposoby ich przygotowywania oraz kontroli.
                     </li>
-                    <li class="training-description-list-elem">
+                    <li class="training-description-list-elem"
+                        data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" data-aos-once="true">
                         Uzyskasz wiedzę praktyczną dotyczącą dokładnego odwzorowania danych 3D w dokumentacji płaskiej 2D CAD oraz dowiesz się, na co należy zwrócić uwagę w trakcie przygotowywania tego typu opracowań.
                     </li>
-                    <li class="training-description-list-elem">
+                    <li class="training-description-list-elem"
+                        data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1200" data-aos-once="true">
                         Dowiesz się, jak przygotować modele 3D na bazie chmury punktów, jakie oprogramowanie należy wykorzystać.
                     </li>
-                    <li class="training-description-list-elem">
+                    <li class="training-description-list-elem"
+                        data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1400" data-aos-once="true">
                         Uzyskasz wiedzę praktyczną dotyczącą realizacji projektów związanych z inwentaryzacją 3D - jakie  dokładności można uzyskać w odniesieniu do zakładanego czasu oraz prognozowanych kosztów.
                     </li>
                 </ul>
@@ -184,7 +202,9 @@
 
         <section class="training-registration scrolled">
             <div class="container">
-                <h3 class="training-registration-title">Nie czekaj, zapisz się na szkolenie już dziś!</h3>
+                <h3 class="training-registration-title">
+                    Nie czekaj, zapisz się na szkolenie już dziś!
+                </h3>
                 <form class="training-registration-form">
                     <div class="registration-form-container">
                         <select class="registration-form-row training-select">
@@ -272,10 +292,12 @@
     <footer class="main-footer">
         <div class="container">
             <ul class="main-footer-list">
-                <li class="main-footer-list-elem copyright">
+                <li class="main-footer-list-elem copyright"
+                    data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1000" data-aos-once="true">
                     &copy; 2018 All rights reserved.
                 </li>
-                <li class="main-footer-list-elem authors">
+                <li class="main-footer-list-elem authors"
+                    data-aos="fade-left" data-aos-duration="1000" data-aos-delay="1000" data-aos-once="true">
                     Design: <strong>A&J</strong>
                 </li>
             </ul>

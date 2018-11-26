@@ -5,6 +5,7 @@ import contact from "./components/contactForm";
 import register from "./components/registrationForm";
 
 document.addEventListener("DOMContentLoaded", function(){
+    AOS.init();
     setHeight();
     scrollNav();
     map();

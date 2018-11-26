@@ -3,5 +3,5 @@
 @import "./training-registration";
 
 .training {
-  @include position-size($primary-value*3vh);
+  @include position-size($primary-value*18px);
 }
