@@ -1,5 +1,4 @@
 from django.contrib import admin
-
 from .models import Message, Client, Training, Course
 
 
@@ -16,8 +15,12 @@ class TrainingAdmin(admin.ModelAdmin):
     ordering = ('date',)
     search_fields = ('type__name', 'name', 'date',
                      'participants__first_name', 'participants__last_name',)
-    list_display = ['name', 'type', 'date', 'list_of_participants', ]
-    readonly_fields = ['participants']
+    list_display = ['name', 'type', 'date', 'participants_list', ]
+
+    def participants_list(self, obj):
+        return ", ".join([
+            participant.get_full_name for participant in obj.participants.all()
+        ])
 
 
 class CourseAdmin(admin.ModelAdmin):

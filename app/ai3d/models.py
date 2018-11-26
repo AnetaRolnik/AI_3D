@@ -71,13 +71,10 @@ class Training(models.Model):
             'data': self.date.strftime("%d.%m.%Y - %H:%M")
         }
 
-    def list_of_participants(self):
-        return ", ".join([p.get_full_name for p in self.participants.all()])
-
 
 def sign_up_for_training(sender, action='pre_add', **kwargs):
     instance = kwargs.get('instance')
-    if instance.participants_limit == instance.participants.count():
+    if instance.participants_limit <= instance.participants.count():
         instance.sign_ups_closed = True
         instance.save()
         raise ValidationError("You can't assign more clients than participants_limit")
