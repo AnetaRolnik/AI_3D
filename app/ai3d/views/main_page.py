@@ -42,12 +42,11 @@ class TrainingApi(APIView):
         return [t.to_dict() for t in trainings_qs]
 
     def post(self, request):
-        data = request.data
-        form = TrainingSignUpForm(data)
+        form = TrainingSignUpForm(request.data)
         if not form.is_valid():
             return Response(form.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        if not sign_up_for_training(create_user_from_form(form), data.get('id')):
+        if not sign_up_for_training(create_user_from_form(form), request.data.get('id')):
             return Response({'error': 'Max user limit reached'},
                             status=status.HTTP_200_OK)
 
@@ -78,5 +77,5 @@ def sign_up_for_training(client, training_id):
         training.participants.add(client)
     except ValidationError:
         return False
-
+    return True
 
