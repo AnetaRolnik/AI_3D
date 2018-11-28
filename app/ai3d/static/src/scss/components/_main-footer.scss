@@ -10,3 +10,10 @@
   margin: 0;
   list-style: none;
 }
+
+
+@media(max-width: 960px) {
+  .main-footer {
+    @include position-size($height: 8vh, $margin-left: 0);
+  }
+}

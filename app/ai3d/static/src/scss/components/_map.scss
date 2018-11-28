@@ -1,5 +1,5 @@
 .map {
-  @include position-size(92vh);
+  @include position-size($height: 92vh);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -21,4 +21,11 @@
   color: #111111;
   font-family: 'Lato', sans-serif;
   font-size: 14px;
+}
+
+
+@media(max-width: 960px) {
+  .map{
+    @include position-size($height: 92vh, $margin-left: 0);
+  }
 }

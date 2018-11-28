@@ -8,13 +8,15 @@
 
 .training-description-title {
   @include title-section;
+  margin-bottom: 30px;
 }
 
 .training-description-list {
-  margin-top: 40px;
   font-size: 18px;
   line-height: 20px;
   list-style: none;
+  margin: 10px 0;
+  padding-left: 30px;
 }
 
 .training-description-list-elem {
@@ -22,9 +24,14 @@
   position: relative;
 }
 
+.training-description-list-elem:last-child {
+  margin-bottom: 0;
+}
+
+
 .training-description-list-elem::before{
   @include pseudo-element($width: 20px, $height: 20px);
-  background-image: url("../images/check.svg");
+  background: url("../images/check.svg") left;
   position: absolute;
   top: 0;
   left: -30px;

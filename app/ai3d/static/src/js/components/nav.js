@@ -1,8 +1,9 @@
-function scrollNav() {
+function nav() {
 
     const sections = $('.scrolled');
     const nav = $('.main-nav');
 
+    //add active class
     $(window).on('scroll', function () {
         const cur_pos = $(this).scrollTop();
 
@@ -24,6 +25,17 @@ function scrollNav() {
             }
         });
     });
+
+    //add class to horizontal menu
+    if ($(window).width() < 1140) {
+        $(window).on('scroll', function () {
+            if (window.scrollY > 100) {
+                nav.addClass('nav-fixed');
+            } else {
+                nav.removeClass('nav-fixed');
+            }
+        })
+    }
 }
 
-export default scrollNav;
+export default nav;

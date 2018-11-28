@@ -61,3 +61,11 @@
   height: 600%;
 }
 
+
+@media(max-width: 960px) {
+  .main-header {
+    @include position-size($margin-left: 0);
+  }
+}
+
+

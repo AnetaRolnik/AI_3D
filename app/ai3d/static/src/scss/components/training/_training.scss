@@ -5,3 +5,11 @@
 .training {
   @include position-size($primary-value*18px);
 }
+
+
+@media(max-width: 960px) {
+  .training  {
+    @include position-size($margin-left: 0);
+  }
+}
+

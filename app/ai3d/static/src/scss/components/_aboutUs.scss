@@ -28,7 +28,7 @@
   @include pseudo-element($width: 90%, $height: 1px);
   background: #eee;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 15px);
   left: 0;
   transform: translate(5%, 0);
   z-index: 1;
@@ -58,6 +58,10 @@
   position: relative;
 }
 
+.aboutUs-feature-text {
+  font-size: 18px;
+  margin: 15px 0;
+}
 
 //icons
 .aboutUs-feature-title::after {
@@ -86,7 +90,9 @@
   background-image: url("../images/edit.svg");
 }
 
-.aboutUs-feature-text {
-  font-size: 18px;
-  margin: 15px 0 0;
+
+@media(max-width: 960px) {
+  .aboutUs {
+    @include position-size($margin-left: 0);
+  }
 }

@@ -27,6 +27,13 @@
 }
 
 
+@media(max-width: 960px) {
+  .contact{
+    @include position-size($margin-left: 0);
+  }
+}
+
+
 
 
 
