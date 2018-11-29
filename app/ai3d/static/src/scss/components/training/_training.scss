@@ -7,7 +7,7 @@
 }
 
 
-@media(max-width: 960px) {
+@media(max-width: 1140px) {
   .training  {
     @include position-size($margin-left: 0);
   }

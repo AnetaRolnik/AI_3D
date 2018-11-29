@@ -8,7 +8,7 @@
 
 .training-description-title {
   @include title-section;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .training-description-list {
@@ -20,7 +20,7 @@
 }
 
 .training-description-list-elem {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   position: relative;
 }
 
@@ -35,4 +35,20 @@
   position: absolute;
   top: 0;
   left: -30px;
+}
+
+@media(max-width: 960px) {
+  .training-description-title {
+    @include title-section($fontSize: 28px);
+    margin-bottom: 18px;
+  }
+
+  .training-description-list {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .training-description-list-elem {
+    margin-bottom: 18px;
+  }
 }

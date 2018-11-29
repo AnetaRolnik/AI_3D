@@ -50,49 +50,73 @@
   padding: 40px;
   background: #fff;
   text-align: left;
+  position: relative;
 }
 
 .aboutUs-feature-title {
   font-size: 20px;
   margin:0;
-  position: relative;
 }
 
 .aboutUs-feature-text {
   font-size: 18px;
   margin: 15px 0;
+
+  a {
+    text-decoration: none;
+    font-weight: 700;
+    color: black;
+    cursor: pointer;
+  }
 }
 
 //icons
-.aboutUs-feature-title::after {
+.aboutUs-feature::after {
   @include pseudo-element;
   position: absolute;
   top: 0;
   right: 0;
   background: no-repeat center;
   background-size: 40px;
-  transform: translate(50%,-50%);
+  transform: translate(-50%, 50%);
 }
 
-#firstFeature .aboutUs-feature-title::after {
+#firstFeature::after {
   background-image: url("../images/chalkboard-teacher.svg");
 }
 
-#secondFeature .aboutUs-feature-title::after {
+#secondFeature::after {
   background-image: url("../images/user-tie.svg");
 }
 
-#thirdFeature .aboutUs-feature-title::after {
+#thirdFeature::after {
   background-image: url("../images/laptop.svg");
 }
 
-#fourthFeature .aboutUs-feature-title::after {
+#fourthFeature::after {
   background-image: url("../images/edit.svg");
 }
 
 
-@media(max-width: 960px) {
+@media(max-width: 1140px) {
   .aboutUs {
     @include position-size($margin-left: 0);
+  }
+}
+
+
+@media(max-width: 960px) {
+  .aboutUs-title {
+    @include title-section($fontSize: 28px);
+  }
+
+  .aboutUs-feature {
+    padding: 25px;
+  }
+
+  //icons
+  .aboutUs-feature::after {
+    @include pseudo-element($width: 40px, $height: 40px);
+    background-size: 35px;
   }
 }

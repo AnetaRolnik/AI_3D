@@ -94,3 +94,16 @@
   visibility: visible;
   opacity: 1;
 }
+
+
+@media(max-width: 960px) {
+  .training-registration-title{
+    @include title-section($fontSize: 28px);
+    margin-bottom: 40px;
+  }
+
+  .training-registration-form {
+    width: 65%;
+    height: 75%;
+  }
+}

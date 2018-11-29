@@ -24,7 +24,7 @@
 }
 
 
-@media(max-width: 960px) {
+@media(max-width: 1140px) {
   .map{
     @include position-size($height: 92vh, $margin-left: 0);
   }

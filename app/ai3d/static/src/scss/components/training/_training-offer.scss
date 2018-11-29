@@ -24,6 +24,17 @@
 .training-offer-list {
   font-size: 18px;
   line-height: 25px;
-  padding-left: 0;
+  padding: 0 15px;
   list-style: none;
+}
+
+
+@media(max-width: 960px) {
+  .training-offer-title {
+    font-size: 18px;
+  }
+
+  .training-offer-list {
+    font-size: 16px;
+  }
 }

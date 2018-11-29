@@ -22,16 +22,30 @@
 }
 
 .contact-section{
-  @include flex($justify: space-between);
+  @include flex($justify: space-between, $align: top);
   width: $primary-value*1%;
 }
 
 
-@media(max-width: 960px) {
+@media(max-width: 1140px) {
   .contact{
     @include position-size($margin-left: 0);
   }
 }
+
+
+@media(max-width: 960px) {
+  .contact-title {
+    @include title-section($fontSize: 28px);
+  }
+
+  .contact-text {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
+
 
 
 

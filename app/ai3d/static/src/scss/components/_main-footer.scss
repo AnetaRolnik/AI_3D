@@ -12,7 +12,7 @@
 }
 
 
-@media(max-width: 960px) {
+@media(max-width: 1140px) {
   .main-footer {
     @include position-size($height: 8vh, $margin-left: 0);
   }
