@@ -27,7 +27,7 @@ function nav() {
     });
 
     //add class to horizontal menu
-    if ($(window).width() < 1140) {
+    if ($(window).width() < 1140 && $(window).width() > 720) {
         $(window).on('scroll', function () {
             if (window.scrollY > 100) {
                 nav.addClass('nav-fixed');
@@ -36,6 +36,16 @@ function nav() {
             }
         })
     }
+
+    //hamburger menu
+    const btn = $('.main-nav-toggle');
+    const list = $('.main-nav-list');
+
+    btn.on('click', function(e) {
+        e.preventDefault();
+        list.toggleClass('show');
+        btn.toggleClass('anim');
+    })
 }
 
 export default nav;
