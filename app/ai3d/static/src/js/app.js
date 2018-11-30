@@ -1,18 +1,23 @@
-import setHeight from "./components/setHeight";
-import nav from "./components/nav";
+import activeLinks from "./components/mainNav/activeLinks";
+import horizontalMenu from "./components/mainNav/horizonatalMenu";
+import hamburgerMenu from "./components/mainNav/hamburgerMenu";
+import contact from "./components/contact";
+import register from "./components/training";
 import map from "./components/map";
-import contact from "./components/contactForm";
-import register from "./components/registrationForm";
 
-document.addEventListener("DOMContentLoaded", function(){
+
+$(function() {
     AOS.init();
 
-    setHeight();
-    nav();
+    activeLinks();
+    horizontalMenu();
+    hamburgerMenu();
     register();
     contact();
     map();
 });
+
+$( window ).resize(horizontalMenu);
 
 
 

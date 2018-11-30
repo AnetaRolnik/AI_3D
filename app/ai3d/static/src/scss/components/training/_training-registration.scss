@@ -1,5 +1,5 @@
 .training-registration {
-  min-height: $primary-value*6px;
+  @include position-size;
 }
 
 .training-registration .container {
@@ -93,6 +93,13 @@
 .training .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
+}
+
+
+@media(max-width: 1140px) {
+  .training-registration {
+    @include position-size($margin-left: 0);
+  }
 }
 
 

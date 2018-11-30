@@ -1,6 +1,6 @@
 .training-offer {
+  @include position-size;
   background: #eee;
-  min-height: $primary-value*6px;
 }
 
 .training-offer .container {
@@ -26,4 +26,11 @@
   line-height: 25px;
   padding: 0 15px;
   list-style: none;
+}
+
+
+@media(max-width: 1140px) {
+  .training-offer {
+    @include position-size($margin-left: 0);
+  }
 }

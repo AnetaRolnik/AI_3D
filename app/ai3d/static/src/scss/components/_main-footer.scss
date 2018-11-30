@@ -1,5 +1,5 @@
 .main-footer {
-  @include position-size($height: 8vh);
+  @include position-size($min-height: 8vh, $height: 8vh);
   background: #ccc;
 }
 
@@ -14,6 +14,6 @@
 
 @media(max-width: 1140px) {
   .main-footer {
-    @include position-size($height: 8vh, $margin-left: 0);
+    @include position-size($min-height: 8vh, $height: 8vh, $margin-left: 0);
   }
 }
