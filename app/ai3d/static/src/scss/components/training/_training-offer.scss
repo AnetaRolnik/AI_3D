@@ -1,11 +1,13 @@
 .training-offer {
-  @include position-size;
+  height: 650px;
+  min-height: 50vh;
+  margin-left: 20%;
   background: #eee;
 }
 
 .training-offer .container {
   @include flex($wrap: wrap);
-  align-content: center
+  align-content: center;
 }
 
 .training-offer-img,
@@ -13,7 +15,7 @@
   @include flex($direction: column);
   background: white;
   width: 50%;
-  height: 280px;
+  height: 43%;
 }
 
 .training-offer-title {
@@ -31,6 +33,25 @@
 
 @media(max-width: 1140px) {
   .training-offer {
-    @include position-size($margin-left: 0);
+    margin-left: 0;
   }
 }
+
+
+@media(max-width: 960px) {
+  .training-offer-title {
+    font-size: 18px;
+  }
+
+  .training-offer-list {
+    font-size: 16px;
+    line-height: 25px;
+  }
+}
+
+
+@media(max-width: 720px) {
+
+}
+
+

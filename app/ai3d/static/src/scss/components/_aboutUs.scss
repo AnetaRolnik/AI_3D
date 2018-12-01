@@ -1,26 +1,30 @@
 .aboutUs {
-  @include position-size;
+  height: 650px;
+  min-height: 50vh;
+  margin-left: 20%;
   background: #eee;
 }
 
 .aboutUs .container {
   @include flex($direction: column);
-  height: $primary-value*1%;
 }
 
 .aboutUs-title {
-  @include title-section;
+  font-size: 34px;
+  margin: 20px 20px 10px;
+  text-align: center;
 }
 
 .aboutUs-text {
   font-size: 20px;
-  margin: 10px 0 20px;
+  margin: 0 0 30px;
 }
 
 .aboutUs-features {
   @include flex($wrap: wrap);
-  height: 78%;
+  height: 77%;
   width: $primary-value*1%;
+  margin-bottom: 30px;
   position: relative;
 }
 
@@ -28,7 +32,7 @@
   @include pseudo-element($width: 90%, $height: 1px);
   background: #eee;
   position: absolute;
-  top: calc(50% + 15px);
+  top: 50%;
   left: 0;
   transform: translate(5%, 0);
   z-index: 1;
@@ -55,16 +59,17 @@
 
 .aboutUs-feature-title {
   font-size: 20px;
-  margin:0;
+  margin: 0;
 }
 
 .aboutUs-feature-text {
   font-size: 18px;
-  margin: 15px 0;
+  margin: 25px 0 15px;
 
   a {
     text-decoration: none;
-    font-weight: 700;
+    border-bottom: 1px dotted #000;
+    padding-bottom: 1px;
     color: black;
     cursor: pointer;
   }
@@ -100,23 +105,72 @@
 
 @media(max-width: 1140px) {
   .aboutUs {
-    @include position-size($margin-left: 0);
+    margin-left: 0;
   }
 }
 
 
 @media(max-width: 960px) {
   .aboutUs-title {
-    @include title-section($fontSize: 28px);
+    font-size: 28px;
+  }
+
+  .aboutUs-text {
+    font-size: 18px;
   }
 
   .aboutUs-feature {
-    padding: 25px;
+    padding: 35px;
+  }
+
+  .aboutUs-feature-title {
+    font-size: 18px;
+  }
+
+  .aboutUs-feature-text {
+    font-size: 16px;
   }
 
   //icons
   .aboutUs-feature::after {
-    @include pseudo-element($width: 40px, $height: 40px);
     background-size: 35px;
   }
 }
+
+
+@media(max-width: 720px) {
+  .aboutUs {
+    height: 950px;
+    min-height: 50vh;
+  }
+
+  .aboutUs-features {
+    height: 85%;
+  }
+
+  .aboutUs-features::after {
+    @include pseudo-element($width: 0, $height: 0);
+  }
+
+  .aboutUs-features:before {
+    @include pseudo-element($width: 0, $height: 0);
+  }
+
+  .aboutUs-feature {
+    width: 100%;
+    height: 25%;
+  }
+
+  #firstFeature::before,
+  #secondFeature::before,
+  #thirdFeature::before {
+    @include pseudo-element($width: 90%, $height: 1px);
+    background: #eee;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translate(5%, 0);
+    z-index: 1;
+  }
+}
+

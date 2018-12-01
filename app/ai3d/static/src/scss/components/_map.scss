@@ -1,5 +1,7 @@
 .map {
-  @include position-size($height: 92vh);
+  height: 92vh;
+  min-height: 600px;
+  margin-left: 20%;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -26,6 +28,6 @@
 
 @media(max-width: 1140px) {
   .map{
-    @include position-size($height: 92vh, $margin-left: 0);
+    margin-left: 0;
   }
 }

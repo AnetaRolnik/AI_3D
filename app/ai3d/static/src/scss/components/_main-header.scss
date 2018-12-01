@@ -1,5 +1,7 @@
 .main-header {
-  @include position-size;
+  height: 100vh;
+  min-height: 600px;
+  margin-left: 20%;
 }
 
 .main-header .container {
@@ -14,6 +16,7 @@
 
 .main-header-text {
   font-size: 20px;
+  text-align: center;
 }
 
 //animated button
@@ -64,6 +67,7 @@
 
 @media(max-width: 1140px) {
   .main-header {
-    @include position-size($margin-left: 0);
+    margin-left: 0;
   }
 }
+

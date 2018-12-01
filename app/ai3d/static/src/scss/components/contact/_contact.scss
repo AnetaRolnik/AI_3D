@@ -2,7 +2,9 @@
 @import "contact-details";
 
 .contact{
-  @include position-size;
+  height: 620px;
+  min-height: 50vh;
+  margin-left: 20%;
   background: #eee;
 }
 
@@ -12,38 +14,55 @@
 }
 
 .contact-title {
-  @include title-section;
+  font-size: 34px;
+  text-align: center;
+  margin: 20px 20px 10px;
 }
 
 .contact-text {
   font-size: 20px;
   text-align: center;
-  margin-bottom: 40px;
+  margin: 0 20px 40px;
 }
 
 .contact-section{
   @include flex($justify: space-between, $align: top);
   width: $primary-value*1%;
+  margin-bottom: 20px;
 }
 
 
 @media(max-width: 1140px) {
   .contact{
-    @include position-size($margin-left: 0);
+    margin-left: 0;
   }
 }
 
 
 @media(max-width: 960px) {
   .contact-title {
-    @include title-section($fontSize: 28px);
+    font-size: 28px;
   }
 
   .contact-text {
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 30px;
+    font-size: 18px;
   }
+}
+
+
+@media(max-width: 720px) {
+  .contact{
+    height: 900px;
+  }
+
+  .contact-text {
+    font-size: 16px;
+  }
+
+  .contact-section{
+    @include flex($direction: column);
+  }
+
 }
 
 

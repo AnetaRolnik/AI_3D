@@ -1,5 +1,7 @@
 .training-registration {
-  @include position-size;
+  height: 620px;
+  min-height: 50vh;
+  margin-left: 20%;
 }
 
 .training-registration .container {
@@ -7,14 +9,16 @@
 }
 
 .training-registration-title{
-  @include title-section;
-  margin-bottom: 50px;
+  font-size: 34px;
+  margin: 20px 20px 50px;
+  text-align: center;
 }
 
 .training-registration-form {
   @include flex ($direction: column, $justify: flex-start);
   width: 50%;
   height: 70%;
+  margin-bottom: 20px;
 }
 
 .registration-form-container {
@@ -98,19 +102,27 @@
 
 @media(max-width: 1140px) {
   .training-registration {
-    @include position-size($margin-left: 0);
+    margin-left: 0;
   }
 }
 
 
 @media(max-width: 960px) {
   .training-registration-title{
-    @include title-section($fontSize: 28px);
-    margin-bottom: 40px;
+    font-size: 28px;
+    margin: 20px 20px 50px;
   }
 
   .training-registration-form {
-    width: 65%;
-    height: 75%;
+    width: 55%;
+    height: 70%;
+    margin-bottom: 20px;
+  }
+}
+
+
+@media(max-width: 720px) {
+  .training-registration-form {
+    width: 75%;
   }
 }

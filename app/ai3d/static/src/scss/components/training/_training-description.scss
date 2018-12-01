@@ -1,5 +1,7 @@
 .training-description {
-  @include position-size;
+  height: 620px;
+  min-height: 50vh;
+  margin-left: 20%;
 }
 
 .training-description .container {
@@ -7,8 +9,9 @@
 }
 
 .training-description-title {
-  @include title-section;
-  margin-bottom: 20px;
+  font-size: 34px;
+  margin: 20px 20px;
+  text-align: center;
 }
 
 .training-description-list {
@@ -20,14 +23,9 @@
 }
 
 .training-description-list-elem {
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   position: relative;
 }
-
-.training-description-list-elem:last-child {
-  margin-bottom: 0;
-}
-
 
 .training-description-list-elem::before{
   @include pseudo-element($width: 20px, $height: 20px);
@@ -40,23 +38,37 @@
 
 @media(max-width: 1140px) {
   .training-description {
-    @include position-size($margin-left: 0);
+    margin-left: 0;
   }
 }
 
 
 @media(max-width: 960px) {
   .training-description-title {
-    @include title-section($fontSize: 28px);
-    margin-bottom: 18px;
+    font-size: 28px;
+    margin: 20px 20px;
   }
 
   .training-description-list {
     font-size: 16px;
     line-height: 18px;
+    margin: 10px 0;
+    padding-left: 30px;
   }
 
   .training-description-list-elem {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
+  }
+
+  .training-description-list-elem::before{
+    @include pseudo-element($width: 20px, $height: 20px);
   }
 }
+
+
+@media(max-width: 720px) {
+  .training-description {
+    height: 720px;
+  }
+}
+

@@ -15,13 +15,18 @@ body {
   max-width: 1140px;
   height: 100%;
   margin: 0 auto;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding: 0 80px;
+}
+
+
+@media(max-width: 1140px) {
+  .container {
+    padding: 0 60px;
+  }
 }
 
 @media(max-width: 960px) {
   .container {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 0 40px;
   }
 }

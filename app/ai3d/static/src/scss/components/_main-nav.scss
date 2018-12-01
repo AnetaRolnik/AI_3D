@@ -51,7 +51,7 @@
   line-height: 60px;
   color: rgba(white, 0.5);
   transition: 0.5s;
-  margin-bottom: 10px;
+  margin: 5px;
 }
 
 .main-nav-list-link::after {
@@ -104,7 +104,7 @@
 
   .main-nav-list {
     @include flex($justify: flex-start);
-    margin: 0 20px;
+    margin: 20px;
   }
 
   .main-nav-list-elem {
@@ -152,31 +152,33 @@
   }
 }
 
+
 @media(max-width: 720px) {
   .main-nav{
-    @include flex($justify: flex-end, $align: flex-start);
     z-index: 1000;
     background: transparent;
   }
 
   .main-nav-list {
-    flex-direction: column;
+    @include flex($direction: column, $align: flex-end);
     position: fixed;
     top: 0;
     left:-240px;
     height: 100%;
-    width:240px;
+    width: 240px;
     background: rgba(#111111, 0.9);
     margin: 0;
-    padding: 40px 20px;
+    padding: 40px;
     transition: 0.5s;
   }
 
   .main-nav-list-link {
-    padding: 15px 0;
+    padding: 0;
     font-size: 20px;
     color: rgba(white, 0.8);
+    margin: 30px 0;
   }
+
 
   /*hamburger menu*/
   .main-nav-toggle {
