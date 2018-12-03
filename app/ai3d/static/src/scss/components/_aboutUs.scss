@@ -1,6 +1,5 @@
 .aboutUs {
   height: 650px;
-  min-height: 50vh;
   margin-left: 20%;
   background: #eee;
 }
@@ -11,7 +10,7 @@
 
 .aboutUs-title {
   font-size: 34px;
-  margin: 20px 20px 10px;
+  margin: 20px 0 10px;
   text-align: center;
 }
 
@@ -140,8 +139,7 @@
 
 @media(max-width: 720px) {
   .aboutUs {
-    height: 950px;
-    min-height: 50vh;
+    height: 850px;
   }
 
   .aboutUs-features {
@@ -171,6 +169,35 @@
     left: 0;
     transform: translate(5%, 0);
     z-index: 1;
+  }
+}
+
+
+@media(max-width: 540px) {
+  .aboutUs {
+    height: 1100px;
+  }
+
+  .aboutUs-features {
+    height: 90%;
+  }
+
+  .aboutUs-feature {
+    padding: 15px;
+  }
+
+  .aboutUs-text,
+  .aboutUs-feature-title{
+    font-size: 20px;
+  }
+
+  .aboutUs-feature-text {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+
+  .aboutUs-feature::after {
+    display: none;
   }
 }
 

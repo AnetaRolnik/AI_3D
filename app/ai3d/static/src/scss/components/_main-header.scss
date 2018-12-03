@@ -11,7 +11,7 @@
 
 .main-header-title {
   font-size: 60px;
-  margin: 20px;
+  margin: 20px 0;
 }
 
 .main-header-text {
@@ -68,6 +68,23 @@
 @media(max-width: 1140px) {
   .main-header {
     margin-left: 0;
+  }
+}
+
+
+@media(max-width: 540px) {
+  .main-header-title {
+    font-size: 52px;
+  }
+
+  .main-header-text {
+    font-size: 18px;
+  }
+
+  .main-header-btn{
+    padding: 14px 18px;
+    margin-top: 60px;
+    font-size: 14px;
   }
 }
 

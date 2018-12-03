@@ -163,9 +163,9 @@
     @include flex($direction: column, $align: flex-end);
     position: fixed;
     top: 0;
-    left:-240px;
+    left: -220px;
     height: 100%;
-    width: 240px;
+    width: 220px;
     background: rgba(#111111, 0.9);
     margin: 0;
     padding: 40px;

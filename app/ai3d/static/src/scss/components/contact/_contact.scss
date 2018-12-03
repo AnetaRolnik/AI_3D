@@ -3,7 +3,6 @@
 
 .contact{
   height: 620px;
-  min-height: 50vh;
   margin-left: 20%;
   background: #eee;
 }
@@ -16,13 +15,13 @@
 .contact-title {
   font-size: 34px;
   text-align: center;
-  margin: 20px 20px 10px;
+  margin: 20px 0 10px;
 }
 
 .contact-text {
   font-size: 20px;
   text-align: center;
-  margin: 0 20px 40px;
+  margin: 0 0 40px;
 }
 
 .contact-section{
@@ -62,7 +61,6 @@
   .contact-section{
     @include flex($direction: column);
   }
-
 }
 
 

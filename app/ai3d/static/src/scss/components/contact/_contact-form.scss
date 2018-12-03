@@ -4,7 +4,6 @@
 
 .contact-form-row:first-child {
   @include flex($justify: space-between);
-
   div {
     width: 49%;
   }
@@ -88,7 +87,7 @@
   .contact-form {
     @include flex($direction:column, $justify: flex-start);
     width: 100%;
-    height: 600px;
+    height: 620px;
   }
 
   .contact-form-row {
@@ -101,5 +100,21 @@
 
   .contact-form-state {
     text-align: center;
+  }
+}
+
+
+
+@media(max-width: 540px) {
+  .contact-form {
+    height: 640px;
+  }
+
+  .contact-form-state {
+    margin: 10px;
+  }
+
+  .contact-form-btn{
+    @include submitBtn($margin-top: 10px);
   }
 }

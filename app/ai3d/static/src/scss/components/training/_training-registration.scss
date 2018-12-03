@@ -1,6 +1,5 @@
 .training-registration {
   height: 620px;
-  min-height: 50vh;
   margin-left: 20%;
 }
 
@@ -10,7 +9,7 @@
 
 .training-registration-title{
   font-size: 34px;
-  margin: 20px 20px 50px;
+  margin: 20px 0 50px;
   text-align: center;
 }
 
@@ -48,6 +47,11 @@
   width: 70%;
 }
 
+.training-select,
+.date-select {
+  max-width: 70%;
+}
+
 .registration-form-label {
   font-size: 18px;
   font-weight: 700;
@@ -63,6 +67,7 @@
   margin: 10px 0 0;
 }
 
+//tooltips
 .training .tooltip {
   position: relative;
 }
@@ -124,5 +129,26 @@
 @media(max-width: 720px) {
   .training-registration-form {
     width: 75%;
+    height: 75%;
+  }
+}
+
+@media(max-width: 540px) {
+  .training-registration-form {
+    width: 100%;
+  }
+
+  .registration-form-input,
+  .training-select,
+  .date-select{
+    width: 68%;
+  }
+
+  .training-registration-title {
+    margin: 20px 0 40px;
+  }
+
+  .registration-form-container::before {
+    @include pseudo-element($width: 70px, $height: 70px);
   }
 }
