@@ -92,9 +92,9 @@ function contact() {
             message.parent().addClass('tooltip');
             message.css("borderColor", "red");
         } else {
-            email.next().remove();
-            email.parent().removeClass('tooltip');
-            email.css("borderColor","#ccc");
+            message.next().remove();
+            message.parent().removeClass('tooltip');
+            message.css("borderColor","#ccc");
         }
 
         if (nameVal!=='' && surnameVal!=='' && regexEmail.test(emailVal) && messageVal.length>=8) {
