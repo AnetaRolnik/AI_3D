@@ -1,3 +1,7 @@
+.contact-form {
+  width: 50%;
+}
+
 .contact-form-row {
   margin-bottom: 15px;
 }
@@ -26,12 +30,24 @@
   resize: none;
 }
 
+.contact-btn-container {
+  @include flex($direction: row-reverse, $justify: flex-start, $align: flex-start);
+  margin-top: 25px;
+}
+
 .contact-form-btn{
   @include submitBtn;
 }
 
+.contact-btn-success {
+  background : #5fc9c9;
+  color : white;
+  cursor : not-allowed;
+}
+
 .contact-form-state {
   font-size: 16px;
+  margin: 0 15px 0 0;
 }
 
 //tooltips
@@ -98,23 +114,20 @@
     height: 160px;
   }
 
+  .contact-btn-container {
+    @include flex($direction: column);
+    margin-top: 10px;
+  }
+
   .contact-form-state {
+    margin-top: 10px;
     text-align: center;
   }
 }
 
 
-
 @media(max-width: 540px) {
   .contact-form {
     height: 640px;
-  }
-
-  .contact-form-state {
-    margin: 10px;
-  }
-
-  .contact-form-btn{
-    @include submitBtn($margin-top: 10px);
   }
 }

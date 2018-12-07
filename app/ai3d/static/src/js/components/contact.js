@@ -44,6 +44,7 @@ function contact() {
             messageVal = message.val(),
 
             btn = $(".contact-form-btn"),
+            containerBtn = $(".contact-btn-container"),
 
             //form validation
             regexEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -115,21 +116,23 @@ function contact() {
                 //add information
                 $('.contact-form-state').remove();
                 const $state = $("<p class='contact-form-state'>Wiadomość została wysłana</p>");
-                btn.after( $state );
+                containerBtn.append( $state );
 
                 //change style btn
-                btn.css({
-                    "background" : "#5fc9c9",
-                    "color" : "white",
-                    "cursor" : "not-allowed"
-                });
+                btn.addClass('contact-btn-success');
                 btn.prop('disabled', true);
+
+                setTimeout(function(){
+                    btn.removeClass('contact-btn-success');
+                    btn.prop('disabled', false);
+                    $('.contact-form-state').remove();
+                },5000);
 
             }).fail(function(){
                 //add information
                 if ($('.contact-form-state').length === 0) {
                     const $state = $("<p class='contact-form-state'>Wysyłanie wiadomości nie powiodło się. Spróbuj ponownie za chwilę</p>");
-                    btn.after($state);
+                    containerBtn.append($state);
                 }
             });
         }

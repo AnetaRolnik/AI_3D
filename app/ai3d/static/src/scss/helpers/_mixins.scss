@@ -26,9 +26,8 @@
   }
 }
 
-@mixin submitBtn($margin-top: 20px) {
+@mixin submitBtn {
   padding: 16px 20px;
-  margin-top: $margin-top;
   background: transparent;
   border: 2px solid $main-color;
   outline: none;
