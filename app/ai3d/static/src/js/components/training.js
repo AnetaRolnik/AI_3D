@@ -37,6 +37,7 @@ function register() {
             optionId = $('.date-select option:selected')[0].id,
 
             btn = $('.registration-form-btn'),
+            containerBtn = $('.registration-btn-container'),
 
             //validation form
             regexEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
@@ -115,22 +116,22 @@ function register() {
 
                 //add information
                 $('.registration-form-state').remove();
-                const $state = $("<p class='registration-form-state'>Zapisałeś się na szkolenie</p>");
-                btn.after($state);
+                const $state = $("<p class='registration-form-state'>Dziękujemy za zapisanie się na szkolenie</p>");
+                containerBtn.append($state);
 
                 //change style btn
-                btn.css({
-                    "background": "#5fc9c9",
-                    "color": "white",
-                    "cursor": "not-allowed"
-                });
-                btn.prop('disabled', true);
+                btn.addClass('registration-btn-success').prop('disabled', true);
+
+                setTimeout(function(){
+                    btn.removeClass('registration-btn-success').prop('disabled', false);
+                    $('.registration-form-state').remove();
+                },7000);
 
             }).fail(function () {
                 //add information
                 if ($('.registration-form-state').length === 0) {
                     const $state = $("<p class='registration-form-state'>Zapisanie nie powiodło się. Spróbuj ponownie za chwilę</p>");
-                    btn.after($state);
+                    containerBtn.append($state);
                 }
             });
         }

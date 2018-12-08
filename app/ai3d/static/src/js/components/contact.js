@@ -119,14 +119,12 @@ function contact() {
                 containerBtn.append( $state );
 
                 //change style btn
-                btn.addClass('contact-btn-success');
-                btn.prop('disabled', true);
+                btn.addClass('contact-btn-success').prop('disabled', true);
 
                 setTimeout(function(){
-                    btn.removeClass('contact-btn-success');
-                    btn.prop('disabled', false);
+                    btn.removeClass('contact-btn-success').prop('disabled', false);
                     $('.contact-form-state').remove();
-                },5000);
+                },7000);
 
             }).fail(function(){
                 //add information

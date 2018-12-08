@@ -57,8 +57,19 @@
   font-weight: 700;
 }
 
+.registration-btn-container {
+  @include flex($direction: column);
+  margin-top: 10px;
+}
+
 .registration-form-btn {
   @include submitBtn;
+}
+
+.registration-btn-success {
+  background : #5fc9c9;
+  color : white;
+  cursor : not-allowed;
 }
 
 .registration-form-state {
