@@ -4,6 +4,9 @@ from .models import Message, Client, Training, Course
 
 class MessageAdmin(admin.ModelAdmin):
     model = Message
+    list_display = ('sender', 'body', 'created_at')
+    readonly_fields = ['sender', 'body', 'created_at']
+    exclude = ['send',]
 
 
 class ClientAdmin(admin.ModelAdmin):
@@ -16,6 +19,7 @@ class TrainingAdmin(admin.ModelAdmin):
     search_fields = ('type__name', 'name', 'date',
                      'participants__first_name', 'participants__last_name',)
     list_display = ['name', 'type', 'date', 'participants_list', ]
+    exclude = ['sign_ups_closed',]
 
     def participants_list(self, obj):
         return ", ".join([

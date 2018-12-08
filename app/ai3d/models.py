@@ -9,12 +9,13 @@ class Client(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField(max_length=70)
+    phone_number = models.CharField(max_length=9, blank=True)
 
     class Meta(object):
         unique_together = ('email',)
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name}'
+        return f'{self.first_name.title()} {self.email}'
 
     @property
     def get_full_name(self):
@@ -23,7 +24,7 @@ class Client(models.Model):
 
 class Message(models.Model):
     """ Base class for all messages used in app (ContactForm, Newsletter, etc)"""
-    sender = models.ForeignKey(Client, on_delete=models.PROTECT)
+    sender = models.ForeignKey(Client, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     body = models.CharField(max_length=250)
     send = models.BooleanField(default=False)
@@ -54,11 +55,12 @@ class Training(models.Model):
     type = models.ForeignKey(Course, on_delete=models.CASCADE)
     participants = models.ManyToManyField(Client, blank=True)
     participants_limit = models.PositiveSmallIntegerField(null=True, default=20)
-    sign_ups_closed = models.BooleanField(default=False)
     place = models.CharField(max_length=355, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     date = models.DateTimeField()
     price = models.PositiveSmallIntegerField(null=True, default=0)
+    sign_ups_closed = models.BooleanField(default=False)
+    sign_ups_close_date = models.DateTimeField(null=True)
 
     # TODO price should depend of type of training (auto add in admin form)
 
