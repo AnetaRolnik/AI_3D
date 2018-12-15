@@ -63,12 +63,14 @@ class TrainingApi(APIView):
                         status=status.HTTP_200_OK)
 
 
-def create_user_from_form(form):
+def create_user_from_form(form, phone_number=None):
     # if there is no user(1 user = 1 unique email) in db, user will be created.
     if not Client.objects.filter(email=form.data.get('email')).exists():
         client = Client(first_name=form.data.get('name'),
                         last_name=form.data.get('last_name'),
                         email=form.data.get('email'))
+        if phone_number:
+            client.phone_number = form.data.get('phone_number')
         client.save()
     else:
         client = Client.objects.get(email=form.data.get('email'))
