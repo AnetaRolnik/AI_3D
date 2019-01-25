@@ -1,6 +1,6 @@
 function hamburgerMenu() {
-    const btn = $('.main-nav-toggle');
-    const list = $('.main-nav-list');
+    const btn = $('.nav-toggle');
+    const list = $('.nav-list');
 
     btn.on('click', function(e) {
         e.preventDefault();

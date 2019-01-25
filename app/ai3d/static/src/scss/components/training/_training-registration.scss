@@ -1,6 +1,5 @@
 .training-registration {
   height: 620px;
-  margin-left: 20%;
 }
 
 .training-registration .container {
@@ -113,13 +112,6 @@
 .training .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
-}
-
-
-@media(max-width: 1140px) {
-  .training-registration {
-    margin-left: 0;
-  }
 }
 
 

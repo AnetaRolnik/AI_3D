@@ -1,6 +1,5 @@
 .aboutUs {
   height: 650px;
-  margin-left: 20%;
   background: #eee;
 }
 
@@ -99,13 +98,6 @@
 
 #fourthFeature::after {
   background-image: url("../images/edit.svg");
-}
-
-
-@media(max-width: 1140px) {
-  .aboutUs {
-    margin-left: 0;
-  }
 }
 
 

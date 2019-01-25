@@ -1,11 +1,10 @@
-.main-footer {
+.footer {
   height: 8vh;
   min-height: 50px;
-  margin-left: 20%;
   background: #ccc;
 }
 
-.main-footer-list {
+.footer-list {
   @include flex($justify: space-between);
   height: 100%;
   padding: 0;
@@ -15,20 +14,13 @@
 }
 
 
-@media(max-width: 1140px) {
-  .main-footer {
-    margin-left: 0;
-  }
-}
-
-
 @media(max-width: 540px) {
-  .main-footer {
+  .footer {
     height: 12vh;
     min-height: 70px;
   }
 
-  .main-footer-list {
+  .footer-list {
     @include flex($direction: column, $align: flex-start);
     line-height: 26px;
   }

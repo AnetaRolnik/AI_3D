@@ -1,6 +1,5 @@
 .training-description {
   height: 620px;
-  margin-left: 20%;
 }
 
 .training-description .container {
@@ -32,13 +31,6 @@
   position: absolute;
   top: 0;
   left: -30px;
-}
-
-
-@media(max-width: 1140px) {
-  .training-description {
-    margin-left: 0;
-  }
 }
 
 

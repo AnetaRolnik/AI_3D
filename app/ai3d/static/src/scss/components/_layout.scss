@@ -18,16 +18,20 @@ body {
   padding: 0 80px;
 }
 
+.content {
+  margin-left: 270px;
+}
+
 
 @media(max-width: 1140px) {
   .container {
-    padding: 0 60px;
+    padding: 0 40px;
   }
 }
 
-@media(max-width: 960px) {
-  .container {
-    padding: 0 40px;
+@media (max-width: 960px) {
+  .content {
+    margin-left: 0;
   }
 }
 

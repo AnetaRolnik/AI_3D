@@ -1,6 +1,5 @@
 .training-offer {
   height: 650px;
-  margin-left: 20%;
   background: #eee;
 }
 
@@ -33,13 +32,6 @@
   line-height: 25px;
   padding: 0 15px;
   list-style: none;
-}
-
-
-@media(max-width: 1140px) {
-  .training-offer {
-    margin-left: 0;
-  }
 }
 
 

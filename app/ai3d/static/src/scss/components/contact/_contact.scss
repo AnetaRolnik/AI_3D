@@ -3,7 +3,6 @@
 
 .contact{
   height: 620px;
-  margin-left: 20%;
   background: #eee;
 }
 
@@ -28,13 +27,6 @@
   @include flex($justify: space-between, $align: top);
   width: $primary-value*1%;
   margin-bottom: 20px;
-}
-
-
-@media(max-width: 1140px) {
-  .contact{
-    margin-left: 0;
-  }
 }
 
 

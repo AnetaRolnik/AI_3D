@@ -1,26 +1,25 @@
-.main-header {
+.home {
   height: 100vh;
   min-height: 600px;
-  margin-left: 20%;
 }
 
-.main-header .container {
+.home .container {
   @include flex($direction: column);
   height: $primary-value*1%;
 }
 
-.main-header-title {
+.home-title {
   font-size: 60px;
   margin: 20px 0;
 }
 
-.main-header-text {
+.home-text {
   font-size: 20px;
   text-align: center;
 }
 
 //animated button
-.main-header-btn{
+.home-btn{
   padding: 16px 20px;
   margin-top: 80px;
   background: transparent;
@@ -33,14 +32,14 @@
   color: $main-color;
 }
 
-.main-header-btn:link, .main-header-btn:visited {
+.home-btn:link, .home-btn:visited {
   position: relative;
   display: block;
   overflow: hidden;
   transition: all 1s ease;
 }
 
-.main-header-btn:link:after, .main-header-btn:visited:after {
+.home-btn:link:after, .home-btn:visited:after {
   @include pseudo-element($width: 150%, $height: 0);
   position: absolute;
   left: 50%;
@@ -49,39 +48,31 @@
   transition: all 1s ease 0s;
 }
 
-.main-header-btn:link:hover, .main-header-btn:visited:hover {
+.home-btn:link:hover, .home-btn:visited:hover {
   color: white;
 }
 
-.main-header-btn:after {
+.home-btn:after {
   background: $main-color;
   opacity: 0.5;
   transform: translateY(-50%) translateX(-50%) rotate(90deg);
 }
 
-.main-header-btn:hover:after {
+.home-btn:hover:after {
   opacity: 1;
   height: 600%;
 }
 
-
-@media(max-width: 1140px) {
-  .main-header {
-    margin-left: 0;
-  }
-}
-
-
 @media(max-width: 540px) {
-  .main-header-title {
+  .home-title {
     font-size: 52px;
   }
 
-  .main-header-text {
+  .home-text {
     font-size: 18px;
   }
 
-  .main-header-btn{
+  .home-btn{
     padding: 14px 18px;
     margin-top: 60px;
     font-size: 14px;

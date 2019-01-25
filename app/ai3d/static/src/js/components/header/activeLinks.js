@@ -1,6 +1,6 @@
 function activeLinks() {
     const sections = $('.scrolled');
-    const nav = $('.main-nav');
+    const nav = $('.nav');
 
     $(window).on('scroll', function () {
         const cur_pos = $(this).scrollTop();
