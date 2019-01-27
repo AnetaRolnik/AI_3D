@@ -1,9 +1,11 @@
 .contact-detail {
-  display: block;
+  display: flex;
+  font-size: 18px;
+}
+
+#address,
+#email{
   margin-bottom: 40px;
-  font-size: 20px;
-  text-align: left;
-  line-height: 30px;
 }
 
 .contact-detail-link{
@@ -13,7 +15,7 @@
 
 .contact-detail::before {
   @include pseudo-element($width: 40px, $height: 40px);
-  margin-bottom: 5px;
+  margin: 0 20px 5px 0;
 }
 
 #address::before {
@@ -29,38 +31,9 @@
 }
 
 
-@media(max-width: 960px) {
+@media(min-width: 720px) {
   .contact-detail {
-    font-size: 18px;
-    line-height: 26px;
-  }
-
-  .contact-detail::before {
-    @include pseudo-element($width: 35px, $height: 35px);
+    flex-direction: column;
   }
 }
 
-
-@media(max-width: 720px) {
-  .contact-details {
-    @include flex($direction: column, $align: flex-start);
-    width: 100%;
-  }
-
-  .contact-detail {
-    display: flex;
-}
-
-  #address,
-  #email {
-    margin-bottom: 60px;
-  }
-
-  #tel {
-    margin-bottom: 20px;
-  }
-
-  .contact-detail::before {
-    margin-right: 20px;
-  }
-}

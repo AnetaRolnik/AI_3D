@@ -1,4 +1,4 @@
-* {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
@@ -15,28 +15,22 @@ body {
   max-width: 1140px;
   height: 100%;
   margin: 0 auto;
-  padding: 0 80px;
+  padding: 30px 20px;
 }
 
 .content {
-  margin-left: 270px;
+  margin-left: 0;
 }
 
 
-@media(max-width: 1140px) {
-  .container {
-    padding: 0 40px;
-  }
-}
-
-@media (max-width: 960px) {
+@media(min-width: 960px) {
   .content {
-    margin-left: 0;
+    margin-left: 270px;
+  }
+
+  .container {
+    padding: 30px 60px;
   }
 }
 
-@media(max-width: 540px) {
-  .container {
-    padding: 0 20px;
-  }
-}
+

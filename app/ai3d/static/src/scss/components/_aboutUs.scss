@@ -1,5 +1,4 @@
 .aboutUs {
-  height: 650px;
   background: #eee;
 }
 
@@ -8,48 +7,27 @@
 }
 
 .aboutUs-title {
-  font-size: 34px;
-  margin: 20px 0 10px;
+  font-size: 28px;
+  margin: 0;
   text-align: center;
 }
 
 .aboutUs-text {
-  font-size: 20px;
-  margin: 0 0 30px;
+  font-size: 16px;
+  margin: 10px 0;
 }
 
 .aboutUs-features {
   @include flex($wrap: wrap);
-  height: 77%;
   width: $primary-value*1%;
-  margin-bottom: 30px;
   position: relative;
-}
-
-.aboutUs-features::after {
-  @include pseudo-element($width: 90%, $height: 1px);
-  background: #eee;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translate(5%, 0);
-  z-index: 1;
-}
-
-.aboutUs-features:before {
-  @include pseudo-element($width: 1px, $height: 90%);
-  background: #eee;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(0, 5%);
-  z-index: 1;
+  margin: 10px 0 0;
 }
 
 .aboutUs-feature {
-  width: 50%;
-  height: 50%;
-  padding: 40px;
+  width: 100%;
+  min-height: 200px;
+  padding: 15px;
   background: #fff;
   text-align: left;
   position: relative;
@@ -62,7 +40,7 @@
 
 .aboutUs-feature-text {
   font-size: 18px;
-  margin: 25px 0 15px;
+  margin: 10px 0;
 
   a {
     text-decoration: none;
@@ -73,123 +51,103 @@
   }
 }
 
-//icons
-.aboutUs-feature::after {
-  @include pseudo-element;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: no-repeat center;
-  background-size: 40px;
-  transform: translate(-50%, 50%);
-}
-
-#firstFeature::after {
-  background-image: url("../images/chalkboard-teacher.svg");
-}
-
-#secondFeature::after {
-  background-image: url("../images/user-tie.svg");
-}
-
-#thirdFeature::after {
-  background-image: url("../images/laptop.svg");
-}
-
-#fourthFeature::after {
-  background-image: url("../images/edit.svg");
+#firstFeature,
+#secondFeature,
+#thirdFeature {
+  border-bottom: 1px solid #eeeeee;
 }
 
 
-@media(max-width: 960px) {
-  .aboutUs-title {
-    font-size: 28px;
+@media(min-width: 540px) {
+  .aboutUs-feature {
+    min-height: 150px;
+  }
+}
+
+
+@media(min-width: 650px) {
+  .aboutUs {
+    height: 620px;
   }
 
-  .aboutUs-text {
-    font-size: 18px;
+  .aboutUs-features {
+    height: 100%;
   }
 
   .aboutUs-feature {
-    padding: 35px;
-  }
-
-  .aboutUs-feature-title {
-    font-size: 18px;
-  }
-
-  .aboutUs-feature-text {
-    font-size: 16px;
+    width: 50%;
+    height: 50%;
+    padding: 20px;
   }
 
   //icons
   .aboutUs-feature::after {
+    @include pseudo-element;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background: no-repeat center;
     background-size: 35px;
-  }
-}
-
-
-@media(max-width: 720px) {
-  .aboutUs {
-    height: 850px;
+    transform: translate(-50%, 50%);
   }
 
-  .aboutUs-features {
-    height: 85%;
+  #firstFeature::after {
+    background-image: url("../images/chalkboard-teacher.svg");
+  }
+
+  #secondFeature::after {
+    background-image: url("../images/user-tie.svg");
+  }
+
+  #thirdFeature::after {
+    background-image: url("../images/laptop.svg");
+  }
+
+  #fourthFeature::after {
+    background-image: url("../images/edit.svg");
+  }
+
+  .aboutUs-features::after,
+  .aboutUs-features::before{
+    background: #eee;
+    position: absolute;
+    z-index: 1;
   }
 
   .aboutUs-features::after {
-    @include pseudo-element($width: 0, $height: 0);
-  }
-
-  .aboutUs-features:before {
-    @include pseudo-element($width: 0, $height: 0);
-  }
-
-  .aboutUs-feature {
-    width: 100%;
-    height: 25%;
-  }
-
-  #firstFeature::before,
-  #secondFeature::before,
-  #thirdFeature::before {
     @include pseudo-element($width: 90%, $height: 1px);
-    background: #eee;
-    position: absolute;
-    bottom: 0;
+    top: 50%;
     left: 0;
     transform: translate(5%, 0);
-    z-index: 1;
+  }
+
+  .aboutUs-features::before {
+    @include pseudo-element($width: 1px, $height: 90%);
+    top: 0;
+    left: 50%;
+    transform: translate(0, 5%);
+  }
+
+  #firstFeature,
+  #secondFeature,
+  #thirdFeature {
+    border-bottom: none;
   }
 }
 
 
-@media(max-width: 540px) {
-  .aboutUs {
-    height: 1100px;
-  }
-
+@media(min-width: 720px) {
   .aboutUs-features {
-    height: 90%;
+    margin: 20px 0 0;
   }
 
-  .aboutUs-feature {
-    padding: 15px;
+  .aboutUs-title {
+    font-size: 32px;
   }
-
-  .aboutUs-text,
-  .aboutUs-feature-title{
-    font-size: 20px;
-  }
-
-  .aboutUs-feature-text {
+  
+  .aboutUs-text {
     font-size: 18px;
-    margin: 10px 0;
-  }
-
-  .aboutUs-feature::after {
-    display: none;
   }
 }
+
 

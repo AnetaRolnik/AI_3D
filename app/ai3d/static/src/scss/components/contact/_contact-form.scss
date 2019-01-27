@@ -1,8 +1,11 @@
 .contact-form {
-  width: 50%;
+  @include flex($direction:column, $justify: flex-start);
+  width: 100%;
+  height: 540px;
 }
 
 .contact-form-row {
+  width: 100%;
   margin-bottom: 15px;
 }
 
@@ -20,19 +23,19 @@
   font-weight: 700;
 }
 
-.contact-form-input {
+.contact-form-input,
+.contact-form-textarea {
   @include input;
 }
 
 .contact-form-textarea {
-  @include input;
   height: 160px;
   resize: none;
 }
 
 .contact-btn-container {
-  @include flex($direction: row-reverse, $justify: flex-start, $align: flex-start);
-  margin-top: 25px;
+  @include flex($direction: column);
+  margin-top: 10px;
 }
 
 .contact-form-btn{
@@ -46,8 +49,8 @@
 }
 
 .contact-form-state {
-  font-size: 16px;
-  margin: 0 15px 0 0;
+  margin: 10px 0 0;
+  text-align: center;
 }
 
 //tooltips
@@ -88,46 +91,9 @@
 }
 
 
-@media(max-width: 960px) {
+@media(min-width: 720px) {
   .contact-form {
     width: 55%;
-  }
-
-  .contact-form-textarea {
-    height: 140px;
-  }
-}
-
-
-@media(max-width: 720px) {
-  .contact-form {
-    @include flex($direction:column, $justify: flex-start);
-    width: 100%;
-    height: 620px;
-  }
-
-  .contact-form-row {
-    width: 100%;
-  }
-
-  .contact-form-textarea {
-    height: 160px;
-  }
-
-  .contact-btn-container {
-    @include flex($direction: column);
-    margin-top: 10px;
-  }
-
-  .contact-form-state {
-    margin: 10px 0 0;
-    text-align: center;
-  }
-}
-
-
-@media(max-width: 540px) {
-  .contact-form {
-    height: 640px;
+    height: 500px;
   }
 }

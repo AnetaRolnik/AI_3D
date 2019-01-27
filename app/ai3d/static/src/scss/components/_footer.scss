@@ -1,27 +1,28 @@
 .footer {
-  height: 8vh;
+  height: 10vh;
   min-height: 50px;
   background: #ccc;
 }
 
+.footer .container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .footer-list {
-  @include flex($justify: space-between);
+  @include flex($direction: column, $align: flex-start);
   height: 100%;
   padding: 0;
   margin: 0;
   list-style: none;
   font-size: 16px;
+  line-height: 26px;
 }
 
 
-@media(max-width: 540px) {
-  .footer {
-    height: 12vh;
-    min-height: 70px;
-  }
-
+@media(min-width: 540px) {
   .footer-list {
-    @include flex($direction: column, $align: flex-start);
-    line-height: 26px;
+    @include flex($justify: space-between);
+    line-height: 0;
   }
 }

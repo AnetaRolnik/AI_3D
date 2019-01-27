@@ -1,45 +1,29 @@
-.nav {
-  @include flex($justify: flex-end);
+.nav{
   position: fixed;
   top:0;
   left:0;
-  width: 270px;
-  height: $primary-value*1vh;
+  background: transparent;
   z-index: 1000;
-  background: #111111;
 }
 
 .nav-list {
-  width: $primary-value*1%;
-  padding:0;
-  margin: 40px;
+  @include flex($direction: column, $align: flex-end);
+  position: fixed;
+  top: 0;
+  left: -220px;
+  height: 100%;
+  width: 220px;
+  max-width: 70%;
+  background: rgba(#111111, 0.9);
+  margin: 0;
+  padding: 40px;
+  transition: 0.5s;
   text-align: right;
   list-style: none;
 }
 
 .nav-list-elem {
-  animation: fadeIn 0.5s linear;
-  animation-fill-mode: both;
-}
-
-@for $i from 1 through 5 {
-  .nav-list-elem:nth-child(#{$i}) {
-    animation-delay: 0.25s * $i;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    top: 100px;
-  }
-  75% {
-    opacity: 0.5;
-    top: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  width: 100%;
 }
 
 .nav-list-link {
@@ -49,131 +33,146 @@
   text-decoration: none;
   font-size: 20px;
   line-height: 60px;
-  color: rgba(white, 0.5);
+  color: rgba(white, 0.8);
   transition: 0.5s;
-  margin: 5px;
+  margin: 7px;
 }
 
-.nav-list-link::after {
-  @include pseudo-element($width: $primary-value*1%, $height: 2px);
-  position: absolute;
-  bottom: 10px;
-  right: 0;
-  background: rgba(white, 0.5);
-}
-
-.nav-list-link::before {
-  @include pseudo-element($width: $primary-value*1%, $height: 2px);
-  position: absolute;
-  bottom: 10px;
-  right: 0;
-  background: $main-color;
-  z-index: 2;
-  transform: scaleX(0);
-  transition: 0.5s ease-in-out;
-}
-
-.nav-list-link:hover,
 .nav-list-link.active{
   color: $main-color;
 }
 
-.nav-list-link:hover::before {
-  transform: scaleX(1);
-}
-
-.nav-list-link.active::after {
+.nav-list-link::after,
+.nav-list-link.active::after{
   @include pseudo-element($width: $primary-value*1%, $height: 2px);
   position: absolute;
   bottom: 10px;
-  right: 0;
+  right: 0;}
+
+.nav-list-link::after {
+  background: rgba(white, 0.8);
+}
+
+.nav-list-link.active::after {
   background: $main-color;
 }
 
+/*hamburger menu*/
 .nav-toggle {
-  display: none;
+  display: block;
+  width: 60px;
+  height: 45px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  margin: 40px;
 }
 
-@media(max-width: 960px) {
-  .nav{
-    width: 100%;
-    height: 20vh;
-    background: transparent;
+.nav-toggle span{
+  display: block;
+  position: absolute;
+  height: 9px;
+  width: 100%;
+  background: $main-color;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.nav-toggle span:nth-child(1) {
+  top: 0;
+}
+
+.nav-toggle span:nth-child(2),
+.nav-toggle span:nth-child(3) {
+  top: 18px;
+}
+
+.nav-toggle span:nth-child(4) {
+  top: 36px;
+}
+
+.nav-toggle.anim span:nth-child(1),
+.nav-toggle.anim span:nth-child(4) {
+  top: 18px;
+  width: 0;
+  left: 50%;
+}
+
+.nav-toggle.anim span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.nav-toggle.anim span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.nav-list.show {
+  left: 0;
+}
+
+
+@media(min-width: 960px) {
+  .nav {
+    @include flex($justify: flex-end);
+    width: 270px;
+    height: $primary-value*1vh;
+    background: #111111;
   }
 
   .nav-list {
-    @include flex($direction: column, $align: flex-end);
-    position: fixed;
-    top: 0;
-    left: -220px;
-    height: 100%;
-    width: 220px;
-    max-width: 70%;
-    background: rgba(#111111, 0.9);
-    margin: 0;
-    padding: 40px;
-    transition: 0.5s;
+    width: 270px;
+    left: 0;
   }
 
-  /*hamburger menu*/
-  .nav-toggle {
-    display: block;
-    width: 60px;
-    height: 45px;
-    position: relative;
-    transform: rotate(0deg);
-    transition: .5s ease-in-out;
-    cursor: pointer;
-    margin: 40px;
-  }
-
-  .nav-toggle span{
-    display: block;
+  .nav-list-link::before {
+    @include pseudo-element($width: $primary-value*1%, $height: 2px);
     position: absolute;
-    height: 9px;
-    width: 100%;
+    bottom: 10px;
+    right: 0;
     background: $main-color;
-    border-radius: 9px;
-    opacity: 1;
-    left: 0;
-    transform: rotate(0deg);
-    transition: .25s ease-in-out;
+    z-index: 2;
+    transform: scaleX(0);
+    transition: 0.5s ease-in-out;
   }
 
-  .nav-toggle span:nth-child(1) {
-    top: 0;
+  .nav-list-elem {
+    animation: fadeIn 0.5s linear;
+    animation-fill-mode: both;
   }
 
-  .nav-toggle span:nth-child(2),
-  .nav-toggle span:nth-child(3) {
-    top: 18px;
+  .nav-list-link:hover{
+    color: $main-color;
   }
 
-  .nav-toggle span:nth-child(4) {
-    top: 36px;
+  .nav-list-link:hover::before {
+    transform: scaleX(1);
   }
 
-  .nav-toggle.anim span:nth-child(1) {
-    top: 18px;
-    width: 0;
-    left: 50%;
+  @for $i from 1 through 5 {
+    .nav-list-elem:nth-child(#{$i}) {
+      animation-delay: 0.25s * $i;
+    }
   }
 
-  .nav-toggle.anim span:nth-child(2) {
-    transform: rotate(45deg);
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      top: 100px;
+    }
+    75% {
+      opacity: 0.5;
+      top: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
-  .nav-toggle.anim span:nth-child(3) {
-    transform: rotate(-45deg);
-  }
-
-  .nav-toggle.anim span:nth-child(4) {
-    top: 18px;
-    width: 0;
-    left: 50%;
-  }
-
-  .nav-list.show {
-    left: 0;
+  .nav-toggle {
+    display: none;
   }
 }
