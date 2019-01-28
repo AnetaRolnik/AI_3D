@@ -39,11 +39,11 @@
 }
 
 .contact-form-btn{
-  @include submitBtn;
+  @include button;
 }
 
 .contact-btn-success {
-  background : #5fc9c9;
+  background : $main-color;
   color : white;
   cursor : not-allowed;
 }
