@@ -1,3 +1,7 @@
+.training-description {
+  background: white;
+}
+
 .training-description .container {
   @include flex($direction: column);
 }

@@ -10,11 +10,11 @@
   @include flex($direction: column, $align: flex-end);
   position: fixed;
   top: 0;
-  left: -220px;
+  left: -240px;
   height: 100%;
-  width: 220px;
+  width: 240px;
   max-width: 70%;
-  background: rgba(#111111, 0.9);
+  background: rgba(black, 0.9);
   margin: 0;
   padding: 40px;
   transition: 0.5s;
@@ -33,7 +33,7 @@
   text-decoration: none;
   font-size: 20px;
   line-height: 60px;
-  color: rgba(white, 0.8);
+  color: white;
   transition: 0.5s;
   margin: 7px;
 }
@@ -50,7 +50,7 @@
   right: 0;}
 
 .nav-list-link::after {
-  background: rgba(white, 0.8);
+  background: white;
 }
 
 .nav-list-link.active::after {
@@ -66,7 +66,7 @@
   transform: rotate(0deg);
   transition: .5s ease-in-out;
   cursor: pointer;
-  margin: 40px;
+  margin: 20px;
 }
 
 .nav-toggle span{
@@ -74,7 +74,7 @@
   position: absolute;
   height: 9px;
   width: 100%;
-  background: $main-color;
+  background: white;
   border-radius: 9px;
   opacity: 1;
   left: 0;
@@ -120,7 +120,7 @@
     @include flex($justify: flex-end);
     width: 270px;
     height: $primary-value*1vh;
-    background: #111111;
+    background: black;
   }
 
   .nav-list {

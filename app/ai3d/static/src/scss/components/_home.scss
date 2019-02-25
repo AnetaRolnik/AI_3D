@@ -1,6 +1,6 @@
 .home {
   height: 100vh;
-  min-height: 600px;
+  min-height: 610px;
   position: relative;
 }
 
@@ -17,6 +17,7 @@
   position: fixed;
   width: auto;
   height: 100%;
+  min-height: 610px;
   z-index: -9999;
   display: none;
 }
@@ -25,7 +26,7 @@
   @include flex($direction: column);
   width: 100%;
   position: absolute;
-  top: 0;
+  top: -5%;
   left: 50%;
   z-index: 1;
   transform: translateX(-50%);
@@ -43,11 +44,15 @@
   margin: 10px;
 }
 
-.home-btn {
-  @include button($padding: 14px 18px, $background: $main-color, $color: white);
+#btnContainer {
   margin-top: 40px;
 }
 
+.home-btn {
+  @include button($padding: 14px 18px, $color: white);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
 
 @media(min-width: 720px) {
   #bgImg {
@@ -62,13 +67,19 @@
     font-size: 22px;
   }
 
+  #btnContainer {
+    margin-top: 60px;
+  }
+
   .home-btn {
     padding: 16px 20px;
-    margin-top: 60px;
-    background: transparent;
-    border: 2px solid #ffffff;
-    font-weight: bold;
-    letter-spacing: 1px;
+    border: none;
+    box-shadow: 0 0 0 2px white;
+    transition: box-shadow 0.2s linear;
+  }
+
+  .home-btn:hover {
+    box-shadow: 0 0 0 4px white;
   }
 }
 

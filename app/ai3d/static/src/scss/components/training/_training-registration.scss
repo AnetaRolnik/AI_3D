@@ -1,3 +1,7 @@
+.training-registration {
+  background: white;
+}
+
 .training-registration .container {
   @include flex($direction: column);
 }
@@ -23,7 +27,7 @@
 
 .registration-form-container::before {
   @include pseudo-element($width: 70px, $height: 70px);
-  background: url("../images/graduation-cap.svg") no-repeat center;
+  background: url("../assets/icons/graduation-cap.svg") no-repeat center;
   position: absolute;
   top: 0;
   left: 0;
@@ -55,6 +59,7 @@
 
 .registration-form-btn {
   @include button;
+  @include animatedBtn;
 }
 
 .registration-btn-success {
