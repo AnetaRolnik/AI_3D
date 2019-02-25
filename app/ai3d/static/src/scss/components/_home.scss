@@ -5,18 +5,19 @@
 }
 
 #bgImg {
+  position: fixed;
   width: 100%;
   height: auto;
   min-height: 100%;
   object-fit: cover;
-  z-index: 0;
+  z-index: -9999;
 }
 
 #bgVideo {
-  position: relative;
+  position: fixed;
   width: auto;
   height: 100%;
-  z-index: 0;
+  z-index: -9999;
   display: none;
 }
 
