@@ -1,44 +1,73 @@
 .home {
   height: 100vh;
   min-height: 600px;
+  position: relative;
+}
+
+#bgImg {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+#bgVideo {
+  position: relative;
+  width: auto;
+  height: 100%;
+  z-index: 0;
+  display: none;
 }
 
 .home .container {
   @include flex($direction: column);
-  height: $primary-value*1%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 1;
+  transform: translateX(-50%);
 }
 
-.home-title {
-  font-size: 48px;
-  margin: 20px 0;
+.home-logo {
+  height: 50%;
 }
 
 .home-text {
+  color: white;
   font-size: 20px;
-  font-weight: normal;
   text-align: center;
+  letter-spacing: 1px;
+  margin: 10px;
 }
 
 .home-btn {
   @include button($padding: 14px 18px, $background: $main-color, $color: white);
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 
 @media(min-width: 720px) {
-  .home-title {
-    font-size: 54px;
+  #bgImg {
+    display: none;
+  }
+
+  #bgVideo {
+    display: block;
   }
 
   .home-text {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .home-btn {
     padding: 16px 20px;
-    margin-top: 80px;
+    margin-top: 60px;
     background: transparent;
-    color: $main-color;
+    border: 2px solid #ffffff;
+    font-weight: bold;
+    letter-spacing: 1px;
   }
 }
 
