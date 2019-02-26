@@ -1,5 +1,4 @@
 import activeLinks from "./components/header/activeLinks";
-import horizontalMenu from "./components/header/horizonatalMenu";
 import hamburgerMenu from "./components/header/hamburgerMenu";
 import contact from "./components/contact";
 import register from "./components/training";
@@ -10,14 +9,12 @@ $(function() {
     AOS.init();
 
     activeLinks();
-    horizontalMenu();
     hamburgerMenu();
     register();
     contact();
     map();
 });
 
-$( window ).resize(horizontalMenu);
 
 
 
