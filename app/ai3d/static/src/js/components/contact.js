@@ -129,7 +129,7 @@ function contact() {
             }).fail(function(){
                 //add information
                 if ($('.contact-form-state').length === 0) {
-                    const $state = $("<p class='contact-form-state'>Wysyłanie wiadomości nie powiodło się. Spróbuj ponownie za chwilę</p>");
+                    const $state = $("<p class='contact-form-state'>Nie udało się wysłać wiadomości. Spróbuj ponownie za chwilę</p>");
                     containerBtn.append($state);
                 }
             });

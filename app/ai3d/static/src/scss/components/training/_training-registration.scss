@@ -10,6 +10,7 @@
   font-size: 28px;
   margin: 0;
   text-align: center;
+  letter-spacing: .4px;
 }
 
 .training-registration-form {
@@ -121,6 +122,7 @@
   .training-select,
   .date-select{
     width: 70%;
+    max-width: 70%;
   }
 }
 
@@ -131,7 +133,7 @@
   }
 
   .training-registration-form {
-    width: 55%;
+    width: 50%;
     margin: 40px 0 0;
   }
 

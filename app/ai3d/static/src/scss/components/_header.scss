@@ -31,11 +31,12 @@
   position: relative;
   display: inline-block;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 60px;
-  color: white;
+  color: #cccccc;
   transition: 0.5s;
   margin: 7px;
+  text-transform: uppercase;
 }
 
 .nav-list-link.active{
@@ -47,10 +48,11 @@
   @include pseudo-element($width: $primary-value*1%, $height: 2px);
   position: absolute;
   bottom: 10px;
-  right: 0;}
+  right: 0;
+}
 
 .nav-list-link::after {
-  background: white;
+  background: #cccccc;
 }
 
 .nav-list-link.active::after {
@@ -133,10 +135,10 @@
     position: absolute;
     bottom: 10px;
     right: 0;
-    background: $main-color;
+    background: darken($main-color, 25%);
     z-index: 2;
     transform: scaleX(0);
-    transition: 0.5s ease-in-out;
+    transition: 0.5s linear;
   }
 
   .nav-list-elem {
@@ -145,7 +147,7 @@
   }
 
   .nav-list-link:hover{
-    color: $main-color;
+    color: darken($main-color, 25%);
   }
 
   .nav-list-link:hover::before {

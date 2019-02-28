@@ -9,12 +9,14 @@
   font-size: 28px;
   margin: 0;
   text-align: center;
+  letter-spacing: .4px;
 }
 
 .contact-text {
   font-size: 16px;
   text-align: center;
   margin: 10px 0;
+  letter-spacing: .2px;
 }
 
 .contact-section {
@@ -23,17 +25,17 @@
 
 
 @media(min-width: 720px) {
-  .contact-section{
-    @include flex($justify: space-between, $align: top);
-    width: $primary-value*1%;
-    margin: 40px 0 0;
-  }
-
   .contact-title {
     font-size: 32px;
   }
 
   .contact-text {
     font-size: 18px;
+  }
+
+  .contact-section{
+    @include flex($justify: space-between, $align: top);
+    width: $primary-value*1%;
+    margin: 40px 0 0;
   }
 }

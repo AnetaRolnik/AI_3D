@@ -8,39 +8,53 @@
 
 .aboutUs-title {
   font-size: 28px;
+  letter-spacing: .4px;
   margin: 0;
   text-align: center;
 }
 
-.aboutUs-text {
-  font-size: 16px;
-  margin: 10px 0;
+.aboutUs-subtitle {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: .4px;
+  margin: 10px 0 15px;
 }
 
 .aboutUs-features {
   @include flex($wrap: wrap);
   width: $primary-value*1%;
-  position: relative;
-  margin: 10px 0 0;
+  margin: 10px 0;
+  padding: 20px 25px;
+  background: #fff;
+  border-radius: 5px;
 }
 
 .aboutUs-feature {
   width: 100%;
-  min-height: 200px;
-  padding: 15px;
-  background: #fff;
-  text-align: left;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#firstFeature,
+#secondFeature,
+#thirdFeature {
+  padding-bottom: 25px;
 }
 
 .aboutUs-feature-title {
-  font-size: 20px;
+  font-size: 22px;
   margin: 0;
+  text-align: center;
+  letter-spacing: .2px;
 }
 
 .aboutUs-feature-text {
   font-size: 18px;
-  margin: 10px 0;
+  margin: 15px 0 0;
+  text-align: left;
+  letter-spacing: .2px;
+  line-height: 22px;
 
   a {
     text-decoration: none;
@@ -51,60 +65,47 @@
   }
 }
 
-#firstFeature,
-#secondFeature,
-#thirdFeature {
-  border-bottom: 1px solid #eeeeee;
+//icons
+.aboutUs-feature::before {
+  @include pseudo-element($width: 60px, $height: 60px);
+  background: no-repeat center;
+  background-size: 50px;
+  margin-bottom: 5px;
+}
+
+#firstFeature::before {
+  background-image: url("../assets/icons/chalkboard-teacher.svg");
+}
+
+#secondFeature::before {
+  background-image: url("../assets/icons/user-tie.svg");
+  background-size: 45px;
+}
+
+#thirdFeature::before {
+  background-image: url("../assets/icons/laptop.svg");
+}
+
+#fourthFeature::before {
+  background-image: url("../assets/icons/edit.svg");
 }
 
 
-@media(min-width: 540px) {
-  .aboutUs-feature {
-    min-height: 150px;
+@media(min-width: 720px) {
+  .aboutUs-title {
+    font-size: 32px;
   }
-}
 
-
-@media(min-width: 650px) {
-  .aboutUs {
-    height: 620px;
+  .aboutUs-subtitle {
+    font-size: 20px;
   }
 
   .aboutUs-features {
-    height: 100%;
-  }
-
-  .aboutUs-feature {
-    width: 50%;
-    height: 50%;
-    padding: 20px;
-  }
-
-  //icons
-  .aboutUs-feature::after {
-    @include pseudo-element;
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    background: no-repeat center;
-    background-size: 35px;
-    transform: translate(-50%, 50%);
-  }
-
-  #firstFeature::after {
-    background-image: url("../assets/icons/chalkboard-teacher.svg");
-  }
-
-  #secondFeature::after {
-    background-image: url("../assets/icons/user-tie.svg");
-  }
-
-  #thirdFeature::after {
-    background-image: url("../assets/icons/laptop.svg");
-  }
-
-  #fourthFeature::after {
-    background-image: url("../assets/icons/edit.svg");
+    height: auto;
+    width: 100%;
+    position: relative;
+    margin: 15px 0 5px;
+    padding: 0;
   }
 
   .aboutUs-features::after,
@@ -128,26 +129,59 @@
     transform: translate(0, 5%);
   }
 
-  #firstFeature,
-  #secondFeature,
-  #thirdFeature {
-    border-bottom: none;
+  .aboutUs-feature {
+    align-self: start;
+    width: 50%;
+    height: 50%;
+    padding: 25px;
+    position: relative;
+  }
+
+  .aboutUs-feature::before {
+    @include pseudo-element($width: 40px, $height: 40px);background: no-repeat center;
+    background-size: 35px;
+    margin-bottom: 0;
+    position: absolute;
+    top: 7px;
+    right: 10px;
+  }
+
+  #secondFeature::before {
+    background-size: 30px;
+  }
+
+  .aboutUs-feature-title {
+    margin: 0 20px;
   }
 }
 
-
-@media(min-width: 720px) {
+@media(min-width: 1140px) {
   .aboutUs-features {
+    min-height: 540px;
+    width: 800px;
+  }
+
+  .aboutUs-feature {
+    padding: 30px;
+  }
+
+  .aboutUs-feature-title {
+    font-size: 24px;
+  }
+
+  .aboutUs-feature-text {
+    font-size: 20px;
+    line-height: 24px;
     margin: 20px 0 0;
   }
 
-  .aboutUs-title {
-    font-size: 32px;
+  .aboutUs-feature::before {
+    @include pseudo-element($width: 45px, $height: 45px);
+    background-size: 40px;
   }
-  
-  .aboutUs-text {
-    font-size: 18px;
+
+  #secondFeature::before {
+    background-size: 35px;
   }
 }
-
 

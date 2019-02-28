@@ -8,14 +8,20 @@
   margin-bottom: 40px;
 }
 
+#address span {
+  display: block;
+  padding-bottom: 7px;
+}
+
 .contact-detail-link{
   text-decoration: none;
   color: inherit;
 }
 
 .contact-detail::before {
-  @include pseudo-element($width: 40px, $height: 40px);
-  margin: 0 20px 5px 0;
+  @include pseudo-element($width: 35px, $height: 35px);
+  min-width: 35px;
+  margin: 0 15px 5px 0;
 }
 
 #address::before {
@@ -32,8 +38,23 @@
 
 
 @media(min-width: 720px) {
+  .contact-details {
+    width: 35%;
+  }
+
   .contact-detail {
     flex-direction: column;
+  }
+
+  .contact-detail::before {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media(min-width: 960px) {
+  .contact-details {
+    width: 40%;
   }
 }
 
