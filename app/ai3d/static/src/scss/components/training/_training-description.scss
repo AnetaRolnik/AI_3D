@@ -1,4 +1,4 @@
-.training-description {
+#firstLevel {
   background: white;
 }
 
@@ -6,59 +6,115 @@
   @include flex($direction: column);
 }
 
-.training-description {
-  height: auto;
-}
-
-.training-description-title {
+.description-title {
   font-size: 28px;
   margin: 0;
   text-align: center;
+  letter-spacing: .4px;
 }
 
-.training-description-list {
+.description-subtitle {
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: .2px;
+  margin: 20px 0 0;
+}
+
+.description-text {
   font-size: 18px;
-  line-height: 20px;
+  letter-spacing: .2px;
+  line-height: 22px;
+  margin: 15px 0;
+}
+
+.description-img {
+  display: none;
+}
+
+.description-list {
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: .2px;
   list-style: none;
-  margin: 30px 0 0;
+  margin: 0;
   padding-left: 25px;
 }
 
-.training-description-list-elem {
-  margin-bottom: 18px;
+.description-list-elem {
+  margin-top: 18px;
   position: relative;
-
-  &:last-of-type {
-    margin-bottom: 0;
-  }
 }
 
-.training-description-list-elem::before{
+.description-list-elem::before {
   @include pseudo-element($width: 15px, $height: 15px);
-  background: url("../images/check.svg") left;
+  background: url("../assets/icons/check.svg") left;
   position: absolute;
   top: 0;
   left: -25px;
 }
 
-
 @media(min-width: 720px) {
-  .training-description-title {
+  .description-title {
     font-size: 32px;
   }
 
-  .training-description-list {
-    line-height: 22px;
-    margin: 40px 0 0;
-    padding-left: 30px;
+  .description-subtitle {
+    font-size: 26px;
+    margin: 20px 0 20px;
   }
 
-  .training-description-list-elem {
-    margin-bottom: 20px;
+  .description-content {
+    display: flex;
+    justify-content: center;
+    max-width: 700px;
   }
 
-  .training-description-list-elem::before{
-    @include pseudo-element($width: 20px, $height: 20px);
-    left: -30px;
+  .description-img {
+    display: block;
+    height: 600px;
+  }
+
+  .description-list {
+    padding: 0;
+    width: 50%;
+  }
+
+  .description-list-elem {
+    padding: 0 30px 30px;
+  }
+
+  .description-list-elem::before {
+    width: 0;
+  }
+
+  .leftSide {
+    padding-top: 100px;
   }
 }
+
+
+@media(min-width: 960px) {
+  .description-content {
+    max-width: 660px;
+  }
+
+  .description-list-elem {
+    padding: 0 10px 20px;
+  }
+}
+
+
+@media(min-width: 1140px) {
+  .description-text {
+    margin: 15px 40px;
+  }
+
+  .description-content {
+    max-width: 850px;
+  }
+
+  .description-list-elem {
+    padding: 0 50px 40px;
+  }
+}
+

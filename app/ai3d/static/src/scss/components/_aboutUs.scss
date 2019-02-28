@@ -157,7 +157,7 @@
 
 @media(min-width: 1140px) {
   .aboutUs-features {
-    min-height: 540px;
+    min-height: 520px;
     width: 800px;
   }
 
@@ -170,18 +170,8 @@
   }
 
   .aboutUs-feature-text {
-    font-size: 20px;
     line-height: 24px;
     margin: 20px 0 0;
-  }
-
-  .aboutUs-feature::before {
-    @include pseudo-element($width: 45px, $height: 45px);
-    background-size: 40px;
-  }
-
-  #secondFeature::before {
-    background-size: 35px;
   }
 }
 
