@@ -2,6 +2,10 @@
   background: white;
 }
 
+#secondLevel {
+  background: #eeeeee;
+}
+
 .training-description .container {
   @include flex($direction: column);
 }
@@ -31,6 +35,14 @@
   display: none;
 }
 
+#firstLine {
+  height: 600px;
+}
+
+#secondLine {
+  height: 800px;
+}
+
 .description-list {
   font-size: 18px;
   line-height: 22px;
@@ -47,10 +59,17 @@
 
 .description-list-elem::before {
   @include pseudo-element($width: 15px, $height: 15px);
-  background: url("../assets/icons/check.svg") left;
   position: absolute;
   top: 0;
   left: -25px;
+}
+
+#firstLevel .description-list-elem::before {
+  background: url("../assets/icons/check.svg") left;
+}
+
+#secondLevel .description-list-elem::before {
+  background: url("../assets/icons/check_orange.svg") left;
 }
 
 @media(min-width: 720px) {
@@ -71,7 +90,6 @@
 
   .description-img {
     display: block;
-    height: 600px;
   }
 
   .description-list {
@@ -79,27 +97,39 @@
     width: 50%;
   }
 
-  .description-list-elem {
+  #firstLevel .description-list-elem {
     padding: 0 30px 30px;
+  }
+
+  #firstLevel .leftSide {
+    padding-top: 100px;
+  }
+
+  #secondLevel .description-list-elem {
+    padding: 0 30px 40px;
+  }
+
+  #secondLevel .rightSide {
+    padding-top: 40px;
   }
 
   .description-list-elem::before {
     width: 0;
-  }
-
-  .leftSide {
-    padding-top: 100px;
   }
 }
 
 
 @media(min-width: 960px) {
   .description-content {
-    max-width: 660px;
+    max-width: 620px;
   }
 
-  .description-list-elem {
+  #firstLevel .description-list-elem {
     padding: 0 10px 20px;
+  }
+
+  #secondLevel .description-list-elem {
+    padding: 0 10px 40px;
   }
 }
 
@@ -113,8 +143,12 @@
     max-width: 850px;
   }
 
-  .description-list-elem {
+  #firstLevel .description-list-elem {
     padding: 0 50px 40px;
+  }
+
+  #secondLevel .description-list-elem {
+    padding: 0 60px 60px;
   }
 }
 
