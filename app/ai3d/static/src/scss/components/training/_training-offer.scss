@@ -1,5 +1,5 @@
 .training-offer {
-  background: #eee;
+  background: #ffffff;
 }
 
 .training-offer .container {
@@ -8,16 +8,9 @@
 
 .training-offer-img {
   object-fit: cover;
+  object-position: center;
   width: 100%;
-  height: auto;
-}
-
-#secondTraining {
-  order: 2;
-}
-
-.training-offer-img:last-child {
-  order: 1;
+  height: 300px;
 }
 
 .training-offer-content {
@@ -29,36 +22,38 @@
 }
 
 .training-offer-title {
-  font-size: 20px;
+  font-size: 22px;
+  letter-spacing: .2px;
   margin: 10px 0 15px;
 }
 
 .training-offer-list {
   list-style: none;
   font-size: 18px;
-  line-height: 24px;
+  line-height: 22px;
+  letter-spacing: .2px;
   padding: 0;
   margin: 0;
+
+  li {
+    padding-top: 5px;
+  }
 }
 
 
-@media (min-width: 650px) {
-  .training-offer {
-    height: 620px;
-  }
-
+@media (min-width: 720px) {
   .training-offer-content,
   .training-offer-img{
     width: 50%;
-    height: 50%;
   }
 
   #secondTraining {
     order: 1;
   }
 
-  .training-offer-img:last-child {
+  .training-offer-img:last-of-type {
     order: 2;
   }
+
 }
 

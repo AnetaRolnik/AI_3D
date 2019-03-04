@@ -140,11 +140,16 @@
   }
 
   .description-content {
-    max-width: 850px;
+    max-width: 840px;
   }
 
   #firstLevel .description-list-elem {
     padding: 0 50px 40px;
+  }
+
+
+  #secondLevel .rightSide {
+    padding-top: 40px;
   }
 
   #secondLevel .description-list-elem {
