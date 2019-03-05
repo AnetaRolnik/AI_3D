@@ -1,8 +1,8 @@
-#firstLevel {
+.firstLevel {
   background: white;
 }
 
-#secondLevel {
+.secondLevel {
   background: #f6f7f6;
 }
 
@@ -18,9 +18,9 @@
 }
 
 .description-subtitle {
-  font-size: 24px;
+  font-size: 22px;
   text-align: center;
-  letter-spacing: .2px;
+  letter-spacing: .4px;
   margin: 20px 0 0;
 }
 
@@ -64,11 +64,11 @@
   left: -25px;
 }
 
-#firstLevel .description-list-elem::before {
+.firstLevel .description-list-elem::before {
   background: url("../assets/icons/check.svg") left;
 }
 
-#secondLevel .description-list-elem::before {
+.secondLevel .description-list-elem::before {
   background: url("../assets/icons/check_orange.svg") left;
 }
 
@@ -78,7 +78,7 @@
   }
 
   .description-subtitle {
-    font-size: 26px;
+    font-size: 24px;
     margin: 20px 0 20px;
   }
 
@@ -97,19 +97,19 @@
     width: 50%;
   }
 
-  #firstLevel .description-list-elem {
+  .firstLevel .description-list-elem {
     padding: 0 30px 30px;
   }
 
-  #firstLevel .leftSide {
+  .firstLevel .leftSide {
     padding-top: 100px;
   }
 
-  #secondLevel .description-list-elem {
+  .secondLevel .description-list-elem {
     padding: 0 30px 40px;
   }
 
-  #secondLevel .rightSide {
+  .secondLevel .rightSide {
     padding-top: 40px;
   }
 
@@ -124,11 +124,11 @@
     max-width: 620px;
   }
 
-  #firstLevel .description-list-elem {
+  .firstLevel .description-list-elem {
     padding: 0 10px 20px;
   }
 
-  #secondLevel .description-list-elem {
+  .secondLevel .description-list-elem {
     padding: 0 10px 40px;
   }
 }
@@ -143,16 +143,16 @@
     max-width: 840px;
   }
 
-  #firstLevel .description-list-elem {
+  .firstLevel .description-list-elem {
     padding: 0 50px 40px;
   }
 
 
-  #secondLevel .rightSide {
+  .secondLevel .rightSide {
     padding-top: 40px;
   }
 
-  #secondLevel .description-list-elem {
+  .secondLevel .description-list-elem {
     padding: 0 60px 60px;
   }
 }

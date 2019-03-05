@@ -50,7 +50,7 @@
   @media(min-width: 720px) {
     position: relative;
     z-index: 1;
-    transition: 0.07s ease-in;
+    transition: 70ms ease-in;
 
     &:hover {
       color: white;
@@ -65,7 +65,7 @@
       right: 0;
       top: 0;
       z-index: -1;
-      transition: bottom 0.09s ease-in;
+      transition: bottom 120ms ease-in;
     }
 
     &:hover:before {
