@@ -6,7 +6,14 @@ function hamburgerMenu() {
         e.preventDefault();
         list.toggleClass('show');
         btn.toggleClass('anim');
-    })
+    });
+
+    const hamburger = $('.nav-toggle span');
+    const heightHero = $('.home').height();
+
+    $(window).on('scroll', _.debounce(function(){
+        scrollY > heightHero ? hamburger.css('background', '#5fc9c9') : hamburger.css('background', 'white');
+    }, 500));
 }
 
 export default hamburgerMenu;
