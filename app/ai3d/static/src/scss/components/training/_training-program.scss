@@ -24,12 +24,12 @@
     transition: 0.3s;
   }
 
-  #pdf:hover::after {
+  #pdf:hover::before {
     content: '';
     background: url('../assets/icons/arrow.svg') center;
     position: absolute;
     top: 10px;
-    right: -20px;
+    left: -20px;
     transform: translate(0, 50%);
     display: block;
     width: 20px;
@@ -39,18 +39,18 @@
 
   @keyframes arrow-pulse {
     0% {
-      right: -20px;
-      opacity: .5;
-    }
-
-    50% {
-      right: -40px;
+      left: -20px;
       opacity: 1;
     }
 
-    100% {
-      right: -20px;
+    50% {
+      left: -40px;
       opacity: .5;
+    }
+
+    100% {
+      left: -20px;
+      opacity: 1;
     }
   }
 }

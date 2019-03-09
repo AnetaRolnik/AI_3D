@@ -116,6 +116,31 @@
   .description-list-elem::before {
     width: 0;
   }
+
+  //aos - change of delay
+  .firstLevel .rightSide li:first-child[data-aos-delay],
+  .secondLevel .leftSide li:first-child[data-aos-delay] {
+    transition-delay: 600ms !important;
+  }
+
+  .firstLevel .leftSide li:first-child[data-aos-delay],
+  .secondLevel .rightSide li:first-child[data-aos-delay] {
+    transition-delay: 800ms !important;
+  }
+
+  .firstLevel .rightSide li:nth-child(2)[data-aos-delay],
+  .secondLevel .leftSide li:nth-child(2)[data-aos-delay]{
+    transition-delay: 1000ms !important;
+  }
+
+  .firstLevel .leftSide li:nth-child(2)[data-aos-delay],
+  .secondLevel .rightSide li:nth-child(2)[data-aos-delay] {
+    transition-delay: 1200ms !important;
+  }
+
+  .secondLevel .leftSide li:nth-child(3)[data-aos-delay] {
+    transition-delay: 1400ms !important;
+  }
 }
 
 
@@ -146,7 +171,6 @@
   .firstLevel .description-list-elem {
     padding: 0 50px 40px;
   }
-
 
   .secondLevel .rightSide {
     padding-top: 40px;

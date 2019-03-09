@@ -54,6 +54,12 @@
   font-weight: 700;
 }
 
+#userTel::placeholder {
+  color: #aaa;
+  letter-spacing: .4px;
+  font-weight: 300;
+}
+
 .registration-btn-container {
   @include flex($direction: column);
   margin-top: 10px;
