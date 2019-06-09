@@ -6,8 +6,8 @@
   @include flex($direction: column);
 }
 
-.training-registration-title{
-  font-size: 28px;
+.training-registration-title {
+  font-size: 24px;
   margin: 0;
   text-align: center;
   letter-spacing: .4px;
@@ -136,7 +136,7 @@
 
 @media(min-width: 720px) {
   .training-registration-title {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .training-registration-form {

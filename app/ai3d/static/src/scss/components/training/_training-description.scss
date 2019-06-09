@@ -11,23 +11,23 @@
 }
 
 .description-title {
-  font-size: 28px;
-  margin: 0;
+  font-size: 24px;
+  margin: 0 0 25px;
   text-align: center;
   letter-spacing: .4px;
 }
 
 .description-subtitle {
-  font-size: 22px;
+  font-size: 20px;
   text-align: center;
   letter-spacing: .4px;
-  margin: 20px 0 0;
+  margin: 0;
 }
 
 .description-text {
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: .2px;
-  line-height: 22px;
+  line-height: 24px;
   margin: 15px 0;
 }
 
@@ -37,8 +37,8 @@
 }
 
 .description-list {
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 24px;
   letter-spacing: .2px;
   list-style: none;
   margin: 0;
@@ -68,12 +68,11 @@
 
 @media(min-width: 720px) {
   .description-title {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .description-subtitle {
     font-size: 24px;
-    margin: 20px 0 20px;
   }
 
   .description-content {
@@ -201,12 +200,21 @@
 
 
 @media(min-width: 1140px) {
+  .description-subtitle {
+    margin: 5px 0;
+  }
+  
   .description-text {
     margin: 15px 40px;
+    font-size: 18px;
   }
 
   .description-content {
     max-width: 750px;
+  }
+
+  .description-list {
+    font-size: 18px;
   }
 
   .firstLevel {
@@ -228,5 +236,9 @@
       padding: 0 50px 30px;
     }
   }
+}
+
+@media(min-width: 1366px) {
+
 }
 

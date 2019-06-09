@@ -7,7 +7,7 @@
 }
 
 .aboutUs-title {
-  font-size: 28px;
+  font-size: 24px;
   letter-spacing: .4px;
   margin: 0;
   text-align: center;
@@ -24,7 +24,7 @@
   @include flex($wrap: wrap);
   width: $primary-value*1%;
   margin: 10px 0;
-  padding: 20px 25px;
+  padding: 15px;
   background: #fff;
   border-radius: 5px;
 }
@@ -34,27 +34,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-#firstFeature,
-#secondFeature,
-#thirdFeature {
-  padding-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .aboutUs-feature-title {
-  font-size: 22px;
+  font-size: 20px;
   margin: 0;
   text-align: center;
   letter-spacing: .2px;
 }
 
 .aboutUs-feature-text {
-  font-size: 18px;
-  margin: 15px 0 0;
+  font-size: 16px;
   text-align: left;
   letter-spacing: .2px;
-  line-height: 22px;
+  line-height: 24px;
+  padding: 15px 0;
+  margin: 0;
+  border-bottom: 1px solid #eee;
 
   a {
     text-decoration: none;
@@ -69,35 +66,46 @@
   }
 }
 
+#feature6 .aboutUs-feature-text {
+  border: none;
+  padding-bottom: 0;
+}
+
 //icons
 .aboutUs-feature::before {
-  @include pseudo-element($width: 60px, $height: 60px);
+  @include pseudo-element($width: 45px, $height: 45px);
   background: no-repeat center;
-  background-size: 50px;
   margin-bottom: 5px;
 }
 
-#firstFeature::before {
+#feature1::before {
   background-image: url("../assets/icons/chalkboard-teacher.svg");
 }
 
-#secondFeature::before {
+#feature2::before {
   background-image: url("../assets/icons/user-tie.svg");
-  background-size: 45px;
 }
 
-#thirdFeature::before {
+#feature3::before {
+  background-image: url("../assets/icons/tools.svg");
+}
+
+#feature4::before {
+  background-image: url("../assets/icons/book.svg");
+}
+
+#feature5::before {
   background-image: url("../assets/icons/laptop.svg");
 }
 
-#fourthFeature::before {
+#feature6::before {
   background-image: url("../assets/icons/edit.svg");
 }
 
 
 @media(min-width: 720px) {
   .aboutUs-title {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .aboutUs-subtitle {
@@ -112,18 +120,10 @@
     padding: 0;
   }
 
-  .aboutUs-features::after,
   .aboutUs-features::before{
     background: #eee;
     position: absolute;
     z-index: 1;
-  }
-
-  .aboutUs-features::after {
-    @include pseudo-element($width: 90%, $height: 1px);
-    top: 50%;
-    left: 0;
-    transform: translate(5%, 0);
   }
 
   .aboutUs-features::before {
@@ -136,37 +136,50 @@
   .aboutUs-feature {
     align-self: start;
     width: 50%;
-    height: 50%;
-    padding: 25px;
+    height: auto;
     position: relative;
+    padding: 25px;
+
+    &::before {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 15px;
+      right: 12px;
+    }
   }
 
-  .aboutUs-feature::before {
-    @include pseudo-element($width: 40px, $height: 40px);background: no-repeat center;
-    background-size: 35px;
-    margin-bottom: 0;
+  #feature1::after, #feature3::after {
+    @include pseudo-element(190%, 1px);
     position: absolute;
-    top: 7px;
-    right: 10px;
-  }
-
-  #secondFeature::before {
-    background-size: 30px;
+    bottom: 0;
+    left: 5%;
+    background: #eee;
   }
 
   .aboutUs-feature-title {
     margin: 0 20px;
+  }
+
+  .aboutUs-feature-text {
+    border: none;
+    padding-bottom: 0;
   }
 }
 
 @media(min-width: 1140px) {
   .aboutUs-features {
     min-height: 520px;
-    width: 800px;
+    width: 850px;
   }
 
   .aboutUs-feature {
     padding: 30px;
+    
+      &::before {
+        width: 34px;
+        height: 34px;
+      }
   }
 
   .aboutUs-feature-title {
@@ -174,7 +187,7 @@
   }
 
   .aboutUs-feature-text {
-    line-height: 24px;
+    font-size: 18px;
     margin: 20px 0 0;
   }
 }

@@ -6,7 +6,7 @@
 }
 
 .contact-title {
-  font-size: 28px;
+  font-size: 24px;
   margin: 0;
   text-align: center;
   letter-spacing: .4px;
@@ -26,11 +26,7 @@
 
 @media(min-width: 720px) {
   .contact-title {
-    font-size: 32px;
-  }
-
-  .contact-text {
-    font-size: 18px;
+    font-size: 28px;
   }
 
   .contact-section{
@@ -38,4 +34,10 @@
     width: $primary-value*1%;
     margin: 40px 0 0;
   }
+}
+
+@media(min-width: 1140px) {
+  .contact-text {
+    font-size: 18px;
+  } 
 }
