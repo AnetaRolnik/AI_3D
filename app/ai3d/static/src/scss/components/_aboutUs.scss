@@ -170,7 +170,8 @@
 @media(min-width: 1140px) {
   .aboutUs-features {
     min-height: 520px;
-    width: 850px;
+    max-width: 1140px;
+    margin: 0 auto;
   }
 
   .aboutUs-feature {

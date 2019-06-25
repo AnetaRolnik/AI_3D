@@ -25,13 +25,11 @@ function register() {
     $(".training-registration-form").on("submit", function(event) {
         event.preventDefault();
         const name = $('#userName'),
-            surname = $('#userSurname'),
             email = $('#userEmail'),
             phone = $('#userTel'),
             fields = $('.registration-form-input'),
 
             nameVal = name.val(),
-            surnameVal = surname.val(),
             emailVal = email.val(),
             phoneVal = phone.val(),
             optionId = $('.date-select option:selected')[0].id,
@@ -52,17 +50,6 @@ function register() {
             name.next().remove();
             name.parent().removeClass('tooltip');
             name.css("borderColor","#ccc");
-        }
-
-        if (surnameVal==='') {
-            surname.next().remove();
-            surname.after($("<span class='tooltiptext'>Uzupełnij pole</span>"));
-            surname.parent().addClass('tooltip');
-            surname.css("borderColor","red");
-        } else {
-            surname.next().remove();
-            surname.parent().removeClass('tooltip');
-            surname.css("borderColor","#ccc");
         }
 
         if (emailVal==='') {
@@ -98,13 +85,12 @@ function register() {
         }
 
 
-        if (nameVal!=='' && surnameVal!=='' && regexEmail.test(emailVal) && regexPhone.test(phoneVal)) {
+        if (nameVal!=='' && regexEmail.test(emailVal) && regexPhone.test(phoneVal)) {
             $.ajax({
                 url: "training",
                 method: "POST",
                 data: {
                     name: nameVal,
-                    last_name: surnameVal,
                     email: emailVal,
                     phone_number: phoneVal,
                     id: optionId,

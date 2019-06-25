@@ -149,7 +149,7 @@
             <section class="training-description scrolled firstLevel">
                 <div class="container">
                     <h2 class="description-title">
-                            Co osiągniesz dzięki szkoleniu?
+                        Co osiągniesz dzięki szkoleniu?
                     </h2>
                     <h3 class="description-subtitle">
                         I POZIOM SZKOLENIA
@@ -289,32 +289,87 @@
                     <h2 class="training-registration-title">
                         Nie czekaj, zapisz się już dziś!
                     </h2>
+
                     <form class="training-registration-form">
                         <div class="registration-form-container">
-                            <select class="registration-form-row training-select">
-                                {% if courses %}
-                                    {% for course in courses %}
-                                    <option value="{{ course.slug }}">{{ course.name }}</option>
-                                    {% endfor %}
-                                {% endif %}
-                            </select>
-                            <select class="registration-form-row date-select"></select>
-                            <div class="registration-form-row">
-                                <label class="registration-form-label" for="userName">Imię:</label>
-                                <input class="registration-form-input" type="text" name="name" id="userName">
+                            <div id="trainingData">
+                                <select class="registration-form-row training-select">
+                                    {% if courses %}
+                                        {% for course in courses %}
+                                        <option value="{{ course.slug }}">{{ course.name }}</option>
+                                        {% endfor %}
+                                    {% endif %}
+                                </select>
+                                <select class="registration-form-row date-select"></select>
                             </div>
-                            <div class="registration-form-row">
-                                <label class="registration-form-label" for="userSurname">Nazwisko:</label>
-                                <input class="registration-form-input" type="text" name="surname" id="userSurname">
+
+                            <div id="personalData">
+                                <h3 class="registartion-form-title">Dane osoby zgłaszającej</h3>
+                                <div class="registration-form-row">
+                                    <label class="registration-form-label" for="userName">Imię i nazwisko *</label>
+                                    <input class="registration-form-input" type="text" name="name" id="userName">
+                                </div>
+                                <div class="registration-form-row">
+                                    <label class="registration-form-label" for="userEmail">Adres email *</label>
+                                    <input class="registration-form-input" type="text" name="email" id="userEmail">
+                                </div>
+                                <div class="registration-form-row">
+                                    <label class="registration-form-label" for="userTel">Telefon komórkowy *</label>
+                                    <input class="registration-form-input" type="number" placeholder="Tylko cyfry np.123456789" name="tel" id="userTel">
+                                </div>
+                                <div>
+                                    <input class="registration-form-checkbox" type="checkbox" id="user">
+                                    <label class="registration-form-label" for="user">Osoba zgłaszająca jest jednocześnie uczestnikiem szkolenia</label>
+                                </div>
                             </div>
-                            <div class="registration-form-row">
-                                <label class="registration-form-label" for="userEmail">Email:</label>
-                                <input class="registration-form-input" type="text" name="email" id="userEmail">
+
+                            <div id="participantsData">
+                                <h3 class="registartion-form-title">Dane uczestników szkolenia</h3>
+                                <div class="registration-form-row">
+                                    <label class="registration-form-label" for="userName">Imię i nazwisko *</label>
+                                    <input class="registration-form-input" type="text" name="name" id="userName">
+                                </div>
+                                <span id="addParticipant">Dodaj kolejnego uczestnika</h4>
                             </div>
-                            <div class="registration-form-row">
-                                <label class="registration-form-label" for="userTel">Telefon:</label>
-                                <input class="registration-form-input" type="number" placeholder="Tylko cyfry np.123456789" name="tel" id="userTel">
+
+                            <div id="invoiceData">
+                                <div>
+                                    <input class="registration-form-checkbox" type="checkbox" id="invoice">
+                                    <label class="registration-form-label" for="invoice">Dane instytucji zgłaszającej (dane do faktury)<label>
+                                </div>
+                                <h3 class="registartion-form-title">Dane instytucji zgłaszającej (dane do faktury)</h3>
+                                <div class="registration-form-row">
+                                    <label class="registration-form-label" for="companyName">Nazwa firmy instytucji *</label>
+                                    <input class="registration-form-input" type="text" name="name" id="companyName">
+                                </div>
+                                <div class="registration-form-row">
+                                    <label class="registration-form-label" for="companyAddress">Adres siedziby *</label>
+                                    <input class="registration-form-input" type="text" name="address" id="companyAddress">
+                                </div>
+                                <div class="registration-form-row">
+                                    <label class="registration-form-label" for="companyTel">Telefon komórkowy *</label>
+                                    <input class="registration-form-input" type="number" placeholder="Tylko cyfry np.123456789" name="tel" id="companyTel">
+                                </div>
+                                <div class="registration-form-row">
+                                    <label class="registration-form-label" for="companyEmail">Adres email *</label>
+                                    <input class="registration-form-input" type="number" name="tel" id="companyEmail">
+                                </div>
+                                <div class="registration-form-row">
+                                    <label class="registration-form-label" for="companyNIP">NIP</label>
+                                    <input class="registration-form-input" type="number" name="nip" id="companyNIP">
+                                </div>
                             </div>
+
+                            <!-- <div id="approvementData">
+                                <div>
+                                    <input class="registration-form-checkbox" type="checkbox" id="">
+                                    <label class="registration-form-label" for=""><label>
+                                </div>
+                                <div>
+                                    <input class="registration-form-checkbox" type="checkbox" id="">
+                                    <label class="registration-form-label" for=""><label>
+                                </div>
+                            </div> -->
                         </div>
                         <div class="registration-btn-container">
                             <button type="submit" class="registration-form-btn">Zapisz się</button>

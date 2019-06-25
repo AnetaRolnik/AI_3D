@@ -41,6 +41,12 @@
   user-select: auto;
   -webkit-tap-highlight-color: transparent;
 
+  &[class*='btn-success'] {
+    background : #5fc9c9;
+    color : white;
+    cursor : not-allowed;
+  }
+
   @media(min-width: 720px) {
     cursor: pointer;
   }
@@ -65,7 +71,7 @@
       right: 0;
       top: 0;
       z-index: -1;
-      transition: bottom 120ms ease-in;
+      transition: bottom 160ms ease-in;
     }
 
     &:hover:before {
