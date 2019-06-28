@@ -32,6 +32,10 @@
   margin-bottom: 60px;
 }
 
+#invoiceData {
+  display: none;
+}
+
 .registration-form-row {
   @include flex ($justify: space-between);
   margin-bottom: 15px;
@@ -49,7 +53,7 @@
     cursor: pointer;
     position: relative;
     padding-left: 25px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
 
     &::after {
@@ -84,7 +88,7 @@
   position: relative;
   padding-left: 25px;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   color: $main-color;
 
@@ -102,7 +106,7 @@
   letter-spacing: .2px;
 }
 
-#userTel::placeholder {
+#tel::placeholder {
   color: #aaa;
   letter-spacing: .4px;
   font-weight: 300;
@@ -110,7 +114,7 @@
 
 .registration-btn-container {
   @include flex($direction: column);
-  margin-top: 10px;
+  margin-top: 40px;
 
   .registration-form-btn {
     @include button;
