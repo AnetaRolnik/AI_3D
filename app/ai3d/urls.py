@@ -2,13 +2,14 @@ from django.urls import path
 
 from rest_framework.urlpatterns import format_suffix_patterns
 
-from .views.main_page import MainPage, ContactApi, TrainingApi
+from .views.main_page import MainPage, TrainingApi
+from .api_views import MessageApi
 
 app_name = 'ai3d'
 
 urlpatterns = [
     path('', MainPage.as_view(), name='index'),
-    path('contact', ContactApi.as_view(), name='contact'),
+    path('message/', MessageApi.as_view(), name='message'),
     path('training', TrainingApi.as_view(), name='training'),
     path('training/<slug:training_type>/', TrainingApi.as_view(), name='training')
 ]

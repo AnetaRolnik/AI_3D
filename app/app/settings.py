@@ -83,13 +83,14 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ai3d_prod',
-        'USER': 'ai3d',
-        'PASSWORD': 'develop',
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
+        'NAME': 'ai3d',
+        'USER': 'postgres',
+        'PASSWORD': 'kawazmlekiem5',
+        'HOST': 'localhost',
+        'PORT': ''
     }
 }
+
 
 
 # Password validation
