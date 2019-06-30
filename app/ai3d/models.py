@@ -33,7 +33,7 @@ class Message(models.Model):
         return f'{self.sender} - {self.body[:30]} - {self.created_at}'
 
 
-class Course(models.Model):
+class CourseLevel(models.Model):
     name = models.CharField(max_length=60)
     description = models.CharField(max_length=255)
     price = models.PositiveSmallIntegerField(null=True, default=0,
@@ -52,7 +52,7 @@ class Course(models.Model):
 
 class Training(models.Model):
     name = models.CharField(max_length=60)
-    type = models.ForeignKey(Course, on_delete=models.CASCADE)
+    level = models.ForeignKey(CourseLevel, on_delete=models.CASCADE, related_name='trainings')
     participants = models.ManyToManyField(Client, blank=True)
     participants_limit = models.PositiveSmallIntegerField(null=True, default=20)
     place = models.CharField(max_length=355, blank=True, null=True)
@@ -65,7 +65,7 @@ class Training(models.Model):
     # TODO price should depend of type of training (auto add in admin form)
 
     def __str__(self):
-        return f'{self.name} - ({self.date.strftime("%d.%m.%Y %H:%M ")})  - {self.type.name}'
+        return f'{self.name} - ({self.date.strftime("%d.%m.%Y %H:%M ")})  - {self.level.name}'
 
     def to_dict(self):
         return {
