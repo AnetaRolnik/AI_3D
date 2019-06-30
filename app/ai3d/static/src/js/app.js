@@ -1,16 +1,15 @@
-import activeLinks from "./components/header/activeLinks";
-import hamburgerMenu from "./components/header/hamburgerMenu";
+import activeLinks from "./components/activeLinks";
+import hamburger from "./components/hamburger";
 import contact from "./components/contact";
-import register from "./components/training";
+import training from "./components/training";
 import map from "./components/map";
-
 
 $(function() {
     AOS.init();
 
     activeLinks();
-    hamburgerMenu();
-    register();
+    hamburger();
+    training();
     contact();
     map();
 });

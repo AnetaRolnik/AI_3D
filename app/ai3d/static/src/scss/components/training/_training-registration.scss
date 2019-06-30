@@ -32,10 +32,6 @@
   margin-bottom: 60px;
 }
 
-#invoiceData {
-  display: none;
-}
-
 .registration-form-row {
   @include flex ($justify: space-between);
   margin-bottom: 15px;
