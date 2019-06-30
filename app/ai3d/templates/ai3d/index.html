@@ -22,8 +22,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!--cdn mapbox-->
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css" rel="stylesheet" />
 
 </head>
 
@@ -186,7 +186,7 @@
                                 </li>
                                 <li class="description-list-elem iconElem"
                                     data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1600" data-aos-once="true">
-                                    <img src='../../static/ai3d/assets/icons/graduation-cap.svg'>
+                                    <img src="../../static/ai3d/assets/icons/graduation-cap.svg">
                                 </li>
                             </ul>
                         </div>
@@ -220,7 +220,7 @@
                                 </li>
                                 <li class="description-list-elem iconElem"
                                     data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1800" data-aos-once="true">
-                                    <img src='../../static/ai3d/assets/icons/graduation-cap_orange.svg'>
+                                    <img src="../../static/ai3d/assets/icons/graduation-cap_orange.svg">
                                 </li>
                             </ul>
                             <img class="description-img" id="secondLine"  src="../../static/ai3d/assets/icons/wavyline7.png">
@@ -307,15 +307,15 @@
                                 <h3 class="registartion-form-title">Dane osoby zgłaszającej</h3>
                                 <div class="registration-form-row">
                                     <label class="registration-form-label" for="name">Imię i nazwisko *</label>
-                                    <input class="registration-form-input" type="text" name="name" id="name">
+                                    <input class="registration-form-input required" type="text" name="name" id="name">
                                 </div>
                                 <div class="registration-form-row">
                                     <label class="registration-form-label" for="mail">Adres email *</label>
-                                    <input class="registration-form-input" type="text" name="email" id="mail">
+                                    <input class="registration-form-input required" name="email" id="mail">
                                 </div>
                                 <div class="registration-form-row">
                                     <label class="registration-form-label" for="tel">Telefon komórkowy *</label>
-                                    <input class="registration-form-input" type="number" placeholder="Tylko cyfry np.123456789" name="tel" id="tel">
+                                    <input class="registration-form-input required" type="number" placeholder="Tylko cyfry np.123456789" name="tel" id="tel">
                                 </div>
                                 <div>
                                     <input class="registration-form-checkbox" type="checkbox" id="user">
@@ -335,29 +335,6 @@
                             <div>
                                 <input class="registration-form-checkbox" type="checkbox" id="invoice">
                                 <label class="registration-form-label" for="invoice">Dane instytucji zgłaszającej (dane do faktury)<label>
-                            </div>
-                            <div id="invoiceData">
-                                <h3 class="registartion-form-title">Dane instytucji zgłaszającej (dane do faktury)</h3>
-                                <div class="registration-form-row">
-                                    <label class="registration-form-label" for="companyName">Nazwa firmy instytucji *</label>
-                                    <input class="registration-form-input" type="text" name="name" id="companyName">
-                                </div>
-                                <div class="registration-form-row">
-                                    <label class="registration-form-label" for="companyAddress">Adres siedziby *</label>
-                                    <input class="registration-form-input" type="text" name="address" id="companyAddress">
-                                </div>
-                                <div class="registration-form-row">
-                                    <label class="registration-form-label" for="companyTel">Telefon komórkowy *</label>
-                                    <input class="registration-form-input" type="number" placeholder="Tylko cyfry np.123456789" name="tel" id="companyTel">
-                                </div>
-                                <div class="registration-form-row">
-                                    <label class="registration-form-label" for="companyEmail">Adres email *</label>
-                                    <input class="registration-form-input" type="number" name="tel" id="companyEmail">
-                                </div>
-                                <div class="registration-form-row">
-                                    <label class="registration-form-label" for="companyNIP">NIP</label>
-                                    <input class="registration-form-input" type="number" name="nip" id="companyNIP">
-                                </div>
                             </div>
 
                             <!-- <div id="approvementData">
@@ -393,20 +370,20 @@
                         <div class="contact-form-row">
                             <div>
                                 <label class="contact-form-label" for="contactName">Imię:</label>
-                                <input class="contact-form-input field" type="text" name="name" id="contactName" maxlength="20">
+                                <input class="contact-form-input required" type="text" name="name" id="contactName" maxlength="20">
                             </div>
                             <div>
                                 <label class="contact-form-label" for="contactSurname">Nazwisko:</label>
-                                <input class="contact-form-input field" type="text" name="surname" id="contactSurname" maxlength="20">
+                                <input class="contact-form-input required" type="text" name="surname" id="contactSurname" maxlength="20">
                             </div>
                         </div>
                         <div class="contact-form-row">
                             <label class="contact-form-label" for="contactEmail">Email:</label>
-                            <input class="contact-form-input field" name="email" id="contactEmail">
+                            <input class="contact-form-input required" name="email" id="contactEmail">
                         </div>
                         <div class="contact-form-row">
                             <label class="contact-form-label" for="contactMessage">Wiadomość:</label>
-                            <textarea class="contact-form-textarea field" name="message" id="contactMessage" maxlength="200"></textarea>
+                            <textarea class="contact-form-textarea required" name="message" id="contactMessage" maxlength="200"></textarea>
                         </div>
                         <div class="contact-btn-container">
                             <button type="submit" class="contact-form-btn">Prześlij</button>

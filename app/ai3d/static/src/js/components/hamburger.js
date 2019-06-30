@@ -1,4 +1,4 @@
-function hamburgerMenu() {
+function hamburger() {
     const btn = $('.nav-toggle');
     const list = $('.nav-list');
 
@@ -16,4 +16,4 @@ function hamburgerMenu() {
     }, 500));
 }
 
-export default hamburgerMenu;
+export default hamburger;

@@ -1,3 +1,5 @@
+import validation from './validation';
+
 function contact() {
 
     function getCookie(name) {
@@ -29,74 +31,21 @@ function contact() {
     });
 
 
-    $(".contact-form").on("submit", function(event){
-        event.preventDefault();
-
-        const name = $('#contactName'),
-            surname = $('#contactSurname'),
-            email =  $('#contactEmail'),
-            message = $('#contactMessage'),
-            fields = $(".contact-form .field"),
-
-            nameVal = name.val(),
-            surnameVal = surname.val(),
-            emailVal = email.val(),
-            messageVal = message.val(),
-
+    $(".contact-form").on("submit", function(e) {
+        const requiredFields= $(".contact-form .required"),
+            fields = $(".contact-form .required"),
             btn = $(".contact-form-btn"),
             containerBtn = $(".contact-btn-container"),
 
-            //form validation
+            nameVal =  $('#contactName').val(),
+            surnameVal = $('#contactSurname').val(),
+            emailVal = $('#contactEmail').val(),
+            messageVal = $('#contactMessage').val(),
+
             regexEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-        if (nameVal==='') {
-            name.next().remove();
-            name.after($("<span class='tooltiptext'>Uzupełnij pole</span>"));
-            name.parent().addClass('tooltip');
-            name.css("borderColor","red");
-        } else {
-            name.next().remove();
-            name.parent().removeClass('tooltip');
-            name.css("borderColor","#ccc");
-        }
-
-        if (surnameVal==='') {
-            surname.next().remove();
-            surname.after($("<span class='tooltiptext'>Uzupełnij pole</span>"));
-            surname.parent().addClass('tooltip');
-            surname.css("borderColor","red");
-        } else {
-            surname.next().remove();
-            surname.parent().removeClass('tooltip');
-            surname.css("borderColor","#ccc");
-        }
-
-        if (emailVal==='') {
-            email.next().remove();
-            email.after($("<span class='tooltiptext'>Uzupełnij pole</span>"));
-            email.parent().addClass('tooltip');
-            email.css("borderColor", "red");
-        } else if (emailVal!=='' && !regexEmail.test(emailVal)) {
-            email.next().remove();
-            email.after($("<span class='tooltiptext'>Wpisz poprawny email</span>"));
-            email.parent().addClass('tooltip');
-            email.css("borderColor", "red");
-        } else {
-            email.next().remove();
-            email.parent().removeClass('tooltip');
-            email.css("borderColor","#ccc");
-        }
-
-        if (messageVal==='' || messageVal.length < 8) {
-            message.next().remove();
-            message.after($("<span class='tooltiptext'>Wpisz co najmniej 8 znaków</span>"));
-            message.parent().addClass('tooltip');
-            message.css("borderColor", "red");
-        } else {
-            message.next().remove();
-            message.parent().removeClass('tooltip');
-            message.css("borderColor","#ccc");
-        }
+        e.preventDefault();
+        validation(requiredFields);
 
         if (nameVal!=='' && surnameVal!=='' && regexEmail.test(emailVal) && messageVal.length>=8) {
             $.ajax({
@@ -109,16 +58,12 @@ function contact() {
                     message: messageVal,
                 }
             }).done(function(){
-                //clear fields
-                fields.val("");
-                fields.css("borderColor","#ccc");
+                fields.val("").css("borderColor","#ccc");
 
-                //add information
                 $('.contact-form-state').remove();
                 const $state = $("<p class='contact-form-state'>Wiadomość została wysłana</p>");
                 containerBtn.append( $state );
 
-                //change style btn
                 btn.addClass('contact-btn-success').prop('disabled', true);
 
                 setTimeout(function(){
@@ -127,7 +72,6 @@ function contact() {
                 },7000);
 
             }).fail(function(){
-                //add information
                 if ($('.contact-form-state').length === 0) {
                     const $state = $("<p class='contact-form-state'>Nie udało się wysłać wiadomości. Spróbuj ponownie za chwilę</p>");
                     containerBtn.append($state);
@@ -135,7 +79,6 @@ function contact() {
             });
         }
     });
-
 }
 
 export default contact;
