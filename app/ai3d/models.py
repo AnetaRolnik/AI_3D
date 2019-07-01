@@ -55,7 +55,8 @@ class Training(models.Model):
     level = models.ForeignKey(CourseLevel, on_delete=models.CASCADE, related_name='trainings')
     participants = models.ManyToManyField(Client, blank=True)
     participants_limit = models.PositiveSmallIntegerField(null=True, default=20)
-    entry = models.ForeignKey('ai3d.Entry', on_delete=models.CASCADE, related_name='trainings_entries')
+    entry = models.ForeignKey('ai3d.Entry', on_delete=models.CASCADE, related_name='trainings_entries',
+                              null=True, blank=True)
     place = models.CharField(max_length=355, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     date = models.DateTimeField()

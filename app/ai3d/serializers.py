@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from .models import Message, Client, Training
+from .models import Message, Client, Training, Invoice
 
 
 class ClientSerializer(ModelSerializer):
@@ -26,11 +26,34 @@ class MessageSerializer(ModelSerializer):
         return message
 
 
+class InvoiceSerializer(ModelSerializer):
+
+    class Meta:
+        model = Invoice
+        fields = ('institution_name', 'institution_address', 'phone_number', 'email', 'nip')
+
+    def create(self, validated_data):
+        sender = validated_data.pop('sender')
+        sender_obj, _ = Client.objects.get_or_create(**sender)
+        message = Message.objects.create(sender=sender_obj, **validated_data)
+        return message
+
+
 class TrainingSerializer(ModelSerializer):
 
     class Meta:
         model = Training
-        fields = ('participants',)
+        fields = ('name', 'level', 'date',)
+
+
+class EntrySerializer(ModelSerializer):
+    reporting_person = ClientSerializer()
+    participants = ClientSerializer(many=True)
+    invoice = InvoiceSerializer()
+
+    class Meta:
+        model = Training
+        fields = ('reporting_person', 'participants', 'invoice')
 
     def create(self, validated_data):
         pass

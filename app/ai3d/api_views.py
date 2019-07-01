@@ -8,9 +8,9 @@ class MessageApi(generics.CreateAPIView):
     serializer_class = MessageSerializer
 
 
-class TrainingViewSet(viewsets.ModelViewSet):
-    queryset = Training.objects.all()
+class TrainingApi(generics.ListAPIView):
     serializer_class = TrainingSerializer
-    http_method_names = ['get', 'put', 'head', 'options']
 
-
+    def get_queryset(self):
+        level_slug = self.kwargs.get('level')
+        return Training.objects.filter(level__slug=level_slug)
