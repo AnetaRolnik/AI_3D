@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Message, Client, Training, CourseLevel
+from .models import Message, Client, Training, CourseLevel, Invoice, Entry
 
 
 class MessageAdmin(admin.ModelAdmin):
@@ -11,6 +11,14 @@ class MessageAdmin(admin.ModelAdmin):
 
 class ClientAdmin(admin.ModelAdmin):
     model = Client
+
+
+class InvoiceAdmin(admin.ModelAdmin):
+    model = Invoice
+
+
+class EntryAdmin(admin.ModelAdmin):
+    model = Entry
 
 
 class TrainingAdmin(admin.ModelAdmin):
@@ -36,6 +44,8 @@ admin.site.register(Message, MessageAdmin)
 admin.site.register(Client, ClientAdmin)
 admin.site.register(Training, TrainingAdmin)
 admin.site.register(CourseLevel, CourseLevelAdmin)
+admin.site.register(Invoice, InvoiceAdmin)
+admin.site.register(Entry, EntryAdmin)
 
 admin.site.site_header = "AI3D Admin Panel - A&J"
 admin.site.site_title = "AI3D Admin Panel"
