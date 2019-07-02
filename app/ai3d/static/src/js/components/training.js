@@ -2,25 +2,50 @@ import validation from "./validation";
 
 function training() {
     const addParticipant = $("#addParticipant"),
-        participantsData = $("#participantsData"),
+        participantsData = $("#participantsData ol"),
         invoiceCheckbox = $("#invoice"),
-        userCheckbox = $("#user"),
-        participantInput = $("#participantsData .required"),
-        nameInput = $("#personalData #name"),
+        userCheckbox = $("#userAsParticipant"),
+        userName = $("#personalData #name"),
+        userEmail = $("#personalData #mail"),
+        participantName = $(".participantData #participantName"),
+        participantEmail = $(".participantData #participantEmail"),
         trainingSelect = $(".training-select"),
-        firstOption = trainingSelect.find("option:first-child")[0].value,
-        requiredFields = $(".required");
+        firstOption = trainingSelect.find("option:first-child")[0].value;
 
     const participant = (`
-        <div class="registration-form-row">
-            <label class="registration-form-label" for="participantName">Imię i nazwisko</label>
-            <input class="registration-form-input" type="text" name="name" id="participantName">
+        <li class="participantData">
+            <div class="registration-form-row">
+                <label class="registration-form-label" for="participantName">Imię i nazwisko</label>
+                <input class="registration-form-input" type="text" name="name" id="participantName">
+            </div>
+            <div class="registration-form-row">
+                <label class="registration-form-label" for="participantEmail">Adres email</label>
+                <input class="registration-form-input" name="email" id="participantEmail">
+            </div>
         </div>
     `)
 
     addParticipant.on("click", function() {
-        $(this).before(participant);
-        participantsData.children().length > 6 ? $(this).remove() : null;
+        participantsData.append(participant);
+        participantsData.children().length === 5 ? $(this).remove() : null;
+    });
+
+    userCheckbox.on("click", function() {
+        if($(this).prop("checked")) {
+            participantName.val(userName.val()).prop("readonly", true).css("background", "#f6f7f6");
+            userName.bind("keyup change", function() {
+                participantName.val($(this).val());
+            });
+
+            participantEmail.val(userEmail.val()).prop("readonly", true).css("background", "#f6f7f6");
+            userEmail.bind("keyup change", function() {
+                participantEmail.val($(this).val());
+            });
+
+        } else { 
+            participantName.val("").prop("readonly", false).css("background", "#fff");
+            participantEmail.val("").prop("readonly", false).css("background", "#fff");
+        };
     });
 
     const invoice = (`
@@ -36,11 +61,11 @@ function training() {
             </div>
             <div class="registration-form-row">
                 <label class="registration-form-label" for="companyTel">Telefon komórkowy *</label>
-                <input class="registration-form-input required" type="number" placeholder="Tylko cyfry np.123456789" name="tel" id="companyTel">
+                <input class="registration-form-input required" type="tel" placeholder="Tylko cyfry np.500500500" name="tel" id="companyTel">
             </div>
             <div class="registration-form-row">
                 <label class="registration-form-label" for="companyEmail">Adres email *</label>
-                <input class="registration-form-input required" type="email" name="tel" id="companyEmail">
+                <input class="registration-form-input required" name="email" id="companyEmail">
             </div>
             <div class="registration-form-row">
                 <label class="registration-form-label" for="companyNIP">NIP</label>
@@ -53,17 +78,6 @@ function training() {
         $(this).prop("checked")
             ? $(this).parent().after(invoice)
             : $("#invoiceData").remove();
-    });    
-
-    userCheckbox.on("click", function() {
-        if($(this).prop("checked")) {
-            participantInput.val(nameInput.val()).prop("readonly", true).css("background", "#f6f7f6");
-            nameInput.bind("keyup change", function() {
-                participantInput.val($(this).val());
-            });
-        } else { 
-            participantInput.val("");
-        };
     });    
 
     function getDate(url) {
@@ -85,20 +99,14 @@ function training() {
         getDate("training/"+selectVal);
     });
 
+    
     $(".training-registration-form").on("submit", function(e) {
-        const requiredFields= $(".training-registration-form .required"),
-            fields = $(".registration-form-input"),
-            optionId = $(".date-select option:selected")[0].id,
-            btn = $(".registration-form-btn"),
-            containerBtn = $(".registration-btn-container"),
-
-            regexEmail = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-            regexPhone =  /^[0-9]{6,12}$/;
+        const requiredFields= $(".training-registration-form .required");
 
         e.preventDefault();
         validation(requiredFields);
-
-        // if (nameVal!=="" && regexEmail.test(emailVal) && regexPhone.test(phoneVal)) {
+        
+        // if () {
         //     $.ajax({
         //         url: "training",
         //         method: "POST",

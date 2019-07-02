@@ -315,20 +315,28 @@
                                 </div>
                                 <div class="registration-form-row">
                                     <label class="registration-form-label" for="tel">Telefon komórkowy *</label>
-                                    <input class="registration-form-input required" type="number" placeholder="Tylko cyfry np.123456789" name="tel" id="tel">
+                                    <input class="registration-form-input required" type="tel" placeholder="Tylko cyfry np.500500500" name="tel" id="tel">
                                 </div>
                                 <div>
-                                    <input class="registration-form-checkbox" type="checkbox" id="user">
-                                    <label class="registration-form-label" for="user">Osoba zgłaszająca jest jednocześnie uczestnikiem szkolenia</label>
+                                    <input class="registration-form-checkbox" type="checkbox" id="userAsParticipant">
+                                    <label class="registration-form-label" for="userAsParticipant">Osoba zgłaszająca jest jednocześnie uczestnikiem szkolenia</label>
                                 </div>
                             </div>
 
                             <div id="participantsData">
                                 <h3 class="registartion-form-title">Dane uczestników szkolenia</h3>
-                                <div class="registration-form-row">
-                                    <label class="registration-form-label" for="participantName">Imię i nazwisko *</label>
-                                    <input class="registration-form-input required" type="text" name="name" id="participantName">
-                                </div>
+                                <ol>
+                                    <li class="participantData">
+                                        <div class="registration-form-row">
+                                            <label class="registration-form-label" for="participantName">Imię i nazwisko *</label>
+                                            <input class="registration-form-input required" type="text" name="name" id="participantName">
+                                        </div>
+                                        <div class="registration-form-row">
+                                            <label class="registration-form-label" for="participantEmail">Adres email *</label>
+                                            <input class="registration-form-input required" name="email" id="participantEmail">
+                                        </div>
+                                    </li>
+                                </ol>
                                 <span id="addParticipant">Dodaj kolejnego uczestnika</h4>
                             </div>
 

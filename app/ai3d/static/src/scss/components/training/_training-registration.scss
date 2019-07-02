@@ -32,6 +32,17 @@
   margin-bottom: 60px;
 }
 
+#participantsData {
+  ol {
+    padding: 0 0 0 20px;
+    margin: 0;
+  }
+
+  li:not(:first-child) {
+    margin-top: 30px;
+  }
+}
+
 .registration-form-row {
   @include flex ($justify: space-between);
   margin-bottom: 15px;

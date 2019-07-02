@@ -49,14 +49,17 @@ function contact() {
 
         if (nameVal!=='' && surnameVal!=='' && regexEmail.test(emailVal) && messageVal.length>=8) {
             $.ajax({
-                url: "contact",
+                url: "message/",
                 method: "POST",
-                data : {
-                    name: nameVal,
-                    last_name: surnameVal,
-                    email: emailVal,
-                    message: messageVal,
-                }
+                contentType: "application/json",
+                data : JSON.stringify({
+                    "sender": {
+                      "first_name": nameVal,
+                      "last_name": surnameVal,
+                      "email": emailVal
+                    },
+                    "body": messageVal
+                })
             }).done(function(){
                 fields.val("").css("borderColor","#ccc");
 
