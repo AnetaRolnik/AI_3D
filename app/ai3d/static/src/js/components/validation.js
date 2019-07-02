@@ -7,27 +7,27 @@ function validation(requiredFields) {
 
         if ($(this).val().length === 0) {
             $(this).css("borderColor","red")
-                .after($(`<span class="tooltiptext">Uzupełnij pole</span>`))
-                .parent().addClass("tooltip");
+                .after($(`<span class="error-info">Uzupełnij pole</span>`))
+                .parent().addClass("error");
 
         } else if ($(this).is("textarea") && $(this).val().length < 8) {
             $(this).css("borderColor","red")
-                .after($(`<span class="tooltiptext">Za krótka wiadomość. Wpisz min 8 znaków</span>`))
-                .parent().addClass("tooltip");
+                .after($(`<span class="error-info">Za krótka wiadomość. Wpisz min 8 znaków</span>`))
+                .parent().addClass("error");
 
         } else if ($(this).is("[type=tel]") && !regexPhone.test($(this).val())) {
             $(this).css("borderColor","red")
-                .after($(`<span class="tooltiptext">Wpisz poprawny numer</span>`))
-                .parent().addClass("tooltip");
+                .after($(`<span class="error-info">Wpisz poprawny numer</span>`))
+                .parent().addClass("error");
 
         } else if ($(this).is("[name=email]") && !regexEmail.test($(this).val())) {
             $(this).css("borderColor","red")
-                .after($(`<span class="tooltiptext">Wpisz poprawny email</span>`))
-                .parent().addClass("tooltip");
+                .after($(`<span class="error-info">Wpisz poprawny email</span>`))
+                .parent().addClass("error");
 
         } else {
             $(this).css("borderColor","#ccc")
-                .parent().removeClass("tooltip");
+                .parent().removeClass("error");
         }
     });
 }

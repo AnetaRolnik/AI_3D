@@ -1,6 +1,6 @@
 .contact-detail {
   display: flex;
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: .4px;
 }
 
@@ -56,6 +56,12 @@
 @media(min-width: 960px) {
   .contact-details {
     width: 40%;
+  }
+}
+
+@media(min-width: 1360px) {
+  .contact-detail {
+    font-size: 18px;
   }
 }
 

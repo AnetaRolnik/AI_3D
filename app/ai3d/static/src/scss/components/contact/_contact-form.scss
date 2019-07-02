@@ -19,7 +19,7 @@
 .contact-form-label {
   display: block;
   margin-bottom: 5px;
-  font-size: 18px;
+  font-size: 14px;
   letter-spacing: .2px;
   font-weight: 700;
 }
@@ -49,47 +49,19 @@
   text-align: center;
 }
 
-//tooltips
-.contact .tooltip {
-  position: relative;
-}
-
-.contact .tooltip .tooltiptext {
-  visibility: hidden;
-  width: 180px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 7px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 90%;
-  left: 50%;
-  transform: translate(-50%,0);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.contact .tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border: 5px solid transparent;
-  border-top-color: #555;
-}
-
-.contact .tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
-
-
 @media(min-width: 720px) {
   .contact-form {
     width: 55%;
     height: 480px;
+  }
+
+  .contact-form-label {
+    font-size: 16px;
+  }
+}
+
+@media(min-width: 1360px) {
+  .contact-form-label {
+    font-size: 18px;
   }
 }
