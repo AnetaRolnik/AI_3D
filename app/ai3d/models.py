@@ -55,6 +55,8 @@ class Training(models.Model):
     level = models.ForeignKey(CourseLevel, on_delete=models.CASCADE, related_name='trainings')
     participants = models.ManyToManyField(Client, blank=True)
     participants_limit = models.PositiveSmallIntegerField(null=True, default=20)
+    entry = models.ForeignKey('ai3d.Entry', on_delete=models.CASCADE, related_name='trainings_entries',
+                              null=True, blank=True)
     place = models.CharField(max_length=355, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     date = models.DateTimeField()
@@ -72,6 +74,29 @@ class Training(models.Model):
             'id': self.id,
             'data': self.date.strftime("%d.%m.%Y - %H:%M")
         }
+
+
+class Entry(models.Model):
+    training = models.ForeignKey(Training, on_delete=models.CASCADE, related_name='training_applications')
+    invoice = models.ForeignKey('ai3d.Invoice', on_delete=models.CASCADE, related_name='invoice_applications', blank=True,  null=True)
+    reporting_person = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='reporting_person')
+    participants = models.ManyToManyField(Client, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.pk} {self.training_name} - ({self.created_at.strftime("%d.%m.%Y %H:%M ")}'
+
+
+class Invoice(models.Model):
+    institution_name = models.CharField(max_length=355, blank=True, null=True)
+    institution_address = models.CharField(max_length=355, blank=True, null=True)
+    phone_number = models.CharField(max_length=9, blank=True)
+    email = models.EmailField(max_length=70)
+    nip = models.PositiveIntegerField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.pk} {self.institution_name} - ({self.created_at.strftime("%d.%m.%Y %H:%M ")}'
 
 
 def sign_up_for_training(sender, action='pre_add', **kwargs):
