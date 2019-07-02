@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from .models import Message, Client, Training, Invoice
+from .models import Message, Client, Training, Invoice, Entry
 
 
 class ClientSerializer(ModelSerializer):
@@ -52,10 +52,8 @@ class EntrySerializer(ModelSerializer):
     invoice = InvoiceSerializer()
 
     class Meta:
-        model = Training
+        model = Entry
         fields = ('reporting_person', 'participants', 'invoice')
 
-    def create(self, validated_data):
-        pass
 
 
