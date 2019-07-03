@@ -13,7 +13,7 @@ function training() {
         firstOption = trainingSelect.find("option:first-child")[0].value;
 
     const participant = (`
-        <li class="participantData">
+        <li class="participantData" data-aos="fade-up" data-aos-duration="500" data-aos-delay="50" data-aos-once="true">
             <div class="registration-form-row">
                 <label class="registration-form-label" for="participantName">Imię i nazwisko</label>
                 <input class="registration-form-input" type="text" name="name" id="participantName">
@@ -49,7 +49,7 @@ function training() {
     });
 
     const invoice = (`
-        <div id="invoiceData">
+        <div id="invoiceData" data-aos="fade-up" data-aos-duration="500" data-aos-delay="50" data-aos-once="true">
             <h3 class="registartion-form-title">Dane instytucji zgłaszającej (dane do faktury)</h3>
             <div class="registration-form-row">
                 <label class="registration-form-label" for="companyName">Nazwa firmy instytucji *</label>
