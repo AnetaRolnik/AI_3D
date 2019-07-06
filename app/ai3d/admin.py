@@ -15,23 +15,28 @@ class ClientAdmin(admin.ModelAdmin):
 
 class InvoiceAdmin(admin.ModelAdmin):
     model = Invoice
+    list_display = ['id', 'institution_name', 'training', ]
+
+    def training(self, obj):
+        return obj.invoice_applications.get()
 
 
 class EntryAdmin(admin.ModelAdmin):
     model = Entry
+    list_display = ['id', 'reporting_person', 'training', ]
 
 
 class TrainingAdmin(admin.ModelAdmin):
     model = Training
     ordering = ('date',)
     search_fields = ('level__name', 'name', 'date',
-                     'participants__first_name', 'participants__last_name',)
+                     'participants__name',)
     list_display = ['id', 'name', 'level', 'date', 'participants_list', ]
     exclude = ['sign_ups_closed', ]
 
     def participants_list(self, obj):
         return ", ".join([
-            participant.get_full_name for participant in obj.participants.all()
+            participant.name for participant in obj.participants.all()
         ])
 
 

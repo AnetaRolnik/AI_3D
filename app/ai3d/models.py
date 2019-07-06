@@ -6,8 +6,7 @@ from django.utils.text import slugify
 
 class Client(models.Model):
     """ Client/Customer class - atm created after filling contact form  or signing up for training"""
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, default='')
     email = models.EmailField(max_length=70)
     phone_number = models.CharField(max_length=9, blank=True)
 
@@ -15,16 +14,12 @@ class Client(models.Model):
         unique_together = ('email',)
 
     def __str__(self):
-        return f'{self.first_name.title()} {self.email}'
-
-    @property
-    def get_full_name(self):
-        return f'{self.first_name} {self.last_name}'
+        return f'{self.name.title()} {self.email}'
 
 
 class Message(models.Model):
     """ Base class for all messages used in app (ContactForm, Newsletter, etc)"""
-    sender = models.ForeignKey(Client, on_delete=models.CASCADE)
+    sender = models.CharField(max_length=250)
     created_at = models.DateTimeField(auto_now_add=True)
     body = models.CharField(max_length=250)
     send = models.BooleanField(default=False)
@@ -67,7 +62,7 @@ class Training(models.Model):
     # TODO price should depend of type of training (auto add in admin form)
 
     def __str__(self):
-        return f'{self.name} - ({self.date.strftime("%d.%m.%Y %H:%M ")})  - {self.level.name}'
+        return f'{self.name} - {self.date.strftime("%d.%m.%Y %H:%M ")} - {self.level.name}'
 
     def to_dict(self):
         return {
@@ -83,8 +78,11 @@ class Entry(models.Model):
     participants = models.ManyToManyField(Client, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        verbose_name_plural = "entries"
+
     def __str__(self):
-        return f'{self.pk} {self.training_name} - ({self.created_at.strftime("%d.%m.%Y %H:%M ")}'
+        return f'{self.training.name} {self.reporting_person.name} ({self.created_at.strftime("%d.%m.%Y %H:%M")})'
 
 
 class Invoice(models.Model):
@@ -96,7 +94,7 @@ class Invoice(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.pk} {self.institution_name} - ({self.created_at.strftime("%d.%m.%Y %H:%M ")}'
+        return f'{self.institution_name}'
 
 
 def sign_up_for_training(sender, action='pre_add', **kwargs):

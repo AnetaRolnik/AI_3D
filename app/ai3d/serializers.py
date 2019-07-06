@@ -1,4 +1,4 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, BooleanField
 from .models import Message, Client, Training, Invoice, Entry
 
 
@@ -6,24 +6,14 @@ class ClientSerializer(ModelSerializer):
 
     class Meta:
         model = Client
-        fields = ('first_name', 'last_name', 'email', 'phone_number')
-
-    def get_unique_together_validators(self):
-        return []
+        fields = ('name', 'email', 'phone_number')
 
 
 class MessageSerializer(ModelSerializer):
-    sender = ClientSerializer()
 
     class Meta:
         model = Message
         fields = ('sender', 'created_at', 'body', 'send')
-
-    def create(self, validated_data):
-        sender = validated_data.pop('sender')
-        sender_obj, _ = Client.objects.get_or_create(**sender)
-        message = Message.objects.create(sender=sender_obj, **validated_data)
-        return message
 
 
 class InvoiceSerializer(ModelSerializer):
@@ -32,28 +22,45 @@ class InvoiceSerializer(ModelSerializer):
         model = Invoice
         fields = ('institution_name', 'institution_address', 'phone_number', 'email', 'nip')
 
-    def create(self, validated_data):
-        sender = validated_data.pop('sender')
-        sender_obj, _ = Client.objects.get_or_create(**sender)
-        message = Message.objects.create(sender=sender_obj, **validated_data)
-        return message
-
 
 class TrainingSerializer(ModelSerializer):
 
     class Meta:
         model = Training
-        fields = ('name', 'level', 'date',)
+        fields = ('name', 'level', 'date', 'id',)
 
 
 class EntrySerializer(ModelSerializer):
     reporting_person = ClientSerializer()
     participants = ClientSerializer(many=True)
     invoice = InvoiceSerializer()
+    reporting_person_is_participating = BooleanField()
 
     class Meta:
         model = Entry
-        fields = ('reporting_person', 'participants', 'invoice')
+        fields = ('training', 'reporting_person',
+                  'reporting_person_is_participating',
+                  'participants', 'invoice',)
 
+    def create(self, validated_data):
+        reporting_person = Client.objects.create(**validated_data.pop('reporting_person'))
+        reporting_person_is_participating = validated_data.get('reporting_person_is_participating')
+        invoice = Invoice.objects.create(**validated_data.pop('invoice'))
+        training = validated_data.pop('training')
 
+        entry = Entry.objects.create(reporting_person=reporting_person,
+                                    invoice=invoice, training=training)
+
+        clients = []
+
+        if reporting_person_is_participating:
+            clients.append(reporting_person)
+
+        for participant in validated_data.get('participants'):
+            client = Client.objects.create(**participant)
+            clients.append(client)
+
+        entry.participants.set(clients)
+
+        return entry
 
