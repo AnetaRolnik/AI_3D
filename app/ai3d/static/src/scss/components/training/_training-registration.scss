@@ -23,13 +23,21 @@
   }
 }
 
+.registartion-form-title {
+  font-size: 18px;
+}
+
 #trainingData {
   @include flex ($direction: column, $align: flex-end);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 #personalData, #participantsData, #invoiceData {
-  margin-bottom: 60px;
+  margin-bottom: 45px;
+}
+
+#invoiceData {
+  margin-top: 25px;
 }
 
 #participantsData {
@@ -50,7 +58,14 @@
 
 .registration-form-input, select {
   @include input;
-  width: 65%;
+  width: 60%;
+}
+
+.registration-form-label {
+  font-size: 14px;
+  letter-spacing: .2px;
+  max-width: calc(40% - 5px);
+  margin-right: 5px;
 }
 
 .registration-form-checkbox {
@@ -62,6 +77,7 @@
     padding-left: 25px;
     display: inline-flex;
     align-items: center;
+    max-width: 100%;
 
     &::after {
       content: '';
@@ -108,11 +124,6 @@
   }
 }
 
-.registration-form-label {
-  font-size: 16px;
-  letter-spacing: .2px;
-}
-
 #tel::placeholder {
   color: #aaa;
   letter-spacing: .4px;
@@ -135,41 +146,20 @@
   margin: 10px 0 0;
 }
 
-//tooltips
-.training .tooltip {
-  position: relative;
-}
 
-.training .tooltip .tooltiptext {
-  visibility: hidden;
-  width: 180px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 7px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 120%;
-  left: 65%;
-  transform: translate(-50%,0);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
+@media(min-width: 720px) {
+  .registartion-form-title {
+    font-size: 20px;
+  }
 
-.training .tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border: 5px solid transparent;
-  border-top-color: #555;
-}
+  .registration-form-input, select {
+    width: 65%;
+  }
 
-.training .tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
+  .registration-form-label {
+    font-size: 16px;
+    max-width: calc(35% - 5px);
+  }
 }
 
 
@@ -178,7 +168,19 @@
     font-size: 28px;
   }
 
+  .registration-form-label {
+    font-size: 18px;
+  }
+
   .registration-form-container::before {
     @include pseudo-element($width: 80px, $height: 80px);
+  }
+
+  #trainingData {
+    margin-bottom: 30px;
+  }  
+
+  #personalData, #participantsData, #invoiceData {
+    margin-bottom: 60px;
   }
 }
