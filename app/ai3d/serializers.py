@@ -33,8 +33,7 @@ class TrainingSerializer(ModelSerializer):
 class EntrySerializer(ModelSerializer):
     reporting_person = ClientSerializer()
     participants = ClientSerializer(many=True)
-    invoice = InvoiceSerializer()
-    reporting_person_is_participating = BooleanField()
+    invoice = InvoiceSerializer(required=False)
 
     class Meta:
         model = Entry

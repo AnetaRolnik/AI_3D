@@ -20,6 +20,7 @@ class Client(models.Model):
 class Message(models.Model):
     """ Base class for all messages used in app (ContactForm, Newsletter, etc)"""
     sender = models.CharField(max_length=250)
+    email = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     body = models.CharField(max_length=250)
     send = models.BooleanField(default=False)
