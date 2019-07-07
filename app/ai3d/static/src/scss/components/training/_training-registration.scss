@@ -32,12 +32,20 @@
   margin-bottom: 20px;
 }
 
-#personalData, #participantsData, #invoiceData {
+#personalData, #participantsData {
   margin-bottom: 45px;
 }
 
 #invoiceData {
   margin-top: 25px;
+}
+
+#approvementData {
+  margin: 45px 0;
+
+  > div:not(:last-child) {
+    margin-bottom: 15px;
+  }
 }
 
 #participantsData {
@@ -76,7 +84,7 @@
     position: relative;
     padding-left: 25px;
     display: inline-flex;
-    align-items: center;
+    align-items: flex-start;
     max-width: 100%;
 
     &::after {
@@ -100,6 +108,7 @@
         background: url("../assets/icons/check.svg");
         position: absolute;
         left: 3px;
+        top: 3px;
       }
     }
   }

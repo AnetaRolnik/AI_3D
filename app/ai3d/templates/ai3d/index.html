@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <header class="header">
+    <header>
         <nav class="nav">
             <ul class="nav-list">
                 <li class="nav-list-elem">
@@ -53,30 +53,35 @@
                 </li>
             </ul>
 
-            <div class="nav-toggle" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="socialMedia">
+                <a class="youtube" href="https://www.youtube.com" target="_blank"></a>
+                <a class="facebook" href="https://www.facebook.com" target="_blank"></a>
             </div>
         </nav>
+
+        <div class="nav-toggle" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
 
     <div class="content">
-        <section class="home scrolled">
+        <section class="banner scrolled">
             <video id="bgVideo" autoplay muted loop poster="../../static/ai3d/assets/images/bg.jpg">
                 <source src="../../static/ai3d/assets/video/Wroniecka_23.mp4" type="video/mp4">
             </video>
             <img id="bgImg" src="../../static/ai3d/assets/images/bg_mobile.jpg">
 
             <div class="container">
-                <img class="home-logo" src="../../static/ai3d/assets/logo/i3d_logo.svg" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="1000" data-aos-once="true"/>
-                <h2 class="home-text"
+                <img class="banner-logo" src="../../static/ai3d/assets/logo/i3d_logo.svg" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="1000" data-aos-once="true"/>
+                <h2 class="banner-text"
                    data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000" data-aos-once="true">
                     NOWE OBLICZE INWENTARYZACJI BIM
                 </h2>
                 <div id="btnContainer" data-aos="fade-up" data-aos-delay="1500" data-aos-duration="1000" data-aos-once="true">
-                    <a href="#aboutUs" class="home-btn">
+                    <a href="#aboutUs" class="banner-btn">
                         Dowiedz się więcej
                     </a>
                 </div>
@@ -171,7 +176,7 @@
                                 </li>
                                 <li class="description-list-elem"
                                     data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" data-aos-once="true">
-                                    Uzyskasz wystarczającą wiedzę do egzekwowania i wytyczenia narzędzi do przeprowadzenia prawidłowego procesu projektowo-realizacyjnego.???
+                                    Uzyskasz wystarczającą wiedzę do egzekwowania i wytyczenia narzędzi do przeprowadzenia prawidłowego procesu projektowo-realizacyjnego.
                                 </li>
                             </ul>
                             <img class="description-img" id="firstLine" src="../../static/ai3d/assets/icons/wavyline6.png">
@@ -345,16 +350,16 @@
                                 <label class="registration-form-label" for="invoice">Dane instytucji zgłaszającej (dane do faktury)<label>
                             </div>
 
-                            <!-- <div id="approvementData">
+                            <div id="approvementData">
                                 <div>
-                                    <input class="registration-form-checkbox" type="checkbox" id="">
-                                    <label class="registration-form-label" for=""><label>
+                                    <input class="registration-form-checkbox" type="checkbox" id="approvementTraining">
+                                    <label class="registration-form-label" for="approvementTraining">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et blandit nibh. Quisque suscipit, tellus at ullamcorper imperdiet, ligula lorem facilisis quam, id semper nulla felis sit amet nisl.<label>
                                 </div>
                                 <div>
-                                    <input class="registration-form-checkbox" type="checkbox" id="">
-                                    <label class="registration-form-label" for=""><label>
+                                    <input class="registration-form-checkbox" type="checkbox" id="approvementNewsletter">
+                                    <label class="registration-form-label" for="approvementNewsletter">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et blandit nibh. Quisque suscipit, tellus at ullamcorper imperdiet, ligula lorem facilisis quam, id semper nulla felis sit amet nisl. Suspendisse at hendrerit libero. Etiam neque odio, lacinia quis quam eget, eleifend molestie lorem.<label>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                         <div class="registration-btn-container">
                             <button type="submit" class="registration-form-btn">Zapisz się</button>
