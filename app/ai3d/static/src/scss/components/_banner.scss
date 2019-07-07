@@ -1,6 +1,5 @@
-.home {
+.banner {
   height: 100vh;
-  min-height: 550px;
   position: relative;
 }
 
@@ -17,7 +16,7 @@
   display: none;
 }
 
-.home .container {
+.banner .container {
   @include flex($direction: column);
   width: 100%;
   position: absolute;
@@ -27,19 +26,18 @@
   transform: translateX(-50%);
 }
 
-.home-text {
+.banner-text {
   color: white;
   font-size: 20px;
   text-align: center;
   letter-spacing: 1px;
-  margin: 10px;
 }
 
 #btnContainer {
   margin-top: 40px;
 }
 
-.home-btn {
+.banner-btn {
   @include button($padding: 14px 18px, $color: white);
   font-weight: 700;
   letter-spacing: .6px;
@@ -54,7 +52,7 @@
     display: block;
   }
 
-  .home-text {
+  .banner-text {
     font-size: 22px;
   }
 
@@ -62,15 +60,35 @@
     margin-top: 60px;
   }
 
-  .home-btn {
+  .banner-btn {
     padding: 16px 20px;
     border: none;
     box-shadow: 0 0 0 2px white;
     transition: box-shadow 100ms linear;
   }
 
-  .home-btn:hover {
+  .banner-btn:hover {
     box-shadow: 0 0 0 4px white;
+  }
+}
+
+
+@media(max-height: 500px) {
+  .banner-logo {
+    width: 90%;
+  }
+  
+  .banner-text {
+    font-size: 14px;
+  }
+  
+  #btnContainer {
+    margin-top: 20px;
+  }
+  
+  .banner-btn {
+    padding: 8px 15px;
+    font-size: 14px;
   }
 }
 
