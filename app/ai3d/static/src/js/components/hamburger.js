@@ -1,7 +1,6 @@
 function hamburger() {
     const btn = $('.nav-toggle');
     const nav = $('.nav');
-    const header = $('header');
 
     btn.on('click', function(e) {
         e.preventDefault();

@@ -33,7 +33,7 @@ function contact() {
 
     $(".contact-form").on("submit", function(e) {
         const requiredFields = $(".contact-form .required"),
-            btn = $(".contact-form-btn"),
+            btn = $(".contact-btn"),
             containerBtn = $(".contact-btn-container"),
 
             nameVal =  $('#contactName').val(),
@@ -52,10 +52,8 @@ function contact() {
                 method: "POST",
                 contentType: "application/json",
                 data : JSON.stringify({
-                    "sender": {
-                      "name": [nameVal, surnameVal].join(" "),
-                      "email": emailVal
-                    },
+                    "sender": [nameVal, surnameVal].join(" "),
+                    "email": emailVal,
                     "body": messageVal
                 })
             }).done(function(){
