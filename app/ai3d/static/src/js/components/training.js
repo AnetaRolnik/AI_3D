@@ -101,47 +101,64 @@ function training() {
 
     
     $(".training-registration-form").on("submit", function(e) {
-        const requiredFields= $(".training-registration-form .required");
+        const requiredFields= $(".training-registration-form .required"),
+            btn = $(".registration-btn"),
+            containerBtn = $(".registration-btn-container");
 
         e.preventDefault();
         validation(requiredFields);
+
+        const errors = $(".training-registration-form .error").length;
         
-        // if () {
-        //     $.ajax({
-        //         url: "training",
-        //         method: "POST",
-        //         data: {
-        //             name: nameVal,
-        //             email: emailVal,
-        //             phone_number: phoneVal,
-        //             id: optionId,
-        //         }
-        //     }).done(function () {
-        //         //clear fields
-        //         fields.val("");
-        //         fields.css("borderColor", "#ccc");
+        if (errors === 0) {
+            $.ajax({
+                url: "entry/",
+                method: "POST",
+                contentType: "application/json",
+                data : JSON.stringify({
+                    // "training": 1,
+                    // "reporting_person": {
+                    //   "name": "aneta",
+                    //   "email": "aneta@example.com",
+                    //   "phone_number": "100500600"
+                    // },
+                    // "reporting_person_is_participating": true,
+                    // "participants": [
+                    //   {
+                    //     "name": "string",
+                    //     "email": "a@example.com",
+                    //     "phone_number": "string"
+                    //   }
+                    // ],
+                    // "invoice": {
+                    //   "institution_name": "string",
+                    //   "institution_address": "string",
+                    //   "phone_number": "string",
+                    //   "email": "user@example.com",
+                    //   "nip": 0
+                    // }
+                  })
+            }).done(function () {
+                fields.val("").css("borderColor", "#ccc");
 
-        //         //add information
-        //         $(".registration-form-state").remove();
-        //         const $state = $(`<p class="registration-form-state">Dziękujemy za zapisanie się na szkolenie</p>`);
-        //         containerBtn.append($state);
+                $(".registration-form-state").remove();
+                const $state = $(`<p class="registration-form-state">Dziękujemy za zapisanie się na szkolenie</p>`);
+                containerBtn.append($state);
 
-        //         //change style btn
-        //         btn.addClass("registration-btn-success").prop("disabled", true);
+                btn.addClass("registration-btn-success").prop("disabled", true);
 
-        //         setTimeout(function(){
-        //             btn.removeClass("registration-btn-success").prop("disabled", false);
-        //             $(".registration-form-state").remove();
-        //         },7000);
+                setTimeout(function(){
+                    btn.removeClass("registration-btn-success").prop("disabled", false);
+                    $(".registration-form-state").remove();
+                },7000);
 
-        //     }).fail(function () {
-        //         //add information
-        //         if ($(".registration-form-state").length === 0) {
-        //             const $state = $(`<p class="registration-form-state">Zapisanie nie powiodło się. Spróbuj ponownie za chwilę</p>`);
-        //             containerBtn.append($state);
-        //         }
-        //     });
-        // }
+            }).fail(function () {
+                if ($(".registration-form-state").length === 0) {
+                    const $state = $(`<p class="registration-form-state">Zapisanie nie powiodło się. Spróbuj ponownie za chwilę</p>`);
+                    containerBtn.append($state);
+                }
+            });
+        }
     });
 }
 

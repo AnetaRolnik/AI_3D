@@ -1,12 +1,7 @@
 .banner {
   height: 100vh;
   position: relative;
-}
-
-#bgImg {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+  background:url(../assets/images/mobile.jpg) no-repeat top center/ cover;
 }
 
 #bgVideo {
@@ -18,77 +13,113 @@
 
 .banner .container {
   @include flex($direction: column);
-  width: 100%;
   position: absolute;
-  top: -5%;
+  top: -15%;
   left: 50%;
-  z-index: 1;
   transform: translateX(-50%);
+  width: 100%;
 }
 
 .banner-text {
   color: white;
-  font-size: 20px;
+  font-size: 18px;
+  line-height: 24px;
   text-align: center;
   letter-spacing: 1px;
+  margin: 30px 0 0;
 }
 
 #btnContainer {
-  margin-top: 40px;
+  position: absolute;
+  bottom: 10%;
+
+  span {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(-45deg);
+    animation: scroll 2s infinite;
+    opacity: 0;
+    box-sizing: border-box;
+
+    &:nth-of-type(1) {
+      animation-delay: 0s;
+    }
+
+    &:nth-of-type(2) {
+      top: 16px;
+      animation-delay: .15s;
+    }
+  
+    &:nth-of-type(3) {
+      top: 32px;
+      animation-delay: .3s;
+    }
+  }
 }
 
-.banner-btn {
-  @include button($padding: 14px 18px, $color: white);
-  font-weight: 700;
-  letter-spacing: .6px;
+@keyframes scroll {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @media(min-width: 720px) {
-  #bgImg {
-    display: none;
+  .banner-logo {
+    width: 400px;
   }
 
+  .banner-text {
+    font-size: 24px;
+    margin: 45px 0 0;
+  }
+}
+
+@media(min-width: 960px) {
   #bgVideo {
     display: block;
   }
 
-  .banner-text {
-    font-size: 22px;
-  }
-
   #btnContainer {
-    margin-top: 60px;
-  }
-
-  .banner-btn {
-    padding: 16px 20px;
-    border: none;
-    box-shadow: 0 0 0 2px white;
-    transition: box-shadow 100ms linear;
-  }
-
-  .banner-btn:hover {
-    box-shadow: 0 0 0 4px white;
+    display: none;
   }
 }
 
-
-@media(max-height: 500px) {
+@media(max-width: 720px) and (orientation: landscape) {
   .banner-logo {
-    width: 90%;
+    width: 250px;
   }
-  
+
   .banner-text {
-    font-size: 14px;
-  }
-  
-  #btnContainer {
-    margin-top: 20px;
-  }
-  
-  .banner-btn {
-    padding: 8px 15px;
-    font-size: 14px;
+    font-size: 16px;
+    margin: 15px 0 0;
   }
 }
+
+@media(min-width: 1360px) {
+  .banner-logo {
+    width: 500px;
+  }
+
+  .banner-text {
+    font-size: 28px;
+    margin: 60px 0 0;
+  }
+}
+
+
+
+
+
 

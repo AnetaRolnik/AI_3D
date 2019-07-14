@@ -67,6 +67,13 @@
 .registration-form-input, select {
   @include input;
   width: 60%;
+
+  &::placeholder {
+    color: #aaa;
+    letter-spacing: .4px;
+    font-weight: 300;
+    font-size: 14px;
+  }
 }
 
 .registration-form-label {
@@ -86,6 +93,7 @@
     display: inline-flex;
     align-items: flex-start;
     max-width: 100%;
+    line-height: 20px;
 
     &::after {
       content: '';
@@ -133,17 +141,11 @@
   }
 }
 
-#tel::placeholder {
-  color: #aaa;
-  letter-spacing: .4px;
-  font-weight: 300;
-}
-
 .registration-btn-container {
   @include flex($direction: column);
   margin-top: 40px;
 
-  .registration-form-btn {
+  .registration-btn {
     @include button;
     @include animatedBtn;
   }
@@ -168,6 +170,10 @@
   .registration-form-label {
     font-size: 16px;
     max-width: calc(35% - 5px);
+  }
+
+  #approvementData label {
+    font-size: 14px;
   }
 }
 
