@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
             name='signup_agreement',
             field=models.BooleanField(default=False),
         ),
-        migrations.AlterField(
+        migrations.AddField(
             model_name='entry',
             name='participants',
             field=models.ManyToManyField(blank=True, to='ai3d.Participant'),
