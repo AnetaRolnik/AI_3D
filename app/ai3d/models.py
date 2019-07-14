@@ -5,13 +5,21 @@ from django.utils.text import slugify
 
 
 class Client(models.Model):
-    """ Client/Customer class - atm created after filling contact form  or signing up for training"""
+    """ Client/Customer class - atm created after filling signing up for training"""
     name = models.CharField(max_length=100, default='')
     email = models.EmailField(max_length=70)
     phone_number = models.CharField(max_length=9, blank=True)
+    newsletter_agreement = models.BooleanField(default=False, blank=True)
+    signup_agreement = models.BooleanField(default=False)
 
-    class Meta(object):
-        unique_together = ('email',)
+    def __str__(self):
+        return f'{self.name.title()} {self.email}'
+
+
+class Participant(models.Model):
+    """ Client/Customer class - person who is signed for training"""
+    name = models.CharField(max_length=100, default='')
+    email = models.CharField(max_length=70)
 
     def __str__(self):
         return f'{self.name.title()} {self.email}'
@@ -76,7 +84,7 @@ class Entry(models.Model):
     training = models.ForeignKey(Training, on_delete=models.CASCADE, related_name='training_applications')
     invoice = models.ForeignKey('ai3d.Invoice', on_delete=models.CASCADE, related_name='invoice_applications', blank=True,  null=True)
     reporting_person = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='reporting_person')
-    participants = models.ManyToManyField(Client, blank=True)
+    participants = models.ManyToManyField(Participant, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

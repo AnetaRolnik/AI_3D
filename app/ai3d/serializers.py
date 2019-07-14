@@ -1,12 +1,20 @@
 from rest_framework.serializers import ModelSerializer, BooleanField
-from .models import Message, Client, Training, Invoice, Entry
+from .models import Message, Client, Training, Invoice, Entry, Participant
 
 
 class ClientSerializer(ModelSerializer):
 
     class Meta:
         model = Client
-        fields = ('name', 'email', 'phone_number')
+        fields = ('name', 'email', 'phone_number',
+                  'newsletter_agreement', 'signup_agreement')
+
+
+class ParticipantSerializer(ModelSerializer):
+
+    class Meta:
+        model = Participant
+        fields = ('name', 'email')
 
 
 class MessageSerializer(ModelSerializer):
@@ -32,13 +40,12 @@ class TrainingSerializer(ModelSerializer):
 
 class EntrySerializer(ModelSerializer):
     reporting_person = ClientSerializer()
-    participants = ClientSerializer(many=True)
+    participants = ParticipantSerializer(many=True)
     invoice = InvoiceSerializer(required=False)
 
     class Meta:
         model = Entry
         fields = ('training', 'reporting_person',
-                  'reporting_person_is_participating',
                   'participants', 'invoice',)
 
     def create(self, validated_data):
