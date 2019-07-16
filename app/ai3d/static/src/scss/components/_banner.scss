@@ -5,9 +5,6 @@
 }
 
 #bgVideo {
-  height: 100%;
-  width: auto;
-  object-fit: cover;
   display: none;
 }
 
@@ -87,8 +84,17 @@
 }
 
 @media(min-width: 960px) {
+  .banner {
+    background: none;
+    height: auto;
+  }
+
   #bgVideo {
     display: block;
+    height: auto;
+    max-height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 
   #btnContainer {

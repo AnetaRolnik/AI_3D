@@ -150,10 +150,10 @@
     }
   }
 
-  #feature1::after, #feature3::after {
+  #feature3::after, #feature5::after {
     @include pseudo-element(190%, 1px);
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 5%;
     background: #eee;
   }

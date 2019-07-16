@@ -16,6 +16,7 @@
     <!--jquery, loadash, js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.serializeJSON/2.9.0/jquery.serializejson.min.js"></script>
     <script src="../../static/ai3d/js/bundle.min.js"></script>
 
     <!--cdn aos-->
@@ -70,8 +71,8 @@
 
     <div class="content">
         <section class="banner scrolled">
-            <video id="bgVideo" autoplay muted loop poster="../../static/ai3d/assets/images/bg.jpg">
-                <source src="../../static/ai3d/assets/video/Wroniecka_23.mp4" type="video/mp4">
+            <video id="bgVideo" autoplay muted loop>
+                <source src="../../static/ai3d/assets/video/bg-video.mp4" type="video/mp4">
             </video>
 
             <div class="container">
@@ -105,7 +106,7 @@
                             Nauka od podstaw
                         </h3>
                         <p class="aboutUs-feature-text">
-                            Na szkoleniu poznasz nowoczesne metody inwentaryzacji obiektów budowlanych i ich technicznego wyposażenia od skanowania 3D, poprzez tworzenie i obróbkę dokumentacji końcowej w postaci rysunków CAD 2D i modeli 3D na potrzeby BIM.
+                            Na szkoleniu poznasz nowoczesne metody inwentaryzacji obiektów budowlanych i ich technicznego wyposażenia. Począwszy od skanowania 3D, poprzez tworzenie i obróbkę dokumentacji końcowej w postaci rysunków CAD 2D i modeli 3D na potrzeby BIM.             
                         </p>
                     </section>
                     <section class="aboutUs-feature" id="feature2">
@@ -121,15 +122,13 @@
                             Praktyczne doświadczenie
                         </h3>
                         <p class="aboutUs-feature-text">
-                            Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies porta urna.                        
-                        </p>
-                    </section>
+                            Podzielimy się z Tobą naszą praktyczną wiedzą, którą nabywaliśmy realizując wiele standardowych oraz nietypowych projektów, zarówno w kraju jaki i poza jego granicami.                    </section>
                     <section class="aboutUs-feature" id="feature4">
                         <h3 class="aboutUs-feature-title">
                             2 Poziomy edukacji
                         </h3>
                         <p class="aboutUs-feature-text">
-                            Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a pellentesque dui, non felis. Maecenas malesuada elit lectus felis, malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies porta urna.
+                            Szkolenie zostało podzielone na 2 poziomy, dzięki czemu każdy uczestnik może wybrać interesujący go zasób wiedzy i umiejętności. Po ukończeniu każdego poziomu uczestnik nabędzie odpowiednie kwalifikacje, pozwalające korzystać z technologii inwentaryzacji 3D.
                         </p>
                     </section>
                     <section class="aboutUs-feature" id="feature5"> 
@@ -307,22 +306,22 @@
                                         {% endfor %}
                                     {% endif %}
                                 </select>
-                                <select class="registration-form-row date-select"></select>
+                                <select class="registration-form-row date-select" name="training"></select>
                             </div>
 
                             <div id="personalData">
                                 <h3 class="registartion-form-title">Dane osoby zgłaszającej</h3>
                                 <div class="registration-form-row">
                                     <label class="registration-form-label" for="name">Imię i nazwisko *</label>
-                                    <input class="registration-form-input required" type="text" name="name" id="name">
+                                    <input class="registration-form-input required" type="text" name="reporting_person[name]" id="name">
                                 </div>
                                 <div class="registration-form-row">
                                     <label class="registration-form-label" for="mail">Adres email *</label>
-                                    <input class="registration-form-input required" name="email" id="mail">
+                                    <input class="registration-form-input required" name="reporting_person[email]" id="mail">
                                 </div>
                                 <div class="registration-form-row">
                                     <label class="registration-form-label" for="tel">Telefon komórkowy *</label>
-                                    <input class="registration-form-input required" type="tel" placeholder="Tylko cyfry np.500500500" name="tel" id="tel">
+                                    <input class="registration-form-input required" type="tel" name="reporting_person[phone_number]" placeholder="Tylko cyfry np.500500500" name="tel" id="tel">
                                 </div>
                                 <div>
                                     <input class="registration-form-checkbox" type="checkbox" id="userAsParticipant">
@@ -336,11 +335,11 @@
                                     <li class="participantData">
                                         <div class="registration-form-row">
                                             <label class="registration-form-label" for="participantName">Imię i nazwisko *</label>
-                                            <input class="registration-form-input required" type="text" name="name" id="participantName">
+                                            <input class="registration-form-input required" type="text" name="participants[0][name]" id="participantName">
                                         </div>
                                         <div class="registration-form-row">
                                             <label class="registration-form-label" for="participantEmail">Adres email *</label>
-                                            <input class="registration-form-input required" name="email" id="participantEmail">
+                                            <input class="registration-form-input required" name="participants[0][email]" id="participantEmail">
                                         </div>
                                     </li>
                                 </ol>
@@ -354,11 +353,11 @@
 
                             <div id="approvementData">
                                 <div>
-                                    <input class="registration-form-checkbox" type="checkbox" id="approvementTraining">
+                                    <input class="registration-form-checkbox" type="checkbox" id="approvementTraining" name="reporting_person[signup_agreement]" value="true">
                                     <label class="registration-form-label" for="approvementTraining">* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et blandit nibh. Quisque suscipit, tellus at ullamcorper imperdiet, ligula lorem facilisis quam, id semper nulla felis sit amet nisl.<label>
                                 </div>
                                 <div>
-                                    <input class="registration-form-checkbox" type="checkbox" id="approvementNewsletter">
+                                    <input class="registration-form-checkbox" type="checkbox" id="approvementNewsletter" name="reporting_person[newsletter_agreement]" value="true">
                                     <label class="registration-form-label" for="approvementNewsletter">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et blandit nibh. Quisque suscipit, tellus at ullamcorper imperdiet, ligula lorem facilisis quam, id semper nulla felis sit amet nisl. Suspendisse at hendrerit libero. Etiam neque odio, lacinia quis quam eget, eleifend molestie lorem.<label>
                                 </div>
                             </div>
