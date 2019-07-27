@@ -51,11 +51,17 @@ class EntrySerializer(ModelSerializer):
     def create(self, validated_data):
         reporting_person = Client.objects.create(**validated_data.pop('reporting_person'))
         reporting_person_is_participating = validated_data.get('reporting_person_is_participating')
-        invoice = Invoice.objects.create(**validated_data.pop('invoice'))
         training = validated_data.pop('training')
 
-        entry = Entry.objects.create(reporting_person=reporting_person,
-                                    invoice=invoice, training=training)
+        data = {'reporting_person': reporting_person,
+                'training': training
+                }
+
+        if validated_data.get('invoice'):
+            invoice = Invoice.objects.create(**validated_data.pop('invoice'))
+            data['invoice'] = invoice
+
+        entry = Entry.objects.create(**data)
 
         clients = []
 
@@ -63,7 +69,7 @@ class EntrySerializer(ModelSerializer):
             clients.append(reporting_person)
 
         for participant in validated_data.get('participants'):
-            client = Client.objects.create(**participant)
+            client = Participant.objects.create(**participant)
             clients.append(client)
 
         entry.participants.set(clients)
