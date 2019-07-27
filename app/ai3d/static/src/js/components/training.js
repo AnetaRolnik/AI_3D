@@ -3,7 +3,7 @@ import validation from "./validation";
 function training() {
     const addParticipant = $("#addParticipant"),
         participantsData = $("#participantsData ol"),
-        invoiceCheckbox = $("#invoice"),
+        invoiceCheckbox = $("#invoiceCheckbox"),
         userCheckbox = $("#userAsParticipant"),
         userName = $("#personalData #name"),
         userEmail = $("#personalData #mail"),
@@ -109,7 +109,8 @@ function training() {
     $(".training-registration-form").on("submit", function(e) {
         const requiredFields= $(".training-registration-form .required"),
             btn = $(".registration-btn"),
-            containerBtn = $(".registration-btn-container");
+            containerBtn = $(".registration-btn-container"),
+            inputs = $(".training-registration-form input");
 
         e.preventDefault();
         validation(requiredFields);
@@ -117,6 +118,7 @@ function training() {
         if ($(".training-registration-form .error").length === 0) {
             const obj = $(this).serializeJSON({useIntKeysAsArrayIndex: true});
             const jsonString = JSON.stringify(obj);
+            console.log(jsonString);
             
             $.ajax({
                 url: "entry/",
@@ -124,7 +126,7 @@ function training() {
                 contentType: "application/json; charset=utf-8",
                 data: jsonString
             }).done(function () {
-                fields.val("").css("borderColor", "#ccc");
+                inputs.val("").css("borderColor", "#ccc");
 
                 $(".registration-form-state").remove();
                 const $state = $(`<p class="registration-form-state">Dziękujemy za zapisanie się na szkolenie</p>`);
