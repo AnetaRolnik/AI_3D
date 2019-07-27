@@ -16,7 +16,7 @@ class TrainingApi(generics.ListAPIView):
     def get_queryset(self):
         level_slug = self.kwargs.get('level')
         return Training.objects.filter(level__slug=level_slug,
-                                       sign_ups_close_date__lt=timezone.now(),
+                                       sign_ups_close_date__gt=timezone.now(),
                                        sign_ups_closed=False
                                        ).order_by('-date')
 
