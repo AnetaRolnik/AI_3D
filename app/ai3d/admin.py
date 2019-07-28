@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Message, Client, Training, CourseLevel, Invoice, Entry
+from .models import Message, Client, Training, CourseLevel, Invoice, Entry, Participant
 
 
 class MessageAdmin(admin.ModelAdmin):
@@ -45,12 +45,17 @@ class CourseLevelAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',), }
 
 
+class ParticipantAdmin(admin.ModelAdmin):
+    model = Participant
+
+
 admin.site.register(Message, MessageAdmin)
 admin.site.register(Client, ClientAdmin)
 admin.site.register(Training, TrainingAdmin)
 admin.site.register(CourseLevel, CourseLevelAdmin)
 admin.site.register(Invoice, InvoiceAdmin)
 admin.site.register(Entry, EntryAdmin)
+admin.site.register(Participant, ParticipantAdmin)
 
 admin.site.site_header = "AI3D Admin Panel - A&J"
 admin.site.site_title = "AI3D Admin Panel"

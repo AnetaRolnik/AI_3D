@@ -21,7 +21,7 @@ class MessageSerializer(ModelSerializer):
 
     class Meta:
         model = Message
-        fields = ('sender', 'created_at', 'body', 'send')
+        fields = ('sender', 'email', 'created_at', 'body', 'send')
 
 
 class InvoiceSerializer(ModelSerializer):
