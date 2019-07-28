@@ -1,4 +1,4 @@
-from rest_framework.serializers import ModelSerializer, BooleanField
+from rest_framework.serializers import ModelSerializer, CharField, ValidationError
 from .models import Message, Client, Training, Invoice, Entry, Participant
 
 
@@ -25,6 +25,16 @@ class MessageSerializer(ModelSerializer):
 
 
 class InvoiceSerializer(ModelSerializer):
+    nip = CharField(
+        required=False, allow_null=True, allow_blank=True)
+
+    def validate_nip(self, value):
+        if not value:
+            return 0
+        try:
+            return int(value)
+        except ValueError:
+            raise ValidationError('You must supply an integer')
 
     class Meta:
         model = Invoice
