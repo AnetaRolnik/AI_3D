@@ -8,7 +8,7 @@ class Client(models.Model):
     """ Client/Customer class - atm created after filling signing up for training"""
     name = models.CharField(max_length=100, default='')
     email = models.EmailField(max_length=70)
-    phone_number = models.CharField(max_length=9, blank=True)
+    phone_number = models.TextField (max_length=9, blank=True)
     newsletter_agreement = models.BooleanField(default=False, blank=True)
     signup_agreement = models.BooleanField(default=False)
 
