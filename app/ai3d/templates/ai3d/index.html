@@ -190,10 +190,6 @@
                                     data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1400" data-aos-once="true">
                                     Dowiesz się, co można i czego nie można skanować, jakich rezultatów prac pomiarowych należy oczekiwać, jakie są najczęściej popełniane błędy przy planowaniu i realizacji prac pomiarowych 3D i jakie są sposoby ich przygotowywania oraz kontroli.
                                 </li>
-                                <li class="description-list-elem iconElem"
-                                    data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1600" data-aos-once="true">
-                                    <img src="../../static/ai3d/assets/icons/graduation-cap.svg">
-                                </li>
                             </ul>
                         </div>
                     </section>
@@ -223,10 +219,6 @@
                                 <li class="description-list-elem"
                                     data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000" data-aos-once="true">
                                     Dowiesz się, co można i czego nie można skanować, jakich rezultatów prac pomiarowych należy oczekiwać, jakie są najczęściej popełniane błędy przy planowaniu i realizacji prac pomiarowych 3D i zdobędziesz umiejętności przeprowadzania kontroli tych prac w środowisku BIM.
-                                </li>
-                                <li class="description-list-elem iconElem"
-                                    data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1800" data-aos-once="true">
-                                    <img src="../../static/ai3d/assets/icons/graduation-cap_orange.svg">
                                 </li>
                             </ul>
                             <img class="description-img" id="secondLine"  src="../../static/ai3d/assets/icons/wavyline7.png">
@@ -317,11 +309,11 @@
                                 </div>
                                 <div class="registration-form-row">
                                     <label class="registration-form-label" for="mail">Adres email *</label>
-                                    <input class="registration-form-input required" name="reporting_person[email]" id="mail">
+                                    <input class="registration-form-input required" data-type="email" name="reporting_person[email]" id="mail">
                                 </div>
                                 <div class="registration-form-row">
                                     <label class="registration-form-label" for="tel">Telefon komórkowy *</label>
-                                    <input class="registration-form-input required" type="tel" name="reporting_person[phone_number]" placeholder="Tylko cyfry np.500500500" name="tel" id="tel">
+                                    <input class="registration-form-input required" data-type="tel" name="reporting_person[phone_number]" placeholder="Tylko cyfry np.500500500" name="tel" id="tel">
                                 </div>
                                 <div>
                                     <input class="registration-form-checkbox" type="checkbox" id="userAsParticipant">
@@ -393,11 +385,11 @@
                         </div>
                         <div class="contact-form-row">
                             <label class="contact-form-label" for="contactEmail">Email:</label>
-                            <input class="contact-form-input required" name="email" id="contactEmail">
+                            <input class="contact-form-input required" data-type="email" name="email" id="contactEmail">
                         </div>
                         <div class="contact-form-row">
                             <label class="contact-form-label" for="contactMessage">Wiadomość:</label>
-                            <textarea class="contact-form-textarea required" name="message" id="contactMessage" maxlength="200"></textarea>
+                            <textarea class="contact-form-textarea required" name="message" id="contactMessage" maxlength="1500"></textarea>
                         </div>
                         <div class="contact-btn-container">
                             <button type="submit" class="contact-btn">Prześlij</button>

@@ -3,7 +3,6 @@ import validation from "./validation";
 function training() {
     const addParticipant = $("#addParticipant"),
         participantsData = $("#participantsData ol"),
-        invoiceCheckbox = $("#invoiceCheckbox"),
         userCheckbox = $("#userAsParticipant"),
         userName = $("#personalData #name"),
         userEmail = $("#personalData #mail"),
@@ -24,7 +23,7 @@ function training() {
                 </div>
                 <div class="registration-form-row">
                     <label class="registration-form-label" for="participantEmail">Adres email</label>
-                    <input class="registration-form-input" name="participants[${i}][email]" id="participantEmail">
+                    <input class="registration-form-input" data-type="email" name="participants[${i}][email]" id="participantEmail">
                 </div>
             </div>
         `);
@@ -44,6 +43,8 @@ function training() {
             });
 
         } else { 
+            userName.unbind("keyup change");
+            userEmail.unbind("keyup change");
             participantName.val("").prop("readonly", false).css("background", "#fff");
             participantEmail.val("").prop("readonly", false).css("background", "#fff");
         };
@@ -62,7 +63,7 @@ function training() {
             </div>
             <div class="registration-form-row">
                 <label class="registration-form-label" for="companyTel">Telefon komórkowy *</label>
-                <input class="registration-form-input required" type="tel" name="invoice[phone_number]" placeholder="Tylko cyfry np.500500500" id="companyTel">
+                <input class="registration-form-input required" data-type="tel" name="invoice[phone_number]" placeholder="Tylko cyfry np.500500500" id="companyTel">
             </div>
             <div class="registration-form-row">
                 <label class="registration-form-label" for="companyEmail">Adres email *</label>
@@ -75,6 +76,7 @@ function training() {
         </div>
     `)
 
+    const invoiceCheckbox = $("#invoiceCheckbox");
     invoiceCheckbox.on("click", function() {
         $(this).prop("checked")
             ? $(this).parent().after(invoice)
@@ -110,16 +112,16 @@ function training() {
         const requiredFields= $(".training-registration-form .required"),
             btn = $(".registration-btn"),
             containerBtn = $(".registration-btn-container"),
-            inputs = $(".training-registration-form input");
+            inputs = $(".training-registration-form input"),
+            checkboxes = $(".registration-form-checkbox");
 
         e.preventDefault();
         validation(requiredFields);
         
         if ($(".training-registration-form .error").length === 0) {
-            const obj = $(this).serializeJSON({useIntKeysAsArrayIndex: true});
+            const obj = $(this).serializeJSON({useIntKeysAsArrayIndex: true, parseBooleans: true, skipFalsyValuesForTypes: ["string"]});
             const jsonString = JSON.stringify(obj);
-            console.log(jsonString);
-            
+
             $.ajax({
                 url: "entry/",
                 method: "POST",
@@ -127,6 +129,7 @@ function training() {
                 data: jsonString
             }).done(function () {
                 inputs.val("").css("borderColor", "#ccc");
+                checkboxes.prop('checked', false); 
 
                 $(".registration-form-state").remove();
                 const $state = $(`<p class="registration-form-state">Dziękujemy za zapisanie się na szkolenie</p>`);

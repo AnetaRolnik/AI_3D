@@ -15,12 +15,12 @@ function validation(requiredFields) {
                 .after($(`<span class="error-info">Za krótka wiadomość. Wpisz min 8 znaków</span>`))
                 .parent().addClass("error");
 
-        } else if ($(this).is("[type=tel]") && !regexPhone.test($(this).val())) {
+        } else if ($(this).is("[data-type=tel]") && !regexPhone.test($(this).val())) {
             $(this).css("borderColor","red")
                 .after($(`<span class="error-info">Wpisz poprawny numer</span>`))
                 .parent().addClass("error");
 
-        } else if ($(this).is("[name=email]") && !regexEmail.test($(this).val())) {
+        } else if ($(this).is("[data-type=email]") && !regexEmail.test($(this).val())) {
             $(this).css("borderColor","red")
                 .after($(`<span class="error-info">Wpisz poprawny email</span>`))
                 .parent().addClass("error");

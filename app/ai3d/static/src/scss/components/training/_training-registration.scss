@@ -106,19 +106,12 @@
     }
   }
 
-  &:checked {
-    + label {
-      cursor: pointer;
-      position: relative;
-  
-      &::before {
-        @include pseudo-element($width: 13px, $height: 13px);
-        background: url("../assets/icons/check.svg");
-        position: absolute;
-        left: 3px;
-        top: 3px;
-      }
-    }
+  &:checked + label::before {
+    @include pseudo-element($width: 13px, $height: 13px);
+    background: url("../assets/icons/check.svg");
+    position: absolute;
+    left: 3px;
+    top: 3px;
   }
 }
 

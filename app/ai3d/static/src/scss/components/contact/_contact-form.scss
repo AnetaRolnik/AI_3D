@@ -1,7 +1,7 @@
 .contact-form {
   @include flex($direction:column, $justify: flex-start);
   width: 100%;
-  height: 500px;
+  height: 570px;
 }
 
 .contact-form-row {
@@ -30,8 +30,24 @@
 }
 
 .contact-form-textarea {
-  height: 160px;
+  height: 240px;
   resize: none;
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    background-color: #f6f7f6;
+  }
+
+  &::-webkit-scrollbar{
+    width: 12px;
+    background-color: #F5F5F5;
+  }
+
+  &::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: #ccc;
+  }
 }
 
 .contact-btn-container {
@@ -52,7 +68,6 @@
 @media(min-width: 720px) {
   .contact-form {
     width: 55%;
-    height: 480px;
   }
 
   .contact-form-label {
