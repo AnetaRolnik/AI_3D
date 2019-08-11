@@ -1,12 +1,19 @@
 from django.contrib import admin
+from django.db import models
+from django.forms import Textarea
+
 from .models import Message, Client, Training, CourseLevel, Invoice, Entry, Participant
 
 
 class MessageAdmin(admin.ModelAdmin):
     model = Message
-    list_display = ('sender', 'body', 'created_at')
-    readonly_fields = ['sender', 'body', 'created_at']
+    fields = ('sender', 'email', 'body', 'created_at')
+    list_display = ('sender', 'short_message_body', 'created_at')
+    readonly_fields = ['sender', 'created_at', 'email']
     exclude = ['send', ]
+    formfield_overrides = {
+        models.TextField: {'widget': Textarea(attrs={'readonly':True, 'rows': 8, 'cols': 100})},
+    }
 
 
 class ClientAdmin(admin.ModelAdmin):

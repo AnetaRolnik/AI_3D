@@ -1,14 +1,13 @@
-from django.core.exceptions import ValidationError
 from django.db import models
-from django.db.models.signals import m2m_changed
 from django.utils.text import slugify
+from django.template.defaultfilters import truncatechars
 
 
 class Client(models.Model):
     """ Client/Customer class - atm created after filling signing up for training"""
     name = models.CharField(max_length=100, default='')
     email = models.EmailField(max_length=70)
-    phone_number = models.TextField (max_length=9, blank=True)
+    phone_number = models.TextField(max_length=9, blank=True)
     newsletter_agreement = models.BooleanField(default=False, blank=True)
     signup_agreement = models.BooleanField(default=False)
 
@@ -30,11 +29,15 @@ class Message(models.Model):
     sender = models.CharField(max_length=250)
     email = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
-    body = models.CharField(max_length=250)
+    body = models.TextField()
     send = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.sender} - {self.body[:30]} - {self.created_at}'
+
+    @property
+    def short_message_body(self):
+        return truncatechars(self.body, 75)
 
 
 class CourseLevel(models.Model):
@@ -106,12 +109,3 @@ class Invoice(models.Model):
         return f'{self.institution_name}'
 
 
-def sign_up_for_training(sender, action='pre_add', **kwargs):
-    instance = kwargs.get('instance')
-    if instance.participants_limit <= instance.participants.count():
-        instance.sign_ups_closed = True
-        instance.save()
-        raise ValidationError("You can't assign more clients than participants_limit")
-
-
-m2m_changed.connect(sign_up_for_training, sender=Training.participants.through)

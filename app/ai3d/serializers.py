@@ -1,4 +1,4 @@
-from rest_framework.serializers import ModelSerializer, CharField, ValidationError
+from rest_framework.serializers import ModelSerializer, DateTimeField
 from .models import Message, Client, Training, Invoice, Entry, Participant
 
 
@@ -8,6 +8,7 @@ class ClientSerializer(ModelSerializer):
         model = Client
         fields = ('name', 'email', 'phone_number',
                   'newsletter_agreement', 'signup_agreement')
+        extra_kwargs = {'signup_agreement': {'required': True}}
 
 
 class ParticipantSerializer(ModelSerializer):
@@ -25,16 +26,6 @@ class MessageSerializer(ModelSerializer):
 
 
 class InvoiceSerializer(ModelSerializer):
-    nip = CharField(
-        required=False, allow_null=True, allow_blank=True)
-
-    def validate_nip(self, value):
-        if not value:
-            return 0
-        try:
-            return int(value)
-        except ValueError:
-            raise ValidationError('You must supply an integer')
 
     class Meta:
         model = Invoice
@@ -46,6 +37,8 @@ class TrainingSerializer(ModelSerializer):
     class Meta:
         model = Training
         fields = ('name', 'level', 'date', 'id',)
+
+    date = DateTimeField(format="%H:%M - %d.%m.%Y")
 
 
 class EntrySerializer(ModelSerializer):
@@ -79,8 +72,7 @@ class EntrySerializer(ModelSerializer):
             clients.append(reporting_person)
 
         for participant in validated_data.get('participants'):
-            client = Participant.objects.create(**participant)
-            clients.append(client)
+            clients.append(Participant.objects.create(**participant))
 
         entry.participants.set(clients)
 
