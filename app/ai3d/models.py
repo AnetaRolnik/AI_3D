@@ -71,8 +71,6 @@ class Training(models.Model):
     sign_ups_closed = models.BooleanField(default=False)
     sign_ups_close_date = models.DateTimeField(null=True)
 
-    # TODO price should depend of type of training (auto add in admin form)
-
     def __str__(self):
         return f'{self.name} - {self.date.strftime("%d.%m.%Y %H:%M ")} - {self.level.name}'
 
@@ -107,5 +105,3 @@ class Invoice(models.Model):
 
     def __str__(self):
         return f'{self.institution_name}'
-
-
